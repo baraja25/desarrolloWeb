@@ -12,6 +12,7 @@ if (isset($_GET['Enviar'])) {
     $fin = $_GET['Final'];
 }
 ?>
+
 <body>
     <fieldset>
         <legend>
@@ -46,6 +47,29 @@ if (isset($_GET['Enviar'])) {
             </form>
         </legend>
     </fieldset>
+    <table>
+        <?php
+        if ($ini>$fin) {
+            echo "El valor inicial no puede ser mayor que el numero final";
+        }
+        
+        if (!empty($ini) && !empty($fin)) {
+            for ($i = $ini; $i <= $fin; $i++) {
+                echo "<table border='2'>";
+                echo "<th colspan='2'>Tabla del $i</th>";
+                echo "<tr><td>Operacion</td><td>Resultado</td></tr>";
+                for ($j = 1; $j <= 10; $j++) {
+                    echo "<tr><td>$i X $j = </td><td>" . ($i * $j) . "</td></tr>"; //imprimir resultados en cada row
+                }
+                echo "</table>";
+            }
+        } else {
+            echo "Los valores no pueden estar vacios";
+        }
+
+
+        ?>
+    </table>
 </body>
 
 </html>
