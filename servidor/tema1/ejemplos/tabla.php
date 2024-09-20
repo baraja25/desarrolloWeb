@@ -7,7 +7,9 @@ segundo campo tamaño del 1 al 10
 tercer campo direccion que sea un radio para elegir entre filas o columnas
 */
 //iniciar las variables a vacio
-$ini = "";
+$size = 0;
+$word = "";
+$direction = 1;
 
 //obtener valores al pulsar el boton de enviar
 if (isset($_GET['Enviar'])) {
@@ -38,7 +40,7 @@ if (isset($_GET['Enviar'])) {
         <input type="radio" name="direction" value="1" checked>Filas
         <input type="radio" name="direction" value="0">Columnas
         <input type="submit" value="Enviar">
-        
+
 </form>
 
 </html>
