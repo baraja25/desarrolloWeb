@@ -14,10 +14,11 @@
     //array dinamico? añade elementos en un array vacio
     $elementos=array();
 
-    $elementos[0]=2;
-    $elementos[1]="lol";
-    $elementos[2]=5;
-    $elementos[3]=6;
+    //se puede dejar los [] vacios y se ira rellenando automaticamente
+    $elementos[]=2;
+    $elementos[]="lol";
+    $elementos[]=5;
+    $elementos[]=6;
 
 
     for ($i = 0; $i < count($elementos); $i++) {
