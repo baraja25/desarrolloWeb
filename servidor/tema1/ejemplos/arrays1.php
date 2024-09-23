@@ -15,16 +15,17 @@
     $elementos=array();
 
     //se puede dejar los [] vacios y se ira rellenando automaticamente
+    $elementos[4]=11;
+    //el relleno automatico se salta los indices si no se introduce nada
     $elementos[]=2;
     $elementos[]="lol";
     $elementos[]=5;
     $elementos[]=6;
 
 
-    for ($i = 0; $i < count($elementos); $i++) {
-        echo "El numero en la posicion i es $elementos[$i] <br>";
-    }
-
+    foreach ( $elementos as $key => $value ) {
+        echo "El numero en la posicion $clave es $valor <br>";
+    } 
 
 
 
