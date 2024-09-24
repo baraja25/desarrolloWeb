@@ -2,6 +2,7 @@
 
 <body>
     <?php
+   
     //pagina 157 para ver las funciones de el lenguaje PHP.pdf
     $edades = array();
     $edades["Jose"]=21;
@@ -34,7 +35,7 @@
     // }
     // echo "<br>";
 
-    
+
     //mantienen asociacion de clave y valor
     asort($edades);
 
