@@ -14,14 +14,15 @@ $num = 10;
 
 // }
 
-$potencia=1;
+
 
 function potencia($base, $exponente) {
-    global $potencia;
+    $potencia=1;
 
     for ($i=0; $i < $exponente; $i++) { 
         $potencia*=$base;
     }
+    return $potencia;
 }
 
 $base=2;
@@ -29,7 +30,7 @@ $exponente=3;
 
 potencia($base, $exponente);
 
-echo "el resultado de la potencia de $base elevado a $exponente es: $potencia";
+echo "el resultado de la potencia de $base elevado a $exponente es: ", potencia($base, $exponente);
 
 //Ejemplo();
 
