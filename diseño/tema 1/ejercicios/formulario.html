@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Formulario de registro</h1>
+    <form action="" method="get">
+      <p>
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="nombre" />
+      </p>
+      <p>
+        <label for="apellido">apellido: </label>
+        <input type="text" name="apellido" id="apellido" />
+      </p>
+      <p>
+        <label for="sexo">Sexo: </label>
+        <input type="radio" name="sexo" id="Hombre" value="Hombre" />
+        <label for="Hombre">Hombre </label>
+        <input type="radio" name="sexo" id="Mujer" value="Mujer" />
+        <label for="Mujer">Mujer</label>
+      </p>
+      <p>
+        <label for="correo">Correo: </label>
+        <input type="text" name="correo" id="correo" />
+      </p>
+      <p>
+        <label for="poblacion">Poblacion: </label>
+        <select name="poblacion" id="poblacion">
+          <option value=""></option>
+          <option value="alicante">Alicante</option>
+          <option value="ciudadReal">Ciudad Real</option>
+        </select>
+      </p>
+      <p>
+        <label for="descripcion">Descripcion: </label>
+        <textarea
+          name="descripcion"
+          id="descripcion"
+          cols="50"
+          rows="5"
+        ></textarea>
+      </p>
+      <p>
+        <input type="checkbox" name="ofertas" id="ofertas" />
+        <label for="ofertas">Deseo recibir ofertas</label>
+        <input type="checkbox" name="condicion" id="condicion">
+        <label for="condicion">Declaro haber leido</label>
+      </p>
+      <input type="submit" value="Enviar">
+    </form>
+  </body>
+</html>
