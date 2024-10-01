@@ -24,8 +24,20 @@
         <label for="Mujer">Mujer</label>
       </p>
       <p>
+        <label for="edad">Edad: </label>
+        <input
+          type="number"
+          name="edad"
+          id="edad"
+          min="0"
+          max="100"
+          value="50"
+        />
+        <meter value="50" min="0" max="100" low="40" high="60" optimum="28" id="controlEdad"></meter>
+      </p>
+      <p>
         <label for="correo">Correo: </label>
-        <input type="text" name="correo" id="correo" />
+        <input type="email" name="correo" id="correo" />
       </p>
       <p>
         <label for="poblacion">Poblacion: </label>
@@ -47,10 +59,12 @@
       <p>
         <input type="checkbox" name="ofertas" id="ofertas" />
         <label for="ofertas">Deseo recibir ofertas</label>
-        <input type="checkbox" name="condicion" id="condicion">
+        <input type="checkbox" name="condicion" id="condicion" />
         <label for="condicion">Declaro haber leido</label>
       </p>
-      <input type="submit" value="Enviar">
+      <input type="submit" value="Enviar" />
     </form>
+
+    <script src="formulario.js"></script>
   </body>
 </html>
