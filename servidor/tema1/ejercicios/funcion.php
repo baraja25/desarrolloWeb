@@ -1,6 +1,6 @@
-hacer una pagina con un despegable que pida numero de filas y columnas del 1 al 10, con un boton de rellenar. Se rellenara la tabla con numeros al azar del 1 al 50.
+<!-- hacer una pagina con un despegable que pida numero de filas y columnas del 1 al 10, con un boton de rellenar. Se rellenara la tabla con numeros al azar del 1 al 50.
 
-para mañana crear un campo de texto que busque el numero dentro de la matriz y que diga en la posicion en la que esta, hay que guardar la matriz
+para mañana crear un campo de texto que busque el numero dentro de la matriz y que diga en la posicion en la que esta, hay que guardar la matriz -->
 
 <html>
 <?php
@@ -76,16 +76,18 @@ $columnas = "";
     }
     ?>
     <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="get">
-        <input type="hidden" name="matriz" value="<?php $matrizString  ?>">
+        <input type="hidden" name="matriz" value="<?php echo $matrizString  ?>">
         <label for="numero">Numero a buscar</label>
         <input type="number" name="numero" id="numero">
         <input type="submit" name="buscar" value="buscar numero">
     </form>
-    <?php 
+    <?php
     if (isset($_GET['buscar'])) {
         $numero = $_GET['numero'];
         $matrizString = $_GET['matriz'];
         $encontrado = false;
+
+
 
         //dividir en filas
         $filas = explode(";", $matrizString);
@@ -95,17 +97,15 @@ $columnas = "";
 
             foreach ($columnas as $j => $valor) {
                 if ($valor == $numero) {
-                    echo "El numero se encuentra en la posicion $i, $j";
-                    $encontrado = true;
-                    break 2;
+                    echo "El numero se encuentra en la posicion ".($i+1)." ".($j+1);
+                    echo "<br>";
                 }
             }
         }
-
     }
-    
-    
-    
+
+
+
     ?>
 </body>
 
