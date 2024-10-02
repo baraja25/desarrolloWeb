@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="regex.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" method="get">
+      <p>
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="nombre" pattern="^[a-zA-Z]{2,10}" />
+      </p>
+      <p>
+        <label for="correo">Correo electronico: </label>
+        <input type="email" name="correo" id="correo" />
+      </p>
+      <p>
+        <label for="color">Color: </label>
+        <input type="color" name="color" id="color" />
+      </p>
+      <p>
+        <input type="submit" value="Enviar" />
+      </p>
+    </form>
+    <script src="regex.js"></script>
+  </body>
+</html>
