@@ -22,7 +22,7 @@ function stringpos($aguja, $pajar)
             }
 
         }
-        if ($coincidencia) {//si encuentra devuelve la posicion inicial
+        if ($coincidencia) {//si la variable se mantiene en true devuelve la posicion
             return $i;
         }
     }
