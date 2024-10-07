@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="formValidacion.css" />
+    <title>Validacion</title>
+  </head>
+  <body>
+    <h2>Ingresar con tarjeta de credito/debito</h2>
+    <form action="" method="get">
+      <div class="tarjetas">
+        <input type="image" src="" alt="" />
+        <input type="image" src="" alt="" />
+        <input type="image" src="" alt="" />
+        <input type="image" src="" alt="" />
+      </div>
+      <label for="importe">Importe: </label>
+      <input type="number" name="importe" id="importe" required />
+      <input type="button" value="EUR" />
+      <h3>Datos de pago con tarjeta de credito</h3>
+      <label for="numeroTarjeta">Nº de tarjeta</label>
+      <input
+        type="number"
+        name="numeroTarjeta"
+        id="numeroTarjeta"
+        pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|6(?:011|5[0-9]{2})[0-9]{12})$"
+        required
+      />
+
+      <label for="caducidadTarjeta">Caducidad: </label>
+      <input
+        type="date"
+        name="caducidadTarjeta"
+        id="caducidadTarjeta"
+        required
+      />
+      <label for="seguridad">Codigo de seguridad</label>
+      <input
+        type="number"
+        name="seguridad"
+        id="seguridad"
+        pattern="\d{3,4}$"
+        required
+      />
+      <label for="titular">Titular: </label>
+      <input type="text" name="titular" id="titular" required />
+      <label for="direccion">Direccion: </label>
+      <input type="text" name="direccion" id="direccion" required />
+      <label for="ciudad">Ciudad: </label>
+      <input type="text" name="ciudad" id="ciudad" required />
+      <label for="provincia">Provincia: </label>
+      <input type="text" name="provincia" id="provincia" required />
+      <label for="codigoPostal">Codigo postal: </label>
+      <input
+        type="number"
+        name="codigoPostal"
+        id="codigoPostal"
+        pattern="^\d{5}(-\d{4})?$"
+        required
+      />
+      <input type="submit" value="Ingresar" />
+    </form>
+  </body>
+</html>
