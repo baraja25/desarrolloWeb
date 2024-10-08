@@ -3,13 +3,34 @@
 //funcion que indica si esa posicion esta dentro de los limites de la cadena
 function DentroCadena($cad, $pos)
 {
-    return ( ($pos>=0) && ($pos<strlen($cad)) );
+    return (($pos >= 0) && ($pos < strlen($cad)));
+}
+
+function eliminarSubCad($cad, $ini, $fin)
+{
+    $sub = "";
+    if (DentroCadena($cad, $ini) && DentroCadena($cad, $fin)) {
+        if ($ini > $fin) {
+            echo "<b>Error</b> ha introducido un valor inicial mayor que el final";
+        } else {
+            for ($i = 0; $i < strlen($cad); $i++) {
+                if ($i < $ini || $i > $fin) {
+
+                    $sub .= $cad[$i];
+                }
+            }
+        }
+    } else {
+        echo "Error los limites introducidos no estan dentro de la cadena";
+    }
+
+    return $sub;
 }
 
 
 function extraerCad($cad, $ini, $fin)
 {
-    $sub="";
+    $sub = "";
     if (DentroCadena($cad, $ini) && DentroCadena($cad, $fin)) {
         if ($ini > $fin) {
             echo "<b>Error</b> ha introducido un valor inicial mayor que el final";
@@ -26,12 +47,9 @@ function extraerCad($cad, $ini, $fin)
 }
 
 
-$cadena="telescopio";
+$cadena = "telescopio";
 
 $ini = 6;
 $fin = 9;
 $sub = extraerCad($cadena, $ini, $fin);
 echo $sub;
-
-?>
-
