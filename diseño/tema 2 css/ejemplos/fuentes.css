@@ -1,0 +1,25 @@
+[href] {
+    color: rgb(70, 109, 12);
+}
+
+[class $="verde"] {
+    color: red;
+}
+
+/* Cambia el estilo de los h2 que tengan encima un h1 */
+h1 + h2 {
+    color: red;
+}
+
+
+/* cambia el estilo de todos los hermanos de h1 */
+h1 ~ h3 {
+    color: rgb(155, 155, 0);
+}
+
+
+/* Para que aplique tiene que ser hijo directo */
+div > span {
+    color: red;
+}
+
