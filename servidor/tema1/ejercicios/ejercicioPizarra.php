@@ -19,6 +19,10 @@ if (isset($_GET['guardarNombre'])) {
         $agenda = $agenda . "," . $nombre;
     }
 }
+
+
+
+
 ?>
 
 <html>
@@ -35,7 +39,26 @@ if (isset($_GET['guardarNombre'])) {
         <input type="submit" value="Mostrar" name="MostrarTabla">
 
     </form>
+    <?php
+    if (isset($_GET['MostrarTabla'])) {
 
+
+        echo "<table border='2'>";
+        echo "<tr>";
+        echo "<th>Nombre</th>";
+        echo "<th>apellido 1</th>";
+        echo "<th>apellido 2</th>";
+        echo "<th>DNI</th>";
+        echo "</tr>";
+
+        $agendaArray = explode(",", $agenda);
+
+        foreach ($agendaArray as $nombre) {
+            echo "<td>" . $nombre . "</td>";
+        }
+    }
+    //phpinfo();
+    ?>
 
 
 
