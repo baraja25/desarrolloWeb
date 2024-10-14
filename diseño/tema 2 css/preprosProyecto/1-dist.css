@@ -1,0 +1,29 @@
+.efecto {
+    font-size: 140px;
+    font-weight: bold;
+    background: -webkit-gradient(linear, left top, right top, from(blue), to(yellow));
+    background: linear-gradient(90deg, blue, yellow);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+}
+
+.no-select {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: blue;
+    line-height: 1.5;
+    padding: 10px;
+}
+
+.container {
+    padding: inherit;
+    color: red;
+}
+/*# sourceMappingURL=1-dist.css.map */

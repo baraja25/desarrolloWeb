@@ -1,0 +1,23 @@
+.efecto {
+    font-size: 140px;
+    font-weight: bold;
+    background: linear-gradient(90deg, blue, yellow);
+    background-clip: text;
+    color: transparent;
+}
+
+.no-select {
+    user-select: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: blue;
+    line-height: 1.5;
+    padding: 10px;
+}
+
+.container {
+    padding: inherit;
+    color: red;
+}
