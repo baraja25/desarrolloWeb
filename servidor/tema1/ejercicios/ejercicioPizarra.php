@@ -9,17 +9,18 @@ function mostrarAgenda($agenda)
     $lineas = explode(",", $agenda);
     echo "<table border='2'>";
     echo "<tr>";
-    echo "<th>DNI</th>";
-    echo "<th>Nombre</th>";
-    echo "<th>apellido 1</th>";
-    echo "<th>apellido 2</th>";
+    echo "<th>selec</th>";
+    echo "<th> <a href='$_SERVER[PHP_SELF]?campo=dni&agenda=$agenda'>DNI</a> </th>";
+    echo "<th> <a href='$_SERVER[PHP_SELF]?campo=nombre&agenda=$agenda'>Nombre</a> </th>";
+    echo "<th> <a href='$_SERVER[PHP_SELF]?campo=apellido1&agenda=$agenda'>apellido 1</a> </th>";
+    echo "<th> <a href='$_SERVER[PHP_SELF]?campo=apellido2&agenda=$agenda'>apellido 2</a> </th>";
     echo "</tr>";
 
     foreach ($lineas as $key => $linea) {
         echo "<tr>";
 
         $campos = explode(":", $linea);
-
+        echo "<td><input type='checkbox'></td>";
         foreach ($campos as $key => $campo) {
 
             echo "<td>$campo</td>";
@@ -29,28 +30,28 @@ function mostrarAgenda($agenda)
     }
 }
 
-function lineasNif($agenda) {
+function lineasNif($agenda)
+{
 
     $lineasnif = array();
 
-    $lineas=explode(",", $agenda);
+    $lineas = explode(",", $agenda);
 
     foreach ($lineas as $key => $linea) {
-        
+
         $campos = explode(":", $linea);
 
-        $linea = $lineasnif($campos[0]) ;
-
+        $linea = $lineasnif($campos[0]);
     }
     return $lineasnif;
-
 }
 
 
-function actualizar($linea, $agenda) {
+function actualizar($linea, $agenda)
+{
     $lineasDni = lineasNif($agenda);
 
-    $campos = explode(":",$linea);
+    $campos = explode(":", $linea);
 
     $nif = $campos[0];
 
@@ -87,6 +88,40 @@ if (isset($_GET['agenda'])) {
     $agenda = $_GET['agenda'];
 }
 
+if (isset($_GET['campo'])) {
+    //ordenar la agenda por ese campo
+
+    $campo = $_GET['campo']; //recuperar el campo
+
+    $camposOrd = array("dni", "nombre", "apellido1", "apellido2");
+
+    $pos = array_search($campo, $camposOrd);
+
+    $filas = explode(",", $agenda);
+
+    $filasOrd = array(); //donde van a guardarse las filas ordenadas por ese campo
+
+    foreach ($filas as $key => $fila) {
+        $campos =  explode(":", $fila);
+
+        $filasOrd[$fila] = $campos[$pos]; //insertamos en el array filas ordenadas cuya clave es el valor de ordenacion y valor de la fila correspondiente
+
+
+    }
+
+
+
+    asort($filasOrd);
+
+    
+
+    $agenda = implode(",", array_keys($filasOrd));
+}
+
+
+
+
+
 if (isset($_GET['guardarNombre'])) {
 
     $nif = $_GET['nif'];
@@ -106,7 +141,7 @@ if (isset($_GET['guardarNombre'])) {
 
             //echo "El nif $nif ya existe en la agenda. No se puede volver a insertar";
 
-           $agenda =  actualizar($linea, $linea);
+            $agenda =  actualizar($linea, $linea);
         }
     }
 }
@@ -137,11 +172,15 @@ if (isset($_GET['guardarNombre'])) {
         ?>
         <input type="submit" value="Guardar" name="guardarNombre">
         <input type="submit" value="Mostrar" name="MostrarTabla">
+        <input type="submit" value="Borrar" name="borrar">
 
     </form>
     <?php
-    if (isset($_GET['MostrarTabla'])) {
+    if (isset($_GET['MostrarTabla']) || (isset($_GET['campo']))) {
         mostrarAgenda($agenda);
+        //$nombres = explode(",", $agenda);
+
+
     }
 
     ?>
