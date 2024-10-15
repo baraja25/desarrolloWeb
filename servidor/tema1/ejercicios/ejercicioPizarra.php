@@ -20,7 +20,7 @@ function mostrarAgenda($agenda)
         echo "<tr>";
 
         $campos = explode(":", $linea);
-        echo "<td><input type='checkbox'></td>";
+        echo "<td><input type='checkbox' name='selec[$key]'></td>";
         foreach ($campos as $key => $campo) {
 
             echo "<td>$campo</td>";
@@ -87,6 +87,17 @@ $agenda = "";
 if (isset($_GET['agenda'])) {
     $agenda = $_GET['agenda'];
 }
+
+if (isset($_GET["borrar"]) && (isset($_GET["selec"]))) {
+    $select = $_GET["selec"];
+
+    $filasDni = FilasDni($agenda);
+
+    foreach ($select as $key => $value) {
+        unset($filasDni[$key]);
+    }
+}
+
 
 if (isset($_GET['campo'])) {
     //ordenar la agenda por ese campo
