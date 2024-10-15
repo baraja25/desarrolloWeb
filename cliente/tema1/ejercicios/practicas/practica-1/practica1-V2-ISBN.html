@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño de Contenedores</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #555;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 20px;
+        }
+
+        .blanco {
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 50px); /* Ajusta según la altura de la barra de navegación */
+        }
+
+        .left, .right {
+            padding: 10px;
+        }
+
+        .left {
+            width: 33.33%;
+            background-color: #f4f4f4;
+        }
+
+        .right {
+            width: 66.66%;
+            display: flex;
+            flex-direction: column;
+            background-color: #ddd;
+        }
+
+        .box {
+            flex: 1;
+            background-color: #ccc;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+		<a href="practica1-V2.html" class="blanco">Lista de libros</a>
+        <a href="practica1-V2-ISBN.html" class="blanco">Lista por ISBN</a>
+        <a href="practica1-V2-conjunto.html" class="blanco">Conjunto</a>    
+	</div>
+
+    <div class="container">
+        <div class="left">
+			<div class="box" id="listaLibros">
+				<h2>Lista de libros por ISBN</h2>
+			</div>
+			<div class="box">
+				<h3>Reemplazar libro</h3>
+					<label for="replaceIndex">Posición a reemplazar (0-indexado):</label>
+					<input type="number" id="replaceIndex"><br>
+					<label for="replaceISBN">ISBN del nuevo libro:</label>
+					<input type="text" id="replaceISBN"><br>
+					<label for="replaceTitle">Título del nuevo libro:</label>
+					<input type="text" id="replaceTitle"><br>
+					<label for="replaceAuthor">Autor del nuevo libro:</label>
+					<input type="text" id="replaceAuthor"><br>
+					<label for="replacePublicationDate">Fecha de Publicación (AAAA-MM-DD):</label>
+					<input type="date" id="replacePublicationDate"><br>
+					<label for="replacePrice">Precio:</label>
+					<input type="number" id="replacePrice"><br>
+					<button id="replaceBook">Reemplazar libro</button>
+
+					<h3>Eliminar libro por posición</h3>
+					<label for="deleteIndex">Posición a eliminar (0-indexado):</label>
+					<input type="number" id="deleteIndex"><br>
+					<button id="deleteBook">Eliminar libro</button>
+			</div>
+        </div>
+        <div class="right">
+            <div class="box">
+				 <h2>Añadir nuevo libro</h2>
+					<form id="addBookForm">
+						<label for="ISBN">ISBN:</label>
+						<input type="text" id="ISBN" required><br> 
+						<label for="title">Título:</label>
+						<input type="text" id="title" required><br>
+						<label for="author">Autor:</label>
+						<input type="text" id="author" required><br>
+						<label for="publicationDate">Fecha de Publicación (AAAA-MM-DD):</label>
+						<input type="date" id="publicationDate" required><br>
+						<label for="price">Precio:</label>
+						<input type="number" id="price" required><br>
+					</form>
+                <button onclick="mostrarLibros()">Mostrar libros</button>
+                <button onclick="addLibro()">AddLibro</button>
+            </div>
+            <div class="box">
+				<h2>Operaciones</h2>
+					<button id="clearList">Borrar lista de libros</button><br><br>
+
+				    <h3>Buscar libro por ISBN</h3>
+						<label for="searchISBN">ISBN:</label>
+						<input type="text" id="searchISBN"><br>
+						<button id="findPosition">Encontrar posición del libro</button>
+						<p id="positionResult"></p>
+
+                <button onclick="showAlert(3)">Botón 3</button>
+                <button onclick="showAlert(4)">Botón 4</button>
+            </div>
+            <div class="box">
+			    
+
+                <button onclick="showAlert(5)">Botón 5</button>
+                <button onclick="showAlert(6)">Botón 6</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showAlert(number) {
+            alert("Has pulsado el botón " + number);
+        }
+		let libros = [
+            { titulo: "Cien años de soledad", autor: "Gabriel García Márquez" },
+            { titulo: "Don Quijote de la Mancha", autor: "Miguel de Cervantes" },
+            { titulo: "El principito", autor: "Antoine de Saint-Exupéry" },
+            { titulo: "1984", autor: "George Orwell" },
+            { titulo: "Matar a un ruiseñor", autor: "Harper Lee" }
+        ];
+
+        // Función para insertar la lista de libros en la división con id "listaLibros"
+        function mostrarLibros() {
+            // Obtener el elemento donde se insertará la lista
+            const listaDiv = document.getElementById("listaLibros");
+
+            // Limpiar cualquier contenido anterior
+            listaDiv.innerHTML = '';
+
+            // Crear una lista no ordenada (ul)
+            const ul = document.createElement("ul");
+
+            // Recorrer el array de libros y crear un elemento de lista para cada uno
+            libros.forEach(libro => {
+                const li = document.createElement("li");
+                li.textContent = `${libro.titulo} - ${libro.autor}`;
+                ul.appendChild(li);
+            });
+
+            // Insertar la lista en la división
+            listaDiv.appendChild(ul);
+        }
+		
+		function addLibro(){
+			let libroNuevo = { titulo: "Matar a un ruiseñor 2", autor: "Harper Lee VVV" };
+			libros.push(libroNuevo);
+			mostrarLibros();
+		}
+		
+		function agregarContenido() {
+            // Obtener el elemento al que vamos a añadir contenido
+            let division = document.getElementById("isDivision");
+
+            // Agregar nuevo contenido respetando el contenido anterior
+            parrafo.innerHTML += "<p> Aquí se añade más contenido.</p>";
+        }
+    </script>
+
+</body>
+</html>
