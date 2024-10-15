@@ -1,0 +1,46 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.perfil {
+    border: 1px solid #a5a5a5;
+    padding: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.perfil--destacado {
+    border: 1px solid #ffb923;
+}
+
+.perfil__header--h2 {
+
+}
+
+
+.perfil__img {
+    width: 50%;
+    border-radius: 5px;
+}
+
+.perfil__nombre {
+    font-weight: bold;
+}
+
+.perfil__descripcion {
+
+}
+
+.perfil__boton {
+    background-color: #fc9700;
+    color: white;
+    border-style: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.perfil__boton--disabled {
+    display: none;
+}
