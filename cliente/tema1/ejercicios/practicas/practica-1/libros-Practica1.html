@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="practica1.js"></script>
+    <title>Gestión de Libros</title>
+</head>
+<body>
+    <h1>Lista de Libros</h1>
+    <ul id="bookList">
+        <!-- Los libros se mostrarán aquí -->
+    </ul>
+
+    <h2>Añadir nuevo libro</h2>
+    <form id="addBookForm">
+        <label for="ISBN">ISBN:</label>
+        <input type="text" id="ISBN" required><br>
+        <label for="title">Título:</label>
+        <input type="text" id="title" required><br>
+        <label for="author">Autor:</label>
+        <input type="text" id="author" required><br>
+        <label for="publicationDate">Fecha de Publicación (AAAA-MM-DD):</label>
+        <input type="date" id="publicationDate" required><br>
+        <label for="price">Precio:</label>
+        <input type="number" id="price" required><br>
+        <button type="submit">Añadir libro</button>
+    </form>
+
+    <h2>Operaciones</h2>
+    <button id="clearList">Borrar lista de libros</button><br><br>
+
+    <h3>Buscar libro por ISBN</h3>
+    <label for="searchISBN">ISBN:</label>
+    <input type="text" id="searchISBN"><br>
+    <button id="findPosition">Encontrar posición del libro</button>
+    <p id="positionResult"></p>
+
+    <h3>Reemplazar libro</h3>
+    <label for="replaceIndex">Posición a reemplazar (0-indexado):</label>
+    <input type="number" id="replaceIndex"><br>
+    <label for="replaceISBN">ISBN del nuevo libro:</label>
+    <input type="text" id="replaceISBN"><br>
+    <label for="replaceTitle">Título del nuevo libro:</label>
+    <input type="text" id="replaceTitle"><br>
+    <label for="replaceAuthor">Autor del nuevo libro:</label>
+    <input type="text" id="replaceAuthor"><br>
+    <label for="replacePublicationDate">Fecha de Publicación (AAAA-MM-DD):</label>
+    <input type="date" id="replacePublicationDate"><br>
+    <label for="replacePrice">Precio:</label>
+    <input type="number" id="replacePrice"><br>
+    <button id="replaceBook">Reemplazar libro</button>
+
+    <h3>Eliminar libro por posición</h3>
+    <label for="deleteIndex">Posición a eliminar (0-indexado):</label>
+    <input type="number" id="deleteIndex"><br>
+    <button id="deleteBook">Eliminar libro</button>
+</body>
+</html>
