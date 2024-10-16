@@ -38,6 +38,19 @@ body {
   box-shadow: 13px 24px 36px 7px rgba(0, 0, 0, 0.7);
 }
 
+.card__cost {
+  position: absolute; /* Posiciona el coste en la esquina superior izquierda */
+  top: 10px; /* Ajusta el espacio desde la parte superior */
+  left: 10px; /* Ajusta el espacio desde la izquierda */
+  background: rgba(0, 0, 0, 0.7); /* Fondo oscuro con un poco de transparencia */
+  color: white; /* Texto blanco para mayor legibilidad */
+  padding: 5px 10px; /* Espaciado alrededor del texto */
+  border-radius: 5px; /* Bordes redondeados */
+  font-family: "Cinzel", serif; /* Estilo de fuente */
+  font-size: 1.5em; /* Ajusta el tamaño de la fuente según sea necesario */
+  z-index: 4; /* Asegura que el coste esté por encima de otros elementos */
+}
+
 .card__image {
   /* position: absolute; */
   display: block;
@@ -81,7 +94,7 @@ body {
 
 .card__copy {
   font-family: "IM Fell English", serif;
-  font-size: 1.2em; /* Ajusta el tamaño según sea necesario */
+  font-size: 1em; /* Ajusta el tamaño según sea necesario */
   line-height: 1.5; /* Mejora la legibilidad */
 }
 
