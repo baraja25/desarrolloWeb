@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Uncial+Antiqua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap");
+
 :root {
   --card-height: 500px;
   --card-width: calc(var(--card-height) / 1.5);
@@ -24,7 +29,8 @@ body {
   align-items: flex-end;
   margin: 0 50px;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 20px;
+  border: 10px solid black;
   perspective: 1000px;
   transition: transform 0.1s ease-out;
   -webkit-box-shadow: 13px 24px 36px 7px rgba(0, 0, 0, 0.7);
@@ -58,23 +64,37 @@ body {
 }
 
 .card__body {
-    padding: 10px;
+  padding: 10px;
 }
 
 .card__title {
   /* margin: 5px 0 0 5px; */
+  font-family: "Cinzel", serif;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 .card__subtitle {
   /* margin: 10px 0 0 5px; */
+  font-family: "Uncial Antiqua", cursive;
+  font-size: 0.7em; /* Ajusta el tamaño según sea necesario */
 }
 
 .card__copy {
-  font-size: 12px;
+  font-family: "IM Fell English", serif;
+  font-size: 1.2em; /* Ajusta el tamaño según sea necesario */
+  line-height: 1.5; /* Mejora la legibilidad */
 }
 
 .card__footer {
   height: 50px;
   background: rgba(0, 0, 0, 0.4); /* Un poco más claro que el body */
+  font-family: "MedievalSharp", cursive;
+  font-size: 1.5em; /* Ajusta el tamaño según sea necesario */
+  font-weight: bold;
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .card:hover .card__image {
