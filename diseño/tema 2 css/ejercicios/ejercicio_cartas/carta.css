@@ -3,6 +3,8 @@
 @import url("https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap");
 
+
+/* variables */
 :root {
   --card-height: 500px;
   --card-width: calc(var(--card-height) / 1.5);
@@ -17,8 +19,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(img/fondoBody.jpeg);
+  background-size: cover;
   /* background: #191c29;  */
 }
+
+/* estilo general de cada carta */
 .card {
   width: var(--card-width);
   height: var(--card-height);
@@ -36,12 +42,14 @@ body {
   box-shadow: 13px 24px 36px 7px rgba(0, 0, 0, 0.7);
 }
 
+
+/* estilo general del coste de carta */
 .card__cost {
   position: absolute;
   top: 10px;
   left: 10px;
   /* background: rgba(0, 0, 0, 0.5); */
-  background: rgba(166, 143, 104, 0.4); /* añadir a parte */
+  background: rgba(166, 143, 104, 0.8); /* añadir a parte */
   color: white;
   padding: 5px 10px;
   border-radius: 10px;
@@ -52,9 +60,10 @@ body {
 }
 
 .card__cost--light {
-  
 }
 
+
+/* estilo de la imagen */
 .card__image {
   position: absolute;
   display: block;
@@ -66,10 +75,14 @@ body {
   z-index: -1;
 }
 
+
+/* efecto zoom al pasar el raton */
 .card:hover .card__image {
   transform: scale(1.2);
 }
 
+
+/* Estilos para los stats y el cuerpo */
 .card__body,
 .card__footer {
   position: absolute;
@@ -77,39 +90,50 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  color: white;
-  /* background: rgba(0, 0, 0, 0.5);  */
-  background: rgba(166, 143, 104, 0.8);/* añadir a parte para diferentes cartas */
+  background: rgba(
+    166,
+    143,
+    104,
+    0.8
+  ); /* añadir a parte para diferentes cartas */
   /* backdrop-filter: blur(5px); */
-  transition: all 0.4s cubic-bezier(0.47, 0, 0.75, 0.72);;
+  transition: all 0.4s cubic-bezier(0.47, 0, 0.75, 0.72);
   transform: translateY(100%);
-  opacity: 0;
 }
 
+
+/* Cuerpo de la carta */
 .card__body {
   padding: 10px;
   margin-bottom: 50px;
-  border: 2px solid #ffeeca;
-  text-shadow: 4px 4px 8px rgba(0,0,0,0.6);
+  color: black;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+  background-image: url(img/fondoTexto.png);
+  background-size: cover;
   border-radius: 10px 10px 0px 0px;
--webkit-border-radius: 10px 10px 0px 0px;
--moz-border-radius: 10px 10px 0px 0px;
+  -webkit-border-radius: 10px 10px 0px 0px;
+  -moz-border-radius: 10px 10px 0px 0px;
+  opacity: 0;
 }
 
+/* Nombre de la carta */
 .card__title {
   margin: 5px 0 0 0;
   font-family: "Uncial Antiqua", cursive;
   font-size: 1.2em;
   font-weight: 500;
 }
+
+/* lore? */
 .card__subtitle {
   margin: 15px 0 0 0;
   font-family: "Cinzel", serif;
   font-size: 0.7em;
   font-style: italic;
-  /* font-weight: 100; */
 }
 
+
+/* Descripcion de la carta */
 .card__copy {
   font-family: "IM Fell English", serif;
   margin-top: 20px;
@@ -117,22 +141,33 @@ body {
   line-height: 1.5;
 }
 
+
+/* Estilo de estadisticas */
 .card__footer {
   height: 50px;
-  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  background-color: black;
   font-family: "MedievalSharp", cursive;
-  font-size: 1.5em;
+  font-size: 1.8em;
   font-weight: bold;
   padding: 5px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+  opacity: 1;
 }
 
+hr {
+  border: none;
+  border-top: 1px solid #fd0000;
+  background-color: #000000;
+  height: 1px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
 
 .card:hover .card__body,
 .card:hover .card__footer {
   transform: translateY(0);
-  opacity: 1; /* Hacer visible el contenido */
+  opacity: 1; 
 }
