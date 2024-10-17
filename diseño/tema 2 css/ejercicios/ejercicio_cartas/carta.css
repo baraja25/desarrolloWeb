@@ -17,7 +17,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: #191c29; */
+  /* background: #191c29;  */
 }
 .card {
   width: var(--card-width);
@@ -31,78 +31,97 @@ body {
   overflow: hidden;
   border-radius: 20px;
   border: 10px solid black;
-  perspective: 1000px;
-  transition: transform 0.1s ease-out;
   -webkit-box-shadow: 13px 24px 36px 7px rgba(0, 0, 0, 0.7);
   -moz-box-shadow: 13px 24px 36px 7px rgba(0, 0, 0, 0.7);
   box-shadow: 13px 24px 36px 7px rgba(0, 0, 0, 0.7);
 }
 
 .card__cost {
-  position: absolute; /* Posiciona el coste en la esquina superior izquierda */
-  top: 10px; /* Ajusta el espacio desde la parte superior */
-  left: 10px; /* Ajusta el espacio desde la izquierda */
-  background: rgba(0, 0, 0, 0.7); /* Fondo oscuro con un poco de transparencia */
-  color: white; /* Texto blanco para mayor legibilidad */
-  padding: 5px 10px; /* Espaciado alrededor del texto */
-  border-radius: 5px; /* Bordes redondeados */
-  font-family: "Cinzel", serif; /* Estilo de fuente */
-  font-size: 1.5em; /* Ajusta el tamaño de la fuente según sea necesario */
-  z-index: 4; /* Asegura que el coste esté por encima de otros elementos */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  /* background: rgba(0, 0, 0, 0.5); */
+  background: rgba(166, 143, 104, 0.4); /* añadir a parte */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 2em;
+  z-index: 4;
+}
+
+.card__cost--light {
+  
 }
 
 .card__image {
-  /* position: absolute; */
+  position: absolute;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: transform 2s ease-in-out;
+  transform-origin: top; /* hacerlo en otra clase */
   z-index: -1;
+}
+
+.card:hover .card__image {
+  transform: scale(1.2);
 }
 
 .card__body,
 .card__footer {
   position: absolute;
-  height: 50%;
+  height: auto;
   left: 0;
   right: 0;
   bottom: 0;
   color: white;
-  background: rgba(0, 0, 0, 0.5); /* Fondo oscuro con transparencia */
-  backdrop-filter: blur(10px); /* Efecto de blur */
-  transition: all 0.4s ease;
+  /* background: rgba(0, 0, 0, 0.5);  */
+  background: rgba(166, 143, 104, 0.8);/* añadir a parte para diferentes cartas */
+  /* backdrop-filter: blur(5px); */
+  transition: all 0.4s cubic-bezier(0.47, 0, 0.75, 0.72);;
   transform: translateY(100%);
   opacity: 0;
 }
 
 .card__body {
   padding: 10px;
+  margin-bottom: 50px;
+  border: 2px solid #ffeeca;
+  text-shadow: 4px 4px 8px rgba(0,0,0,0.6);
+  border-radius: 10px 10px 0px 0px;
+-webkit-border-radius: 10px 10px 0px 0px;
+-moz-border-radius: 10px 10px 0px 0px;
 }
 
 .card__title {
-  /* margin: 5px 0 0 5px; */
-  font-family: "Cinzel", serif;
+  margin: 5px 0 0 0;
+  font-family: "Uncial Antiqua", cursive;
   font-size: 1.2em;
-  font-weight: bold;
+  font-weight: 500;
 }
 .card__subtitle {
-  /* margin: 10px 0 0 5px; */
-  font-family: "Uncial Antiqua", cursive;
-  font-size: 0.7em; /* Ajusta el tamaño según sea necesario */
+  margin: 15px 0 0 0;
+  font-family: "Cinzel", serif;
+  font-size: 0.7em;
+  font-style: italic;
+  /* font-weight: 100; */
 }
 
 .card__copy {
   font-family: "IM Fell English", serif;
-  font-size: 1em; /* Ajusta el tamaño según sea necesario */
-  line-height: 1.5; /* Mejora la legibilidad */
+  margin-top: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .card__footer {
   height: 50px;
-  background: rgba(0, 0, 0, 0.4); /* Un poco más claro que el body */
+  background: rgba(0, 0, 0, 0.8);
   font-family: "MedievalSharp", cursive;
-  font-size: 1.5em; /* Ajusta el tamaño según sea necesario */
+  font-size: 1.5em;
   font-weight: bold;
   padding: 5px;
   display: flex;
@@ -110,9 +129,7 @@ body {
   align-items: center;
 }
 
-.card:hover .card__image {
-  transform: scale(1.1);
-}
+
 
 .card:hover .card__body,
 .card:hover .card__footer {
