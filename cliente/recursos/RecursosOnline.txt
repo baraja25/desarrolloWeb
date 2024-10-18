@@ -1,0 +1,10 @@
+Tutorial JS - https://es.javascript.info/
+W3C SCHOOL - https://www.w3schools.com/js/default.asp
+MDN - https://developer.mozilla.org/es/docs/Web/JavaScript
+Explorar es6 - https://exploringjs.com/es6/
+Patrones de diseño - https://refactoring.guru/es
+Patrones de diseño 2 - https://www.dofactory.com/javascript/design-patterns
+15 libros gratis de JS - https://programacion.net/articulo/15_libros_de_javascript_gratuitos_y_alucinantes_1295
+libro de pago - https://www.amazon.es/Clean-Code-Handbook-Software-Craftsmanship/dp/B08X8TNNST/ref=tmm_aud_swatch_0?_encoding=UTF8&qid=1694516662&sr=8-1
+Herramientas de desarrollo Chrome - https://developer.chrome.com/docs/devtools?hl=es-419
+Puedo usar esta etiqueta? - https://caniuse.com/
