@@ -14,12 +14,40 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
+  background-image: url(img/fondoBody.jpeg);
+  background-size: cover;
+}
+
+/* Contenedor de los botones */
+.button_wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 30px;
+}
+
+
+/* Estilo de los botones */
+button {
+  cursor: pointer;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  background-color: black;
+  transition: all 0.4s ease;
+  border: 1px solid black;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Contenedor de las cartas */
+.card__wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(img/fondoBody.jpeg);
-  background-size: cover;
-  /* background: #191c29;  */
 }
 
 /* estilo general de cada carta */
@@ -34,10 +62,9 @@ body {
   margin: 0 50px;
   overflow: hidden;
   border-radius: 20px;
-  /* border: 8px solid black; */
-  -webkit-box-shadow: 1px 1px 43px 7px rgba(238,252,251,1);
-  -moz-box-shadow: 1px 1px 43px 7px rgba(238,252,251,1);
-  box-shadow: 1px 1px 43px 7px rgba(238,252,251,1);
+  -webkit-box-shadow: 1px 1px 43px 7px rgba(238, 252, 251, 1);
+  -moz-box-shadow: 1px 1px 43px 7px rgba(238, 252, 251, 1);
+  box-shadow: 1px 1px 43px 7px rgba(238, 252, 251, 1);
 }
 
 /* estilo general del coste de carta */
@@ -62,7 +89,6 @@ body {
   flex-wrap: nowrap;
 }
 
-
 /* estilo de la imagen */
 .card__image {
   position: absolute;
@@ -82,10 +108,6 @@ body {
 /* Menor zoom */
 .card:hover .card__image--less {
   transform: scale(1.1);
-}
-
-.card:hover .card__image--noZoom {
-  transform: scale(1);
 }
 
 /* Estilos para los stats y el cuerpo */
@@ -122,7 +144,7 @@ body {
   font-weight: 500;
 }
 
-/* lore? */
+/* Descripcion */
 .card__subtitle {
   margin: 15px 0 0 0;
   font-family: "Cinzel", serif;
@@ -154,6 +176,7 @@ body {
   border-radius: 0 0 20px 20px;
 }
 
+/* Estilos de la barra debajo del subtitulo */
 .card__bar {
   border: none;
   background-color: #000000;
@@ -169,6 +192,7 @@ body {
   border-top: 1px solid rgba(141, 131, 193, 1);
 }
 
+/* Animacion al hacer hover */
 .card:hover .card__body,
 .card:hover .card__footer {
   transform: translateY(0);

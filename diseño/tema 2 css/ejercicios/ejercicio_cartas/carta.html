@@ -6,63 +6,90 @@
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="carta.css" />
     <!-- fuentes de google -->
-  
+
     <title>Cartas</title>
   </head>
   <body>
-    <article class="card">
-      <div class="card__cost card__background--beige">6</div>
-      <img src="img/boss.png" alt="" class="card__image" />
+    <!-- botones -->
+    <div class="button_wrapper">
+      <button type="button" onclick="mostrarCarta('carta1')">
+        Señor de la Guardia Negra
+      </button>
+      <button type="button" onclick="mostrarCarta('carta2')">
+        Dragon de Obsidiana
+      </button>
+      <button type="button" onclick="mostrarCarta('carta3')">
+        Drakthar, Señor de la blasfemia
+      </button>
+    </div>
+    <!-- contenedor de las cartas -->
+    <main class="card__wrapper">
+      <!-- carta 1 -->
+      <article class="card" id="carta1">
+        <div class="card__cost card__background--beige">6</div>
+        <img src="img/boss.png" alt="" class="card__image" />
 
-      <div class="card__body">
-        <h2 class="card__title">Señor de la Guardia Negra</h2>
-        <hr class="card__bar card__bar--red">
-        <h3 class="card__subtitle">Guardián de los Secretos Olvidados</h3>
-        <p class="card__copy">
-          Espada Maldita: Aumenta en 1 el ataque si derrota a un enemigo.
-        </p>
-      </div>
-      <footer class="card__footer">
-        <p class="card_stats">&#9876; 5</p>
-        <p class="card_stats">&#10084; 8</p>
-      </footer>
-    </article>
-    <!-- carta 2    -->
-    <article class="card">
-      <div class="card__cost card__background--purple">7</div>
-      <img src="img/dragon armado.jpeg" alt="" class="card__image card__image--less" />
+        <div class="card__body">
+          <h2 class="card__title">Señor de la Guardia Negra</h2>
+          <hr class="card__bar card__bar--red" />
+          <h3 class="card__subtitle">Guardián de los Secretos Olvidados</h3>
+          <p class="card__copy">
+            Espada Maldita: Aumenta en 1 el ataque si derrota a un enemigo.
+          </p>
+        </div>
+        <footer class="card__footer">
+          <p class="card_stats">&#9876; 5</p>
+          <p class="card_stats">&#10084; 8</p>
+        </footer>
+      </article>
+      <!-- carta 2    -->
+      <article class="card" id="carta2">
+        <div class="card__cost card__background--purple">7</div>
+        <img
+          src="img/dragon armado.jpeg"
+          alt=""
+          class="card__image card__image--less"
+        />
 
-      <div class="card__body">
-        <h2 class="card__title">Dragon de Obsidiana</h2>
-        <hr class="card__bar card__bar--purple">
-        <h3 class="card__subtitle">Bestia Imparable del Fin del Mundo</h3>
-        <p class="card__copy">
-          Grito de batalla: Destruye todos los esbirros con un coste de maná igual o inferior a 3.
-        </p>
-      </div>
-      <footer class="card__footer">
-        <p class="card_stats">&#9876; 7</p>
-        <p class="card_stats">&#10084; 9</p>
-      </footer>
-    </article>
-    <!-- carta 3  -->
-    <article class="card">
-      <div class="card__cost card__background--red">3</div>
-      <img src="img/brujo.jpeg" alt="" class="card__image card__image--noZoom" />
+        <div class="card__body">
+          <h2 class="card__title">Dragon de Obsidiana</h2>
+          <hr class="card__bar card__bar--purple" />
+          <h3 class="card__subtitle">Bestia Imparable del Fin del Mundo</h3>
+          <p class="card__copy">
+            Grito de batalla: Destruye todos los esbirros con un coste de maná
+            igual o inferior a 3.
+          </p>
+        </div>
+        <footer class="card__footer">
+          <p class="card_stats">&#9876; 7</p>
+          <p class="card_stats">&#10084; 9</p>
+        </footer>
+      </article>
+      <!-- carta 3  -->
+      <article class="card" id="carta3">
+        <div class="card__cost card__background--red">3</div>
+        <img
+          src="img/asesino sombrio.jpeg"
+          alt=""
+          class="card__image card__image--less"
+        />
 
-      <div class="card__body">
-        <h2 class="card__title">Drakthar, Señor de la blasfemia</h2>
-        <hr class="card__bar card__bar--red">
-        <h3 class="card__subtitle">El Portador del Desprecio Sagrado</h3>
-        <p class="card__copy">
-          Luz de la Herejía: Inflige 2 de daño a todos los combatientes enemigos y roba 2 cartas.
-        </p>
-      </div>
-      <footer class="card__footer">
-        <p class="card_stats">&#9876; 2</p>
-        <p class="card_stats">&#10084; 2</p>
-      </footer>
-    </article>
+        <div class="card__body">
+          <h2 class="card__title">Drakthar, Asesino de las sombras</h2>
+          <hr class="card__bar card__bar--red" />
+          <h3 class="card__subtitle">El Portador del Filoscuro</h3>
+          <p class="card__copy">
+            Luz de las sombras: Inflige 2 de daño a todos los combatientes
+            enemigos y roba 2 cartas.
+          </p>
+        </div>
+        <footer class="card__footer">
+          <p class="card_stats">&#9876; 2</p>
+          <p class="card_stats">&#10084; 2</p>
+        </footer>
+      </article>
+    </main>
+
     <script src="carta.js"></script>
   </body>
 </html>
