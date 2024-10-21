@@ -39,7 +39,26 @@
 
         return $pasa;
     }
+    function eliminarAlumnos($nifs)
+    {
+        $alumnos = ObtenerAlumnos();
 
+        foreach ($nifs as $key => $nif) {
+            unset($alumnos[$nif]);
+        }
+
+        $fd = fopen("Alumnos.txt", "w") or die("Error al abrir el archivo");
+
+        foreach ($alumnos as $key => $linea) {
+            fwrite($fd, $linea);
+        }
+
+        fclose($fd);
+    }
+
+    if (isset($_GET['Eliminar'])) {
+        eliminarAlumnos($nifs);
+    }
     ?>
 
 
@@ -83,13 +102,16 @@
 
         $alumnos = ObtenerAlumnos(); //recoger los datos de los alumnos del txt y se pasa a un array
 
-
+        echo "<form name='f2' method='get' action='$_SERVER[PHP_SELF]'>";
         echo "<table border='2'>";
-        echo "<th>Nif</th><th>Nombre</th><th>Apellido 1</th><th>Apellido 2</th><th>Edad </th><th>Telefono </th>";
+        echo "<th>Eliminar</th><th>NIF</th><th>Nombre</th><th>Apellido 1</th><th>Apellido 2</th><th>Edad </th><th>Telefono </th>";
         foreach ($alumnos as $key => $linea) {
             $campos = explode(":", $linea);
             if (pasarFiltro($campos, $filtro)) {
                 echo "<tr>";
+
+                echo "<td><input type='checkbox' name='nifs[]' 
+                value='" . trim($campos[0]) . "'></td>";
                 foreach ($campos as $key => $campo) {
                     echo "<td>$campo</td>";
                 }
@@ -99,7 +121,10 @@
 
 
         echo "</table>";
+        echo "<input type='submit' value='Eliminar' name='Eliminar'>";
+        echo "</form>";
     }
+
 
     ?>
 </body>
