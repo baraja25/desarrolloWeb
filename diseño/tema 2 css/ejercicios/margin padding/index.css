@@ -1,0 +1,39 @@
+/* Estilo para el contenedor principal */
+.contenedor {
+  border: 5px solid red;
+  width: 80%;
+}
+
+/* Estilo para las cajas interiores */
+.caja {
+  width: 50%;
+  margin-top: 10px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.margin__left--10 {
+  margin-left: 10px;
+}
+
+.margin__left--50 {
+  margin-left: 50px;
+}
+
+.margin__left--100 {
+  margin-left: 100px;
+}
+
+.border--green {
+  border: 3px solid green;
+}
+
+.border--blue {
+  border: 3px solid blue;
+}
+
+.border--yellow {
+  border: 3px solid yellow;
+}
