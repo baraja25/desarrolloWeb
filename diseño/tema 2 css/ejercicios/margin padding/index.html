@@ -10,7 +10,7 @@
     <h1>Ejercicio: Márgenes, Bordes y Relleno</h1>
 
     <div class="contenedor">
-      <div class="caja margin__left--10 border--green">
+      <div class="caja border--green">
         Esta es una caja con un 50% de ancho y 10px desde la parte superior e
         izquierda dentro de un contenedor
       </div>
@@ -24,16 +24,22 @@
       </div>
     </div>
 
-    <div class="contenedor">
-      <div class="caja-padding"></div>
-      <div class="caja-padding"></div>
-      <div class="caja-padding"></div>
+    <div class="caja-padding border--red">Esta es una caja sin relleno</div>
+    <div class="caja-padding padding--25 border--blue">
+      Esta es una caja con 25px de relleno
+    </div>
+    <div class="caja-padding padding--50 border--green">
+      Esta es una caja con 50px de relleno
     </div>
 
-    <div class="contenedor">
-      <div class="caja-final"></div>
-      <div class="caja-final"></div>
-      <div class="caja-final"></div>
+    <div class="caja-dot padding--25 margin__bottom--10">Esta es una caja con diferentes tipos de bordes</div>
+    <div class="caja-solid padding--25 margin__bottom--10">
+      Esta es otra caja con diferentes tipos de bordes
+    </div>
+    <div class="caja-dot padding--25">
+      <div class="caja-solid padding--25">
+        Esta es una caja con diferentes tipos de bordes dentro de otra caja
+      </div>
     </div>
   </body>
 </html>

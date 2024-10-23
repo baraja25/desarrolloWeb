@@ -1,10 +1,15 @@
-/* Estilo para el contenedor principal */
+* {
+  box-sizing: border-box; 
+}
+
+
 .contenedor {
   border: 5px solid red;
   width: 80%;
+  margin-bottom: 10px;
 }
 
-/* Estilo para las cajas interiores */
+
 .caja {
   width: 50%;
   margin-top: 10px;
@@ -14,8 +19,47 @@
   align-items: center;
 }
 
-.margin__left--10 {
+.contenedor .caja {
+  margin-bottom: 5px; 
+}
+
+.caja:first-child {
   margin-left: 10px;
+}
+
+.contenedor > .caja {
+  margin-top: 5px; 
+}
+
+.caja ~ .caja {
+  margin-top: 10px; 
+}
+
+.caja-padding {
+  margin-bottom: 10px;
+}
+
+.caja-dot {
+  border-top: 5px dotted green;
+  border-left: 5px dashed blue;
+  border-right: 5px dashed orange;
+  border-bottom: 5px dotted red;
+}
+
+.caja-solid {
+  border-top: 5px solid aqua;
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+  border-bottom: 5px solid pink;
+}
+
+
+.caja-solid + .caja-dot {
+  border-top: 5px solid purple; 
+}
+
+[class$="--10"] {
+  margin-bottom: 10px; 
 }
 
 .margin__left--50 {
@@ -24,6 +68,10 @@
 
 .margin__left--100 {
   margin-left: 100px;
+}
+
+.margin__bottom--10 {
+  margin-bottom: 10px;
 }
 
 .border--green {
@@ -36,4 +84,21 @@
 
 .border--yellow {
   border: 3px solid yellow;
+}
+
+.border--red {
+  border: 3px solid red;
+}
+
+
+.padding--25 {
+  padding: 25px;
+}
+
+.padding--50 {
+  padding: 50px;
+}
+
+[class^="border"] {
+  border-width: 3px; 
 }
