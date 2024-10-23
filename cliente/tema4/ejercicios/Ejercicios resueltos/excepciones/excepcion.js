@@ -27,8 +27,8 @@ function InvalidAccessConstructorException() {
 InvalidAccessConstructorException.prototype = Object.create(
   BaseException.prototype
 );
-InvalidAccessConstructorException.prototype.constructor = InvalidAccessCo;
-nstructorException;
+InvalidAccessConstructorException.prototype.constructor =
+  InvalidAccessConstructorException;
 //Excepción personalizada para indicar valores vacios.
 function EmptyValueException(param) {
   let instance = BaseException.call(
@@ -58,7 +58,7 @@ function InvalidValueException(param, value) {
   instance.param = value;
   return instance;
 }
-InvalidValueException.prototype = Object.create(BaseException.prototype);
+InvalidValueException.prototype = Object.create(BaseException.rototype);
 InvalidValueException.prototype.constructor = InvalidValueException;
 
 function Product(serial, brand, model, price, taxPercentage = Product.IVA) {
