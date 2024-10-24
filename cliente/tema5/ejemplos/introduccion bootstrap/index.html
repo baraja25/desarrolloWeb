@@ -72,26 +72,70 @@
         <a class="btn btn-primary btn-lg" href="#" role="button"
           >A que mola »</a
         >
-        <a class="btn btn-primary btn-lg" href="#" role="button">Ver más »</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button" onclick="agregarPhone()">Ver movil »</a>
+        <a
+          class="btn btn-primary btn-lg"
+          href="#"
+          role="button "
+          onclick="agregarLaptop()"
+        >
+          Another boton</a
+        >
       </p>
     </div>
     <div class="container-fluid features">
       <div class="row">
-        <div class="col-md-4">
-          <i class="fa fa-star"></i>
-          <h3>Característica 1</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+        <div class="col-md-4" id="div1">
+          <table>
+            <tr>
+              <th>Serial</th>
+              <td id="serial"></td>
+              <th>Marca</th>
+              <td id="brand"></td>
+            </tr>
+
+            <tr>
+              <th>Modelo</th>
+              <td id="model"></td>
+              <th>Precio</th>
+              <td id="price"></td>
+            </tr>
+            <tr>
+              <th>Tamaño del disco</th>
+              <td id="size"></td>
+              <th>Impuestos (%)</th>
+              <td id="tax"></td>
+            </tr>
+            <tr>
+              <th>Procesador</th>
+              <td id="processor"></td>
+              <th>Memoria</th>
+              <td id="memory"></td>
+              <th>Disco duro</th>
+              <td id="hd"></td>
+            </tr>
+          </table>
         </div>
-        <div class="col-md-4">
-          <i class="fa fa-beer"></i>
-          <h3>Característica 2</h3>
-          <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur.
-          </p>
+        <div class="col-md-4" id="div2">
+          <table>
+            <tr>
+              <th>Serial</th>
+              <td id="serialMovil"></td>
+              <th>Marca</th>
+              <td id="brandMovil"></td>
+            </tr>
+
+            <tr>
+              <th>Modelo</th>
+              <td id="modelMovil"></td>
+              <th>Precio</th>
+              <td id="priceMovil"></td>
+            </tr>
+            <tr>
+              <th>Impuestos (%)</th>
+              <td id="taxMovil"></td>
+            </tr>
+          </table>
         </div>
         <div class="col-md-4">
           <i class="fa fa-thumbs-up"></i>
@@ -105,5 +149,8 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/excepcion.js"></script>
+    <script src="js/productos.js"></script>
+    <script src="js/abstractas.js"></script>
   </body>
 </html>
