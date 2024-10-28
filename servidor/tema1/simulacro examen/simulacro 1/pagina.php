@@ -104,10 +104,6 @@ function crearArchivo($nombre)
                 }
             }
         }
-
-
-
-
         ?>
     </form>
 </body>
