@@ -2,7 +2,6 @@
 
 $nombre="Telesforo";
 
-      eefloorT
 
 echo "La variable nombre contiene $nombre";
 
