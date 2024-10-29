@@ -1,0 +1,357 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="network.resources.html">« Resource Types</a></li>
+      <li style="float: right;"><a href="ref.network.html">Network Functions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.network.html">Network</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="network.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are always available as part of the PHP core.
+</p>
+  <table class="doctable table">
+   <caption><strong><span class="function"><a href="function.openlog.html" class="function">openlog()</a></span> Options</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Constant</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.log-cons">
+      <td><strong><code><a href="network.constants.html#constant.log-cons">LOG_CONS</a></code></strong></td>
+      <td>
+       if there is an error while sending data to the system logger,
+       write directly to the system console
+      </td>
+     </tr>
+
+     <tr id="constant.log-ndelay">
+      <td><strong><code><a href="network.constants.html#constant.log-ndelay">LOG_NDELAY</a></code></strong></td>
+      <td>
+       open the connection to the logger immediately
+      </td>
+     </tr>
+
+     <tr id="constant.log-odelay">
+      <td><strong><code><a href="network.constants.html#constant.log-odelay">LOG_ODELAY</a></code></strong></td>
+      <td>
+       (default) delay opening the connection until the first
+       message is logged
+      </td>
+     </tr>
+
+     <tr id="constant.log-nowait">
+      <td><strong><code><a href="network.constants.html#constant.log-nowait">LOG_NOWAIT</a></code></strong></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.log-perror">
+      <td><strong><code><a href="network.constants.html#constant.log-perror">LOG_PERROR</a></code></strong></td>
+      <td>print log message also to standard error</td>
+     </tr>
+
+     <tr id="constant.log-pid">
+      <td><strong><code><a href="network.constants.html#constant.log-pid">LOG_PID</a></code></strong></td>
+      <td>include PID with each message</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+
+  <table class="doctable table">
+   <caption><strong><span class="function"><a href="function.openlog.html" class="function">openlog()</a></span> Facilities</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Constant</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.log-auth">
+      <td><strong><code><a href="network.constants.html#constant.log-auth">LOG_AUTH</a></code></strong></td>
+      <td>
+       security/authorization messages (use <strong><code><a href="network.constants.html#constant.log-authpriv">LOG_AUTHPRIV</a></code></strong> instead
+       in systems where that constant is defined)
+      </td>
+     </tr>
+
+     <tr id="constant.log-authpriv">
+      <td><strong><code><a href="network.constants.html#constant.log-authpriv">LOG_AUTHPRIV</a></code></strong></td>
+      <td>security/authorization messages (private)</td>
+     </tr>
+
+     <tr id="constant.log-cron">
+      <td><strong><code><a href="network.constants.html#constant.log-cron">LOG_CRON</a></code></strong></td>
+      <td>clock daemon (cron and at)</td>
+     </tr>
+
+     <tr id="constant.log-daemon">
+      <td><strong><code><a href="network.constants.html#constant.log-daemon">LOG_DAEMON</a></code></strong></td>
+      <td>other system daemons</td>
+     </tr>
+
+     <tr id="constant.log-kern">
+      <td><strong><code><a href="network.constants.html#constant.log-kern">LOG_KERN</a></code></strong></td>
+      <td>kernel messages</td>
+     </tr>
+
+     <tr id="constant.log-local0">
+      <td><strong><code><a href="network.constants.html#constant.log-local0">LOG_LOCAL0</a></code></strong></td>
+      <td>reserved for local use, not available in Windows</td>
+     </tr>
+
+     <tr id="constant.log-local1">
+      <td><strong><code><a href="network.constants.html#constant.log-local1">LOG_LOCAL1</a></code></strong></td>
+      <td>reserved for local use, not available in Windows</td>
+     </tr>
+
+     <tr id="constant.log-local2">
+      <td><strong><code><a href="network.constants.html#constant.log-local2">LOG_LOCAL2</a></code></strong></td>
+      <td>reserved for local use, not available in Windows</td>
+     </tr>
+
+     <tr id="constant.log-local3">
+      <td><strong><code><a href="network.constants.html#constant.log-local3">LOG_LOCAL3</a></code></strong></td>
+      <td>reserved for local use, not available in Windows</td>
+     </tr>
+
+     <tr id="constant.log-local4">
+      <td><strong><code><a href="network.constants.html#constant.log-local4">LOG_LOCAL4</a></code></strong></td>
+      <td>reserved for local use, not available in Windows</td>
+     </tr>
+
+     <tr id="constant.log-local5">
+      <td><strong><code><a href="network.constants.html#constant.log-local5">LOG_LOCAL5</a></code></strong></td>
+      <td>reserved for local use, not available in Windows</td>
+     </tr>
+
+     <tr id="constant.log-local6">
+      <td><strong><code><a href="network.constants.html#constant.log-local6">LOG_LOCAL6</a></code></strong></td>
+      <td>reserved for local use, not available in Windows</td>
+     </tr>
+
+     <tr id="constant.log-local7">
+      <td><strong><code><a href="network.constants.html#constant.log-local7">LOG_LOCAL7</a></code></strong></td>
+      <td>reserved for local use, not available in Windows</td>
+     </tr>
+
+     <tr id="constant.log-lpr">
+      <td><strong><code><a href="network.constants.html#constant.log-lpr">LOG_LPR</a></code></strong></td>
+      <td>line printer subsystem</td>
+     </tr>
+
+     <tr id="constant.log-mail">
+      <td><strong><code><a href="network.constants.html#constant.log-mail">LOG_MAIL</a></code></strong></td>
+      <td>mail subsystem</td>
+     </tr>
+
+     <tr id="constant.log-news">
+      <td><strong><code><a href="network.constants.html#constant.log-news">LOG_NEWS</a></code></strong></td>
+      <td>USENET news subsystem</td>
+     </tr>
+
+     <tr id="constant.log-syslog">
+      <td><strong><code><a href="network.constants.html#constant.log-syslog">LOG_SYSLOG</a></code></strong></td>
+      <td>messages generated internally by syslogd</td>
+     </tr>
+
+     <tr id="constant.log-user">
+      <td><strong><code><a href="network.constants.html#constant.log-user">LOG_USER</a></code></strong></td>
+      <td>generic user-level messages</td>
+     </tr>
+
+     <tr id="constant.log-uucp">
+      <td><strong><code><a href="network.constants.html#constant.log-uucp">LOG_UUCP</a></code></strong></td>
+      <td>UUCP subsystem</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+
+  <table class="doctable table">
+   <caption><strong><span class="function"><a href="function.syslog.html" class="function">syslog()</a></span> Priorities (in descending order)</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Constant</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.log-emerg">
+      <td><strong><code><a href="network.constants.html#constant.log-emerg">LOG_EMERG</a></code></strong></td>
+      <td>system is unusable</td>
+     </tr>
+
+     <tr id="constant.log-alert">
+      <td><strong><code><a href="network.constants.html#constant.log-alert">LOG_ALERT</a></code></strong></td>
+      <td>action must be taken immediately</td>
+     </tr>
+
+     <tr id="constant.log-crit">
+      <td><strong><code><a href="network.constants.html#constant.log-crit">LOG_CRIT</a></code></strong></td>
+      <td>critical conditions</td>
+     </tr>
+
+     <tr id="constant.log-err">
+      <td><strong><code><a href="network.constants.html#constant.log-err">LOG_ERR</a></code></strong></td>
+      <td>error conditions</td>
+     </tr>
+
+     <tr id="constant.log-warning">
+      <td><strong><code><a href="network.constants.html#constant.log-warning">LOG_WARNING</a></code></strong></td>
+      <td>warning conditions</td>
+     </tr>
+
+     <tr id="constant.log-notice">
+      <td><strong><code><a href="network.constants.html#constant.log-notice">LOG_NOTICE</a></code></strong></td>
+      <td>normal, but significant, condition</td>
+     </tr>
+
+     <tr id="constant.log-info">
+      <td><strong><code><a href="network.constants.html#constant.log-info">LOG_INFO</a></code></strong></td>
+      <td>informational message</td>
+     </tr>
+
+     <tr id="constant.log-debug">
+      <td><strong><code><a href="network.constants.html#constant.log-debug">LOG_DEBUG</a></code></strong></td>
+      <td>debug-level message</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  <table class="doctable table">
+   <caption><strong><span class="function"><a href="function.dns-get-record.html" class="function">dns_get_record()</a></span> Options</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Constant</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.dns-a">
+      <td><strong><code><a href="network.constants.html#constant.dns-a">DNS_A</a></code></strong></td>
+      <td>IPv4 Address Resource</td>
+     </tr>
+
+     <tr id="constant.dns-a6">
+      <td><strong><code><a href="network.constants.html#constant.dns-a6">DNS_A6</a></code></strong></td>
+      <td>Defined as part of early IPv6 but downgraded to historic by RFC 6563</td>
+     </tr>
+
+     <tr id="constant.dns-caa">
+      <td><strong><code><a href="network.constants.html#constant.dns-caa">DNS_CAA</a></code></strong></td>
+      <td>Certification Authority Authorization Resource (available as of PHP 7.0.16 and 7.1.2)</td>
+     </tr>
+
+     <tr id="constant.dns-mx">
+      <td><strong><code><a href="network.constants.html#constant.dns-mx">DNS_MX</a></code></strong></td>
+      <td>Mail Exchanger Resource</td>
+     </tr>
+
+     <tr id="constant.dns-cname">
+      <td><strong><code><a href="network.constants.html#constant.dns-cname">DNS_CNAME</a></code></strong></td>
+      <td>Alias (Canonical Name) Resource</td>
+     </tr>
+
+     <tr id="constant.dns-naptr">
+      <td><strong><code><a href="network.constants.html#constant.dns-naptr">DNS_NAPTR</a></code></strong></td>
+      <td>Naming Authority Pointer</td>
+     </tr>
+
+     <tr id="constant.dns-ns">
+      <td><strong><code><a href="network.constants.html#constant.dns-ns">DNS_NS</a></code></strong></td>
+      <td>Authoritative Name Server Resource</td>
+     </tr>
+
+     <tr id="constant.dns-ptr">
+      <td><strong><code><a href="network.constants.html#constant.dns-ptr">DNS_PTR</a></code></strong></td>
+      <td>Pointer Resource</td>
+     </tr>
+
+     <tr id="constant.dns-hinfo">
+      <td><strong><code><a href="network.constants.html#constant.dns-hinfo">DNS_HINFO</a></code></strong></td>
+      <td>Host Info Resource (See IANA&#039;s
+       <a href="http://www.iana.org/assignments/operating-system-names" class="link external">&raquo;&nbsp;<code class="literal">Operating System Names</code></a>
+        for the meaning of these values)</td>
+     </tr>
+
+     <tr id="constant.dns-soa">
+      <td><strong><code><a href="network.constants.html#constant.dns-soa">DNS_SOA</a></code></strong></td>
+      <td>Start of Authority Resource</td>
+     </tr>
+
+     <tr id="constant.dns-srv">
+      <td><strong><code><a href="network.constants.html#constant.dns-srv">DNS_SRV</a></code></strong></td>
+      <td>Service locator</td>
+     </tr>
+
+     <tr id="constant.dns-txt">
+      <td><strong><code><a href="network.constants.html#constant.dns-txt">DNS_TXT</a></code></strong></td>
+      <td>Text Resource</td>
+     </tr>
+
+     <tr id="constant.dns-any">
+      <td><strong><code><a href="network.constants.html#constant.dns-any">DNS_ANY</a></code></strong></td>
+      <td>Any Resource Record.  On most systems
+        this returns all resource records, however
+        it should not be counted upon for critical
+        uses. Try <strong><code><a href="network.constants.html#constant.dns-all">DNS_ALL</a></code></strong> instead.</td>
+     </tr>
+
+     <tr id="constant.dns-aaaa">
+      <td><strong><code><a href="network.constants.html#constant.dns-aaaa">DNS_AAAA</a></code></strong></td>
+      <td>IPv6 Address Resource</td>
+     </tr>
+
+     <tr id="constant.dns-all">
+      <td><strong><code><a href="network.constants.html#constant.dns-all">DNS_ALL</a></code></strong></td>
+      <td>Iteratively query the name server for
+        each available record type.</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+</div>
+</div></div></body></html>

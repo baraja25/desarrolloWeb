@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Installation</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="readline.requirements.html">« Requirements</a></li>
+      <li style="float: right;"><a href="readline.configuration.html">Runtime Configuration »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="readline.setup.html">Installing/Configuring</a></li>
+    <li>Installation</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="readline.installation" class="section">
+ <h2 class="title">Installation</h2>
+ <p class="para">
+  To use these functions the CGI or CLI version of PHP must be compiled
+  with readline support. You need to configure PHP
+  <strong class="option configure">--with-readline</strong>.
+ </p>
+ <p class="para">
+  On Windows this extension is available by default as of PHP 7.1.0.
+ </p>
+ <div class="simplesect">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.4.0</td>
+       <td>
+        Configure option <strong class="option configure">--with-libedit</strong>
+        has been removed in favor of the
+        <strong class="option configure">--with-readline</strong> which now doesn&#039;t
+        accept a DIR argument anymore in favor of the pkg-config and now links
+        to the libedit library, a non-GPL replacement for the GNU Readline
+        library.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+</div></div></div></body></html>

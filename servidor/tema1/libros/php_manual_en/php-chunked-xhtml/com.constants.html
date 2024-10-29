@@ -1,0 +1,700 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="com.configuration.html">« Runtime Configuration</a></li>
+      <li style="float: right;"><a href="com.error-handling.html">Errors and error handling »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.com.html">COM</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="com.constants" class="chapter">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <table class="doctable table">
+  <caption><strong>COM constants</strong></caption>
+  
+   <thead>
+    <tr>
+     <th>Constant</th>
+     <th>Description</th>
+     <th>Notes</th>
+    </tr>
+
+   </thead>
+
+   <tbody class="tbody">
+    <tr id="constant.clsctx-inproc-server">
+     <td>
+      <strong><code><a href="com.constants.html#constant.clsctx-inproc-server">CLSCTX_INPROC_SERVER</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      The code that creates and manages objects of this class is
+      a DLL that runs in the same process as the caller of the
+      function specifying the class context.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.clsctx-inproc-handler">
+     <td>
+      <strong><code><a href="com.constants.html#constant.clsctx-inproc-handler">CLSCTX_INPROC_HANDLER</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      The code that manages objects of this class is an in-process
+      handler. This is a DLL that runs in the client process and
+      implements client-side structures of this class when instances
+      of the class are accessed remotely.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.clsctx-local-server">
+     <td>
+      <strong><code><a href="com.constants.html#constant.clsctx-local-server">CLSCTX_LOCAL_SERVER</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      The EXE code that creates and manages objects of this class runs on
+      same machine but is loaded in a separate process space.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.clsctx-remote-server">
+     <td>
+      <strong><code><a href="com.constants.html#constant.clsctx-remote-server">CLSCTX_REMOTE_SERVER</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      A remote context. The code that creates and manages objects of this
+      class is run on a different computer.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.clsctx-server">
+     <td>
+      <strong><code><a href="com.constants.html#constant.clsctx-server">CLSCTX_SERVER</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Indicates server code, whether in-process, local, or remote. This
+      definition ORs <strong><code><a href="com.constants.html#constant.clsctx-inproc-server">CLSCTX_INPROC_SERVER</a></code></strong>,
+      <strong><code><a href="com.constants.html#constant.clsctx-local-server">CLSCTX_LOCAL_SERVER</a></code></strong>, and
+      <strong><code><a href="com.constants.html#constant.clsctx-remote-server">CLSCTX_REMOTE_SERVER</a></code></strong>.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.clsctx-all">
+     <td>
+      <strong><code><a href="com.constants.html#constant.clsctx-all">CLSCTX_ALL</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Indicates all class contexts. This definition ORs
+      <strong><code><a href="com.constants.html#constant.clsctx-inproc-handler">CLSCTX_INPROC_HANDLER</a></code></strong> and
+      <strong><code><a href="com.constants.html#constant.clsctx-server">CLSCTX_SERVER</a></code></strong>.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-null">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-null">VT_NULL</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      NULL pointer reference.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-empty">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-empty">VT_EMPTY</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      A property with a type indicator of <strong><code><a href="com.constants.html#constant.vt-empty">VT_EMPTY</a></code></strong> has
+      no data associated with it; that is, the size of the value is zero.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-int">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-int">VT_INT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      4-byte signed integer value (equivalent to
+      <strong><code><a href="com.constants.html#constant.vt-i4">VT_I4</a></code></strong>).
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-i1">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-i1">VT_I1</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      1-byte signed integer.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-i2">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-i2">VT_I2</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Two bytes representing a 2-byte signed integer value.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-i4">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-i4">VT_I4</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      4-byte signed integer value.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-i8">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-i8">VT_I8</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      8-byte signed integer value.
+     </td>
+     <td>x64 only</td>
+    </tr>
+
+    <tr id="constant.vt-uint">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-uint">VT_UINT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      4-byte unsigned integer (equivalent to
+      <strong><code><a href="com.constants.html#constant.vt-ui4">VT_UI4</a></code></strong>).
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-ui1">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-ui1">VT_UI1</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      1-byte unsigned integer.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-ui2">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-ui2">VT_UI2</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      2-byte unsigned integer.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-ui4">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-ui4">VT_UI4</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      4-byte unsigned integer.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-ui8">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-ui8">VT_UI8</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      8-byte unsigned integer.
+     </td>
+     <td>x64 only</td>
+    </tr>
+
+    <tr id="constant.vt-r4">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-r4">VT_R4</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      32-bit IEEE floating point value.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-r8">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-r8">VT_R8</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      64-bit IEEE floating point value.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-bool">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-bool">VT_BOOL</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Boolean value.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-error">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-error">VT_ERROR</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Error code; containing the status code associated with the
+      error.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-cy">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-cy">VT_CY</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      8-byte two&#039;s complement integer (scaled by 10,000).
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-date">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-date">VT_DATE</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      A 64-bit floating point number representing the number of days
+      (not seconds) since <code class="literal">December 31, 1899</code>.
+      For example, <code class="literal">January 1, 1900</code> is <code class="literal">2.0</code>,
+      <code class="literal">January 2, 1900</code> is <code class="literal">3.0</code>, etc.
+      This is stored in the same representation as <strong><code><a href="com.constants.html#constant.vt-r8">VT_R8</a></code></strong>.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-bstr">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-bstr">VT_BSTR</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Pointer to a null-terminated Unicode string.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-decimal">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-decimal">VT_DECIMAL</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      A decimal structure.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-unknown">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-unknown">VT_UNKNOWN</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      A pointer to an object that implements the IUnknown interface.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-dispatch">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-dispatch">VT_DISPATCH</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      A pointer to a pointer to an object was specified.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-variant">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-variant">VT_VARIANT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      A type indicator followed by the corresponding value.
+      <strong><code><a href="com.constants.html#constant.vt-variant">VT_VARIANT</a></code></strong> can be used only with
+      <strong><code><a href="com.constants.html#constant.vt-byref">VT_BYREF</a></code></strong>.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-array">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-array">VT_ARRAY</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      If the type indicator is combined with
+      <strong><code><a href="com.constants.html#constant.vt-array">VT_ARRAY</a></code></strong> by an OR operator, the value is a pointer to a
+      <code class="literal">SAFEARRAY</code>. <strong><code><a href="com.constants.html#constant.vt-array">VT_ARRAY</a></code></strong>
+      can use the OR with the following data types: <strong><code><a href="com.constants.html#constant.vt-i1">VT_I1</a></code></strong>,
+      <strong><code><a href="com.constants.html#constant.vt-ui1">VT_UI1</a></code></strong>, <strong><code><a href="com.constants.html#constant.vt-i2">VT_I2</a></code></strong>, <strong><code><a href="com.constants.html#constant.vt-ui2">VT_UI2</a></code></strong>,
+      <strong><code><a href="com.constants.html#constant.vt-i4">VT_I4</a></code></strong>, <strong><code><a href="com.constants.html#constant.vt-ui4">VT_UI4</a></code></strong>, <strong><code><a href="com.constants.html#constant.vt-int">VT_INT</a></code></strong>,
+      <strong><code><a href="com.constants.html#constant.vt-uint">VT_UINT</a></code></strong>, <strong><code><a href="com.constants.html#constant.vt-r4">VT_R4</a></code></strong>, <strong><code><a href="com.constants.html#constant.vt-r8">VT_R8</a></code></strong>,
+      <strong><code><a href="com.constants.html#constant.vt-bool">VT_BOOL</a></code></strong>, <strong><code><a href="com.constants.html#constant.vt-decimal">VT_DECIMAL</a></code></strong>, <strong><code><a href="com.constants.html#constant.vt-error">VT_ERROR</a></code></strong>,
+      <strong><code><a href="com.constants.html#constant.vt-cy">VT_CY</a></code></strong>, <strong><code><a href="com.constants.html#constant.vt-date">VT_DATE</a></code></strong>, <strong><code><a href="com.constants.html#constant.vt-bstr">VT_BSTR</a></code></strong>,
+      <strong><code><a href="com.constants.html#constant.vt-dispatch">VT_DISPATCH</a></code></strong>, <strong><code><a href="com.constants.html#constant.vt-unknown">VT_UNKNOWN</a></code></strong> and
+      <strong><code><a href="com.constants.html#constant.vt-variant">VT_VARIANT</a></code></strong>.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.vt-byref">
+     <td>
+      <strong><code><a href="com.constants.html#constant.vt-byref">VT_BYREF</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      If the type indicator is combined with <strong><code><a href="com.constants.html#constant.vt-byref">VT_BYREF</a></code></strong>
+      by an OR operator, the value is a reference. Reference types are
+      interpreted as a reference to data, similar to the reference type in
+      C++.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.cp-acp">
+     <td>
+      <strong><code><a href="com.constants.html#constant.cp-acp">CP_ACP</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Default to ANSI code page.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.cp-maccp">
+     <td>
+      <strong><code><a href="com.constants.html#constant.cp-maccp">CP_MACCP</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Macintosh code page.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.cp-oemcp">
+     <td>
+      <strong><code><a href="com.constants.html#constant.cp-oemcp">CP_OEMCP</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Default to OEM code page.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.cp-utf7">
+     <td>
+      <strong><code><a href="com.constants.html#constant.cp-utf7">CP_UTF7</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Unicode (UTF-7).
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.cp-utf8">
+     <td>
+      <strong><code><a href="com.constants.html#constant.cp-utf8">CP_UTF8</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Unicode (UTF-8).
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.cp-symbol">
+     <td>
+      <strong><code><a href="com.constants.html#constant.cp-symbol">CP_SYMBOL</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      <code class="literal">SYMBOL</code> translations.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.cp-thread-acp">
+     <td>
+      <strong><code><a href="com.constants.html#constant.cp-thread-acp">CP_THREAD_ACP</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Current thread&#039;s ANSI code page
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.varcmp-lt">
+     <td>
+      <strong><code><a href="com.constants.html#constant.varcmp-lt">VARCMP_LT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      The left <code class="literal">bstr</code> is less than right
+      <code class="literal">bstr</code>.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.varcmp-eq">
+     <td>
+      <strong><code><a href="com.constants.html#constant.varcmp-eq">VARCMP_EQ</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      The two parameters are equal.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.varcmp-gt">
+     <td>
+      <strong><code><a href="com.constants.html#constant.varcmp-gt">VARCMP_GT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      The left <code class="literal">bstr</code> is greater than right
+      <code class="literal">bstr</code>.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.varcmp-null">
+     <td>
+      <strong><code><a href="com.constants.html#constant.varcmp-null">VARCMP_NULL</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Either expression is NULL.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.norm-ignorecase">
+     <td>
+      <strong><code><a href="com.constants.html#constant.norm-ignorecase">NORM_IGNORECASE</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Ignore case sensitivity.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.norm-ignorenonspace">
+     <td>
+      <strong><code><a href="com.constants.html#constant.norm-ignorenonspace">NORM_IGNORENONSPACE</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Ignore nonspacing characters.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.norm-ignoresymbols">
+     <td>
+      <strong><code><a href="com.constants.html#constant.norm-ignoresymbols">NORM_IGNORESYMBOLS</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Ignore symbols.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.norm-ignorewidth">
+     <td>
+      <strong><code><a href="com.constants.html#constant.norm-ignorewidth">NORM_IGNOREWIDTH</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Ignore string width.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.norm-ignorekanatype">
+     <td>
+      <strong><code><a href="com.constants.html#constant.norm-ignorekanatype">NORM_IGNOREKANATYPE</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Ignore Kana type.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.norm-ignorekashida">
+     <td>
+      <strong><code><a href="com.constants.html#constant.norm-ignorekashida">NORM_IGNOREKASHIDA</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      Ignore Arabic kashida characters.
+     </td>
+     <td>
+      Availability is dependent upon under lying library.
+     </td>
+    </tr>
+
+    <tr id="constant.disp-e-divbyzero">
+     <td>
+      <strong><code><a href="com.constants.html#constant.disp-e-divbyzero">DISP_E_DIVBYZERO</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      A return error that indicates a divide by zero error.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.disp-e-overflow">
+     <td>
+      <strong><code><a href="com.constants.html#constant.disp-e-overflow">DISP_E_OVERFLOW</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      An error that indicates that a value could not be coerced to
+      its expected representation.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.disp-e-badindex">
+     <td>
+      <strong><code><a href="com.constants.html#constant.disp-e-badindex">DISP_E_BADINDEX</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      An error that indicates that an array index does not exist.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.disp-e-paramnotfound">
+     <td>
+      <strong><code><a href="com.constants.html#constant.disp-e-paramnotfound">DISP_E_PARAMNOTFOUND</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      A return value that indicates that one of the parameter IDs
+      does not correspond to a parameter on the method.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.mk-e-unavailable">
+     <td>
+      <strong><code><a href="com.constants.html#constant.mk-e-unavailable">MK_E_UNAVAILABLE</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      iMoniker COM status code, return on errors where the function call
+      failed due to unavailability.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.locale-neutral">
+     <td>
+      <strong><code><a href="com.constants.html#constant.locale-neutral">LOCALE_NEUTRAL</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      The neutral locale. This constant is generally not used when calling NLS APIs.
+      Instead, use LOCALE_SYSTEM_DEFAULT.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.locale-system-default">
+     <td>
+      <strong><code><a href="com.constants.html#constant.locale-system-default">LOCALE_SYSTEM_DEFAULT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>
+      The default locale for the operating system.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+   </tbody>
+  
+ </table>
+
+</div>
+</div></div></body></html>
