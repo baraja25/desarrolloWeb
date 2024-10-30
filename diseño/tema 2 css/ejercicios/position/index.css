@@ -3,9 +3,7 @@
 }
 
 body {
-    background-color: beige;
     height: 100vh;
-    width: 100vw;
     margin: 0;
 }
 
@@ -38,6 +36,48 @@ main {
     height: 100%;
 }
 
+.main__wrapper {
+    background-color: #add8e6;
+    height: 20%;
+    margin: 20px;
+    position: relative;
+    z-index: -1;
+}
+
+.main__wrapper--80h {
+    height: 80%;
+}
+
+.section__cuadrado {
+    height: 50px;
+    width: 50px;
+}
+
+.rojo {
+    background-color: red;
+}
+
+.verde {
+    background-color: greenyellow;
+}
+
+.section__cuadrado--absolute {
+    position: absolute;
+    left: 10%;
+    top: 20%;
+}
+
+.section__cuadrado--relative {
+    position: relative;
+    left: 11%;
+    top: 10%;
+}
+
+.section__brown {
+    height: 100%;
+    width: 100%;
+    background-color: #deb887;
+}
 
 .footer__menu {
     display: flex;
@@ -49,5 +89,5 @@ main {
     padding: 20px;
     background-color: lightgray;
     list-style: none;
-    position: sticky;
 }
+
