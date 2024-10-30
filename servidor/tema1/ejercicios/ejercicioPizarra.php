@@ -91,7 +91,7 @@ if (isset($_GET['agenda'])) {
 if (isset($_GET["borrar"]) && (isset($_GET["selec"]))) {
     $select = $_GET["selec"];
 
-    $filasDni = FilasDni($agenda);
+    $filasDni = Filasdni($agenda);
 
     foreach ($select as $key => $value) {
         unset($filasDni[$key]);
