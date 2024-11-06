@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cambiar Estilo con JavaScript</title>
+    <style>
+      div {
+        padding: 20px;
+        margin: 10px;
+        border: 1px solid 333;
+        background-color: lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Ejercicio: Cambiar el estilo de elementos con JavaScript</h2>
+
+    <!-- Elementos <div> -->
+    <div>Caja 1</div>
+    <div>Caja 2</div>
+    <div>Caja 3</div>
+
+    <!-- Botón para cambiar el estilo de las cajas -->
+    <button onclick="cambiarColor()">Cambiar Color de Fondo</button>
+
+    <script>
+      function cambiarColor() {
+        // Selecciona todos los elementos <div>
+        // Itera sobre cada elemento y cambia el color de fondo
+        const elementos = document.getElementsByTagName("div");
+
+        for (let index = 0; index < elementos.length; index++) {
+          elementos[index].style.backgroundColor = "blue";
+        }
+      }
+    </script>
+  </body>
+</html>

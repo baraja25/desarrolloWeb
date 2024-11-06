@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambiar Texto</title>
+</head>
+<body>
+  <h2>Ejercicio: Cambiar texto con JavaScript</h2>
+  
+  <!-- Elemento cuyo texto vamos a cambiar -->
+  <p id="mensaje" >Este es el texto original.</p>
+  
+  <!-- Botón para activar el cambio de texto -->
+  <button onclick="cambiarTexto()">Cambiar Texto</button>
+  
+  <script>
+    // Función para cambiar el texto del párrafo
+    function cambiarTexto() {
+      // Selecciona el elemento con el ID 'mensaje' y cambia su contenido
+    const elemento = document.getElementById("mensaje");
+    elemento.innerHTML = "Este es el texto cambiado";
+    }
+  </script>
+</body>
+</html>
