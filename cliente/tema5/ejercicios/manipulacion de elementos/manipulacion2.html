@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulacion 2</title>
+  </head>
+  <body>
+    <div id="exampleDiv">
+      <p>Parrafo visible</p>
+      <p style="display: none">Parrafo oculto</p>
+    </div>
+    <p id="outputText"></p>
+
+    <script>
+        const elemento = document.getElementById("exampleDiv");
+        const outputText = document.getElementById("outputText");
+        outputText.innerText = elemento.innerText;
+        outputText.innerText = elemento.textContent;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulacion 3</title>
+  </head>
+  <body>
+    <div id="htmlContainer"></div>
+    <button id="addHtml">Agregar HTML</button>
+    <script>
+      const elemento = document.getElementById("htmlContainer");
+      const boton = document.getElementById("addHtml");
+      boton.addEventListener("click", function () {
+        elemento.innerHTML =
+          "<h2>Título generado</h2><p>Este párrafo se ha generado dinámicamente con 	<strong>innerHTML</strong>.</p>";
+      });
+    </script>
+  </body>
+</html>

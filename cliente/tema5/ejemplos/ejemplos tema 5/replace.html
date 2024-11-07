@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <style>
+    .rojo {
+      color: red;
+    }
+    .verde {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <p id="texto" class="rojo">Este texto es rojo inicialmente.</p>
+  <button onclick="cambiarColor()">Cambiar a verde</button>
+  <script>
+    function cambiarColor() {
+      const texto = document.getElementById("texto");
+      texto.classList.replace("rojo", "verde"); // Reemplaza la clase "rojo" con "verde"
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulacion 4</title>
+  </head>
+  <body>
+    <input type="text" id="userInput" placeholder="Escribe algo" />
+    <button id="insertHtml">Insertar como HTML</button>
+    <div id="outputHtml"></div>
+    <script>
+        const userInput = document.getElementById("userInput");
+        const outputHtml = document.getElementById("outputHtml");
+        const boton = document.getElementById("insertHtml");
+
+        boton.addEventListener("click", function() {
+           outputHtml.innerHTML = userInput.value; 
+        });
+    </script>
+  </body>
+</html>

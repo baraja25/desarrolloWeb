@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+  <a id="miEnlace" href="https://www.example.com" target="_blank">Visitar página</a>
+  <script>
+    const enlace = document.getElementById("miEnlace");
+    
+    // Obtenemos el valor del atributo href
+    const href = enlace.getAttribute("href");
+    console.log(href); // "https://www.example.com"
+
+    // Obtenemos el valor del atributo target
+    const target = enlace.getAttribute("target");
+    console.log(target); // "_blank"
+  </script>
+</body>
+</html>

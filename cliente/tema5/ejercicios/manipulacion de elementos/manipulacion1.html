@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="textContainer">Texto inicial</div>
+    <button id="changeText">Cambiar Texto</button>
+    <script>
+        const elemento = document.getElementById("textContainer");
+        const boton = document.getElementById("changeText");
+
+        boton.addEventListener("click", function() {
+            elemento.textContent = "Texto cambiado con textContent";
+        });
+
+    </script>
+  </body>
+</html>

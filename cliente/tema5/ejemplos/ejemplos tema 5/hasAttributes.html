@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+  <img id="miImagen" src="imagen1.jpg" alt="Imagen inicial">
+  <div id="miDiv"></div>
+  <script>
+    const imagen = document.getElementById("miImagen");
+    const div = document.getElementById("miDiv");
+    
+    // Verificamos si cada elemento tiene atributos
+    console.log(imagen.hasAttributes()); // true, porque tiene atributos como src y alt
+    console.log(div.hasAttributes());    // false, porque no tiene ningún atributo
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <style>
+    .resaltado {
+      background-color: yellow;
+    }
+    .negrita {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <p id="texto">Este es un texto de ejemplo.</p>
+  <button onclick="añadirEstilos()">Añadir Estilos</button>
+
+  <script>
+    function añadirEstilos() {
+      const texto = document.getElementById("texto");
+      texto.classList.add("resaltado", "negrita");
+    }
+  </script>
+</body>
+</html>

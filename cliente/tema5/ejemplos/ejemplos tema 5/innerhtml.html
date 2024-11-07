@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+  <div id="contenido">
+    <p>Este es un texto dentro del div.</p>
+  </div>
+  <script>
+    const elemento = document.getElementById("contenido");
+    console.log(elemento.innerHTML); // "<p>Este es un texto dentro del div.</p>"
+
+    // Modificamos el contenido usando innerHTML
+    elemento.innerHTML = "<h2>Nuevo título</h2><p>Nuevo contenido.</p>";
+  </script>
+</body>
+</html>

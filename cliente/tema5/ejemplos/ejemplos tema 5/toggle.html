@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <style>
+    .resaltado {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <p id="texto">Haz clic en el botón para resaltar este texto.</p>
+  <button onclick="alternarResaltado()">Alternar Resaltado</button>
+
+  <script>
+    function alternarResaltado() {
+      const texto = document.getElementById("texto");
+      texto.classList.toggle("resaltado"); // Añade o quita la clase "resaltado"
+    }
+  </script>
+</body>
+</html>

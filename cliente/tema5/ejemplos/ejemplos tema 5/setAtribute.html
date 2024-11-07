@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+  <img id="miImagen" src="imagen1.jpg" alt="Imagen inicial">
+  <script>
+    const imagen = document.getElementById("miImagen");
+    // Cambiamos el valor del atributo src
+    imagen.setAttribute("src", "imagen2.jpg");
+    
+    // Cambiamos el valor del atributo alt
+    imagen.setAttribute("alt", "Imagen actualizada");
+
+    // Añadimos un nuevo atributo title
+    imagen.setAttribute("title", "Descripción de la imagen");
+  </script>
+</body>
+</html>

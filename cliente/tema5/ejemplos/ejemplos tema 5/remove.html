@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <style>
+    .oculto {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <p id="texto" class="oculto">Este es un texto de ejemplo.</p>
+  <button onclick="mostrarTexto()">Mostrar Texto</button>
+
+  <script>
+    function mostrarTexto() {
+      const texto = document.getElementById("texto");
+      texto.classList.remove("oculto"); // Quita la clase "oculto" para mostrar el texto
+    }
+  </script>
+</body>
+</html>

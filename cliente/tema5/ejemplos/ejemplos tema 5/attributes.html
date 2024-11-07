@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+  <img id="miImagen" src="imagen1.jpg" alt="Imagen inicial" title="Título de la imagen">
+  <script>
+    const imagen = document.getElementById("miImagen");
+    
+    // Accedemos a la colección de atributos
+    const atributos = imagen.attributes;
+    
+    // Iteramos sobre los atributos y mostramos nombre y valor
+    for (let i = 0; i < atributos.length; i++) {
+      console.log(atributos[i].name + ": " + atributos[i].value);
+    }
+  </script>
+</body>
+</html>

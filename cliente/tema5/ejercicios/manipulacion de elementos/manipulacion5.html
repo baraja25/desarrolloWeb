@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulacion 5</title>
+  </head>
+  <body>
+    <div id="styledDiv" style="border: 1px solid black; padding: 10px">
+      <p>Texto con formato de ejemplo</p>
+    </div>
+    <button id="updateTextContent">Actualizar con textContent</button>
+    <button id="updateInnerText">Actualizar con innerText</button>
+    <script>
+      const styledDiv = document.getElementById("styledDiv");
+      const updateTextContent = document.getElementById("updateTextContent");
+      const updateInnerText = document.getElementById("updateInnerText");
+
+      updateTextContent.addEventListener("click", function() {
+        styledDiv.textContent = "Contenido cambiado usando textContent";
+      });
+
+      updateInnerText.addEventListener("click", function(){
+        styledDiv.innerText = "Contenido cambiado usando innerText";
+      });
+    </script>
+  </body>
+</html>
