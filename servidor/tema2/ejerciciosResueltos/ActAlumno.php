@@ -77,14 +77,14 @@ if ($resul)  //Si ha resultado
 } else {
     echo "Error:" . mysqli_error($db);
 }
-/*
-$alu="";  //Inicilizamos la variable alu para el NIF del alumno seleccionado
 
-if (isset($_POST['Alumno']) )  //Comprobamos si hay un alumnos previamente seleccionado
+$select = array();
+
+if (isset($_POST['Selec']))  //Comprobamos si hay alumnos previamente seleccionados
 {
-    $alu=$_POST['Alumno'];
+    $select = $_POST['Selec'];
 }
-*/
+
 
 
 
@@ -107,7 +107,11 @@ mysqli_close($db);
 
             foreach ($alumnos as $alumno) {
                 echo "<tr>";
-                echo "<td><input type='checkbox' name='Selec[$alumno[NIF]]'></td><td></td><td>$alumno[Apellido1], $alumno[Nombre]</td>";
+                echo "<td><input type='checkbox' name='Selec[$alumno[NIF]]' ";
+                if (array_key_exists($alumno['NIF'], $select)) {
+                    echo "checked";
+                }
+                echo " ></td><td></td><td>$alumno[Apellido1], $alumno[Nombre]</td>";
 
 
                 echo "</tr>";
@@ -125,7 +129,7 @@ mysqli_close($db);
     <?php
 
 
-    if (isset($_POST['Mostrar']) && (isset($_POST['Selec'])))  //Comprobamos si hay un alumnos previamente seleccionado
+    if (isset($_POST['Mostrar']))  //Comprobamos si hay un alumnos previamente seleccionado
     {
         $select = $_POST['Selec'];
 
