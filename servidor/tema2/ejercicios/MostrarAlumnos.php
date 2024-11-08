@@ -45,7 +45,24 @@ if (isset($_POST['alumno'])) {
         $nombre = $alumnoSeleccionado['Nombre'];
         $apellido1 = $alumnoSeleccionado['Apellido1'];
         $apellido2 = $alumnoSeleccionado['Apellido2'];
-        $telefono = $alumnoSeleccionado['telefono'];
+        $telefono = $alumnoSeleccionado['Telefono'];
+    }
+}
+
+// Manejar la actualización de los datos del alumno
+if (isset($_POST['actualizar'])) {
+    $nif = $_POST['nif'];
+    $nombre = $_POST['nombre'];
+    $apellido1 = $_POST['apellido1'];
+    $apellido2 = $_POST['apellido2'];
+    $telefono = $_POST['telefono'];
+
+    // Consulta para actualizar los datos del alumno
+    $consultaActualizar = "UPDATE alumnos SET Nombre='$nombre', Apellido1='$apellido1', Apellido2='$apellido2', Telefono='$telefono' WHERE NIF='$nif'";
+    if (mysqli_query($db, $consultaActualizar)) {
+        echo "Datos actualizados correctamente.";
+    } else {
+        echo "Error al actualizar: " . mysqli_error($db);
     }
 }
 
@@ -103,6 +120,7 @@ mysqli_close($db);
             echo "<label for='telefono'>Teléfono: </label>"; // Etiqueta para el campo Teléfono
             echo "<input type='text' name='telefono' id='telefono' value='$telefono'>"; // Campo de texto para el Teléfono
             echo "<br>";
+            echo "<input type='submit' value='Actualizar' name='actualizar'>"; // Botón para actualizar los datos
             echo "</fieldset>"; // Cerrar el campo de conjunto
         }
         ?>
