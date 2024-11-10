@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video con subtitulos</title>
+</head>
+<body>
+    <video controls>
+        <source src="induccion_AD.mp4" type="video/mp4">
+        <track src="subespañol.vtt" kind="subtitles" srclang="es" label="Español" default>
+        <track src="subingles.vtt" kind="subtitles" srclang="en" label="English" >
+        <track src="subger.vtt" kind="subtitles" srclang="ger" label="German" >
+        Tu navegador no soporta el elemento video
+    </video>
+    <style>
+        video::cue {
+          color: gold; /* Color del texto */
+          background: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+          border-radius: 15px; 
+          font-size: 30px; 
+        }
+        </style>
+</body>
+</html>
