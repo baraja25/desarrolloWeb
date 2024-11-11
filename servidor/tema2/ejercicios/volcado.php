@@ -14,7 +14,7 @@ function ObtenerAlumnos()
         $linea = fgets($fd); //Extraemos una linea de ese archivo
 
 
-        if (trim($linea != "")) {
+        if (trim($linea) != "") {
             $campos = explode(":", $linea); //Separamos la linea en campos
             $alumnos[] = $campos;
         }
@@ -25,6 +25,25 @@ function ObtenerAlumnos()
     return  $alumnos;
 }
 
+function existeNif($nif)
+{
+    global $db;
+
+    $consulta = "SELECT count(*) as cuenta
+    FROM alumnos WHERE NIF = '$nif'";
+
+
+    $result = mysqli_query($db, $consulta);
+
+    if ($result) {
+
+        $fila = mysqli_fetch_assoc($result); //extraer la unica fila
+
+    } else {
+    }
+
+    return $fila['cuenta'];
+}
 
 
 // conexion con base de datos
@@ -41,12 +60,15 @@ $db = mysqli_connect($host, $user, $pass, $base);
 $alumnos = ObtenerAlumnos();
 
 foreach ($alumnos as $alumno) {
-    
-    $consulta = "INSERT INTO alumnos (NIF, Nombre, Apellido1, Apellido2, edad, telefono) VALUES ('$alumno[0]', '$alumno[1]', '$alumno[2]', '$alumno[3]', $alumno[4], '$alumno[5]')";
-    echo $consulta;
+
+    if (!existeNif($alumno[0])) {
+        $consulta = "INSERT INTO alumnos (NIF, Nombre, Apellido1, Apellido2, edad, telefono) VALUES ('$alumno[0]', '$alumno[1]', '$alumno[2]', '$alumno[3]', $alumno[4], '$alumno[5]')";
+        $resultado = mysqli_query($db, $consulta);
+    } else {
+        echo "<b>ERROR</b> El alumno con NIF $alumno[0] ya existe<br>";
+    }
 }
 
 
-echo $consulta;
 
 mysqli_close($db); //cerrar base de datos
