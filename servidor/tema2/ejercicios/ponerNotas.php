@@ -1,316 +1,117 @@
-<html>
+<?php
+// Configuración de conexión a la base de datos
+$host = "localhost"; // Nombre del host (servidor)
+$user = "root";      // Nombre de usuario de la base de datos
+$pass = "";          // Contraseña de la base de datos
+$base = "tema2";    // Nombre de la base de datos
 
-<body>
 
-<?php 
 
-function  NotaModulo($clave,$mod,$cur,$notasArchivo) 
-{
-  $nota="";
-  
-  if (isset($notasArchivo[$clave]))  //Si ese alumno tenia una nota
-  {
-      $linea=$notasArchivo[$clave];
-        
-      $campos=explode(":",$linea);
-      
-      if ( ($campos[1]==$mod)  &&  ($campos[2]==$cur)  )
-      {
-          $nota=$campos[3];
-      }
-      
-  }
-  
-  return $nota;
+// Inicialización de variables
+$alu = ""; // Variable para almacenar el NIF del alumno seleccionado
+$mod = ""; // Variable para almacenar el id del modulo seleccionado
+$nota = ""; // Variable para almacenar la nota introducida
+$nif = ""; // Variable para almacenar el NIF
+$nombre = ""; // Variable para almacenar el nombre
+$apellido1 = ""; // Variable para almacenar el primer apellido
+$apellido2 = ""; // Variable para almacenar el segundo apellido
+$edad = ""; //Variable para almacenar la edad
+$telefono = ""; // Variable para almacenar el teléfono
+$alumnos = array(); // Inicialización del array para almacenar los alumnos
+$modulos = array(); // Inicialización del array para almacenar los modulos
+
+// Establecer la conexión con la base de datos
+$db = mysqli_connect($host, $user, $pass, $base); // Conexión al servidor de base de datos y devuelve el descriptor de conexión
+
+// Consulta para obtener todos los alumnos
+$consulta = "SELECT * FROM alumnos";
+$resultado = mysqli_query($db, $consulta); // Ejecutar la consulta
+
+// Verificar si la consulta fue exitosa
+if ($resultado) {
+    $alumnos = mysqli_fetch_all($resultado, MYSQLI_ASSOC); // Almacenar todos los resultados en el array $alumnos
+} else {
+    echo "Error:" . mysqli_error($db); // Mostrar error si la consulta falla
 }
 
-function VolcarNotas($notas)
-{
-    $fd=fopen("Notas.txt","w") or die("Error al abrir el archivo");  //Abrimos el archivo con Sobre-escritura
-    
-    foreach ($notas as $clave=>$linea)
-    {
-      fputs($fd, $linea); //Volcamos esa linea en el archivo     
+$consultaModulos = "SELECT * FROM modulos";
+$resultadoModulos = mysqli_query($db, $consultaModulos); //Ejecutar la consulta
+
+// Verificar si la consulta fue exitosa
+if ($resultadoModulos) {
+    $modulos = mysqli_fetch_all($resultadoModulos, MYSQLI_ASSOC); // Almacenar todos los resultados en el array $alumnos
+} else {
+    echo "Error:" . mysqli_error($db); // Mostrar error si la consulta falla
+}
+
+if (isset($_POST['ponerNota'])) {
+    $alu = $_POST['alumno'];
+    $mod = $_POST['modulo'];
+    $nota = $_POST['nota'];
+    if ($nota <= 10 && $nota >= 0) {
+        $consultaNota = "INSERT INTO notas (idAlumno, idModulo, nota) VALUES ('$alu', $mod, $nota)";
+        $resultadoNota = mysqli_query($db, $consultaNota); //Ejecutar la consulta
+    } else {
+        echo "Introduce una nota entre 0 y 10";
     }
-    
-    fclose($fd);
 }
-
-function ObtenerNotas()
-{
-    $notas=array();   //Array con las lineas del archivo
-    
-    if (file_exists("Notas.txt") )
-    {
-            $fd=fopen("Notas.txt","r") or die("Error al abrir el archivo");
-            
-            //Mostramos el contenido del archivo
-            
-            while(!feof($fd) )     //Mientras No  llegado al fin del archivo
-            {
-                $linea=fgets($fd); //Extraemos una linea de ese archivo
-                
-                $campos=explode(":",$linea); //Separamos la linea en campos
-                
-                if (count($campos)==4 )   //Solo queremos la lienas con los 6 campos del alumno
-                {
-                    $notas[$campos[0]]=$linea; //Guardamos ese linea en el array de alumnos
-                }
-            }
-            
-            fclose($fd);
-            
-    }
-    
-    return  $notas;
-   
-}
-
-function PonerNota($clave,$mod,$cur,$nota)
-{
-    global $notasArchivo;
-    
-    $salto="\r\n";
-         
-    $linea="$clave:$mod:$cur:$nota".$salto;
-        
-    $notasArchivo[$clave]=$linea;     //Insertamos la linea con la nueva nota    
-       
-}
-
-
-function ObtenerMatriculados($mod,$cur)
-{
-    $alumnosMatri=array();
-    
-    $alumnos=ObtenerAlumnos();   //Obtenemos los datos de todos los alumnos
-    
-    $fd=fopen("Matricula.txt","r") or die("Error al abrir el archivo");
-    
-    while(!feof($fd) )
-    {
-       $linea=fgets($fd);
-        
-       $campos=explode(":",$linea);
-       
-       if (count($campos)==3 )       //Filtramos posibles lineas con menos campos(con caracteres especiales)
-       {
-           if ( ( trim($mod)==trim($campos[1]) ) && (trim($cur)==trim($campos[2])  )  )    //Si en esa matricula conincie el curso y el modulo
-           {
-               $lineaAlu=$alumnos[$campos[0]];   //Recuperamos la linea con los datos de ese alumno
-               
-               $camposAlu=explode(":",$lineaAlu);
-               
-               $alumnosMatri[$campos[0]]="$camposAlu[2]:$camposAlu[3]:$camposAlu[1]:$camposAlu[4]:$camposAlu[5]";        ;  //Guardamos en el array de matriculados la linea del alumno con ese dni   
-           }
-          
-       }
-       
-    }
-    
-    asort($alumnosMatri); //Ordenamos por valor manteniendo la clave
-   
-    fclose($fd);
-   
-    return  $alumnosMatri;
-    
-}
-
-
-
-function ObtenerAlumnos()
-{
-    $alumnos=array();   //Array con las lineas del archivo
-    
-    $fd=fopen("Alumnos.txt","r") or die("Error al abrir el archivo");
-    
-    //Mostramos el contenido del archivo
-    
-    while(!feof($fd) )     //Mientras No  llegado al fin del archivo
-    {
-        $linea=fgets($fd); //Extraemos una linea de ese archivo
-        
-        $campos=explode(":",$linea); //Separamos la linea en campos
-        
-        if (count($campos)==6 )   //Solo queremos la lienas con los 6 campos del alumno
-        {
-              $alumnos[$campos[0]]=$linea; //Guardamos ese linea en el array de alumnos
-        }
-    }
-    
-    fclose($fd);
-    
-    return  $alumnos;
-}
-
-
-function ObtenerModulos()
-{
-    $modulos=array();   //Array con las lineas del archivo
-    
-    $fd=fopen("Modulos.txt","r") or die("Error al abrir el archivo");
-    
-    //Mostramos el contenido del archivo
-    
-    while(!feof($fd) )     //Mientras No  llegado al fin del archivo
-    {
-        $linea=fgets($fd); //Extraemos una linea de ese archivo
-        
-        $campos=explode(":",$linea); //Separamos la linea en campos
-        
-        if (count($campos)==4 )   //Solo queremos la lienas con los 6 campos del alumno
-        {
-            $modulos[$campos[0]]=$linea; //Guardamos ese linea en el array de alumnos
-        }
-    }
-    
-    fclose($fd);
-    
-    return  $modulos;
-}
-
-
-
-//Comprobamos los datos recibidos tras la recarga
-
-
-
-$mod="";
-
-if (isset($_POST['Modulo']) )   //Si tras la recarga recibimos un módulo
-{
-    $mod=$_POST['Modulo'];
-}
-
-$cur="";
-
-if (isset($_POST['Curso']) )   //Si tras la recarga recibimos un módulo
-{
-    $cur=$_POST['Curso'];
-}
-
-if (isset($_POST['Calificar']) )   //Si hemos pulsado en calificar
-{
-    $notas=$_POST['Notas']; //Recogemos las notas de los alumnos
-    
-    $notasArchivo=ObtenerNotas(); //Funcion que vuelca los datos del archivo notas a un array
-    
-    foreach ($notas as $clave=>$nota)
-    {
-        if ($nota!="")  //Si la nota de ese campo no es vacia
-        {
-            PonerNota($clave,$mod,$cur,$nota);  //Ponemos esa nota al alumno
-        }
-        
-    }
-    
-    VolcarNotas($notasArchivo);  //Vuelca las notas del array al archivo notas.txt
-    
-}
-
 
 ?>
 
 
- <fieldset><legend>Calificación de alumnos</legend> 
-      <form name="f1" method="post" action="<?php echo $_SERVER['PHP_SELF']  ?>">
-        
-         Modulo<select name='Modulo'>
-                 <option value=''></option>
-         
-         <?php 
-         
-         //Recuperamos los datos los modulos
-         
-         $modulos=ObtenerModulos();  //Obtenemos los alumnos matriculados en ese modulo y curso
-         
-         foreach ($modulos as $clave=>$modulo)
-         {
-             $campos=explode(":",$modulo);
-             
-             echo "<option value='$campos[0]'  ";
-             
-             if ($mod==$campos[0])
-             {
-                 echo " selected ";
-             }
-             echo ">$campos[1]</option>";
-             
-         }
-           
-         ?>
-        
-         </select>
-                 
-         Curso<select name='Curso'>
-                 <option value=''></option>
-         <?php 
-         
-         $cursos=array('2020','2021','2022','2023','2024','2025');
-         
-         foreach ($cursos as $clave=>$curso)
-         {
-             echo "<option value='$clave'  ";
-             
-             if ($cur==$campos[0])
-             {
-                 echo " selected ";
-             }
-             echo ">$curso</option>";
-           
-         }
-         
-         ?>
-         
-         </select>
-         
-       <input type='submit' name='Mostrar' value='Mostrar Alumnos'>
-    
-      </fieldset>   
-      
-      <?php 
-      
-      if (isset($_POST['Mostrar']) )
-      {
-          
-          echo "<fieldset><legend>Alumnos Calificables</legend>";
-          
-          echo "<table border='2'>";
-          echo "<th>Apellido1</th><th>Apellido2</th><th>Nombre</th><th>Nota</th>";
-          
-          $alumnos=ObtenerMatriculados($mod,$cur);  //Obtenemos los alumnmos matriculados para ese curso y ese modulo
-          
-          $notasArchivo=ObtenerNotas(); //Funcion que vuelca los datos del archivo notas a un array
-          
-          foreach ($alumnos as $clave=>$linea)
-          {
-              $campos=explode(":",$linea);
-              
-               echo "<tr>";
-                   
-                  echo "<td>$campos[0]</td><td>$campos[1]</td><td>$campos[2]</td>";
-                  
-                  $notaAlu=NotaModulo($clave,$mod,$cur,$notasArchivo); 
-                   
-                  echo "<td><input type='text' name='Notas[$clave]'  size='3' value='$notaAlu'></td>";
-                  
-                  echo "</tr>";
-                  
-             
-          }
-          
-          echo "</table>";
-          
-          echo "<input type='submit' name='Calificar' value='Calificar'>";
-          
-          echo "</fieldset>";
-        
-      }
-      
-      ?>
-      
-   </form>
-    
- </body> 
-</html> 
- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poner Notas</title>
+</head>
+
+<body>
+
+    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+        Alumnos <select name="alumno"> <!-- Dropdown para seleccionar un alumno -->
+            <option value=""></option> <!-- Opción vacía -->
+            <?php
+            // Generar las opciones del dropdown a partir del array de alumnos
+            foreach ($alumnos as $alumno) {
+                echo "<option value='{$alumno['NIF']}'"; // Valor de la opción es el NIF del alumno
+
+                // Si el NIF del alumno coincide con el seleccionado, marcarlo como seleccionado
+                if ($alu == $alumno['NIF']) {
+
+                    echo " selected";
+                }
+
+                // Mostrar el apellido y nombre del alumno en la opción
+                echo ">{$alumno['Apellido1']}, {$alumno['Nombre']}</option>";
+            }
+            ?>
+        </select>
+
+        Modulos <select name="modulo"> <!-- Dropdown para seleccionar un modulo -->
+            <option value=""></option> <!-- Opción vacía -->
+            <?php
+            // Generar las opciones del dropdown a partir del array de modulos
+            foreach ($modulos as $modulo) {
+                echo "<option value='{$modulo['id']}'"; // Valor de la opción es el id del modulo
+
+                // Si el id del modulo coincide con el seleccionado, marcarlo como seleccionado
+                if ($mod == $modulo['id']) {
+                    echo " selected";
+                }
+
+                // Mostrar el nombre del modulo en la opción
+                echo ">{$modulo['Nombre']}</option>";
+            }
+            ?>
+        </select>
+        <input type="number" name="nota">
+        <input type="submit" value="Poner Nota" name="ponerNota">
+
+    </form>
+
+</body>
+
+</html>

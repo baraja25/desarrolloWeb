@@ -28,6 +28,7 @@ $nif = ""; // Variable para almacenar el NIF
 $nombre = ""; // Variable para almacenar el nombre
 $apellido1 = ""; // Variable para almacenar el primer apellido
 $apellido2 = ""; // Variable para almacenar el segundo apellido
+$edad = ""; //Variable para almacenar la edad
 $telefono = ""; // Variable para almacenar el teléfono
 
 // Verificar si se ha enviado el formulario y se ha seleccionado un alumno
