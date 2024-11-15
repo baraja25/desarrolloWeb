@@ -1,0 +1,1 @@
+Hay que cambiar la ruta de la etiqueta script, tiene la ruta absoluta porque por alguna razon la ruta relativa no funciona (intenta abrir el archivo comiendose dos carpetas).

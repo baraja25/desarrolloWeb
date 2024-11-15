@@ -7,7 +7,7 @@ class card {
   getBlackJackValue() {
     if (this.value == "A") {
       return 11;
-    } else if (["J", "Q", "K"]) {
+    } else if (["J", "Q", "K"].includes(this.value)) {
       return 10;
     } else {
       return parseInt(this.value);
@@ -173,19 +173,28 @@ class blackjackGame {
     const playerScore = this.player.getScore();
     const dealerScore = this.dealer.getScore();
 
-    console.log(`${this.player.name} tiene un puntaje de: ${playerScore}`);
-    console.log(`El dealer tiene un puntaje de: ${dealerScore}`);
+    // Actualiza el contenido de los elementos HTML
+    document.getElementById("score-player").innerText = `${this.player.name} tiene un puntaje de: ${playerScore}`;
+    document.getElementById("score-dealer").innerText = `El dealer tiene un puntaje de: ${dealerScore}`;
+
+    // Elementos para mostrar el resultado
+    const resultPlayer = document.getElementById("result-player");
+    const resultDealer = document.getElementById("result-dealer");
 
     if (this.player.hasBusted()) {
-      console.log("El dealer gana porque el jugador ha superado 21.");
+        resultPlayer.innerText = "El dealer gana porque el jugador ha superado 21.";
+        resultDealer.innerText = "";
     } else if (this.dealer.hasBusted() || playerScore > dealerScore) {
-      console.log(`${this.player.name} gana!`);
+        resultPlayer.innerText = `${this.player.name} gana!`;
+        resultDealer.innerText = "";
     } else if (playerScore < dealerScore) {
-      console.log("El dealer gana!");
+        resultDealer.innerText = "El dealer gana!";
+        resultPlayer.innerText = "";
     } else {
-      console.log("Es un empate!");
+        resultPlayer.innerText = "Es un empate!";
+        resultDealer.innerText = "";
     }
-  }
+}
 }
 
 
