@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz de Cruces</title>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        // Obtener el contexto del canvas principal
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Crear un canvas para el patrón
+        const patternCanvas = document.createElement('canvas');
+        patternCanvas.width = 50; // Ajusta el tamaño según sea necesario
+        patternCanvas.height = 50; // Ajusta el tamaño según sea necesario
+        const patternCtx = patternCanvas.getContext('2d');
+
+        // Dibujar una cruz en el canvas de patrón
+        patternCtx.strokeStyle = 'black';
+        patternCtx.lineWidth = 5;
+        // Línea horizontal
+        patternCtx.beginPath();
+        patternCtx.moveTo(0, 25);
+        patternCtx.lineTo(50, 25);
+        patternCtx.stroke();
+        // Línea vertical
+        patternCtx.beginPath();
+        patternCtx.moveTo(25, 0);
+        patternCtx.lineTo(25, 50);
+        patternCtx.stroke();
+
+        // Crear el patrón a partir del canvas del patrón
+        const pattern = ctx.createPattern(patternCanvas, 'repeat');
+
+        // Llenar el canvas principal con el patrón
+        ctx.fillStyle = pattern;
+        ctx.fillRect(0, 0, 300, 300); // Tamaño del canvas principal, ajusta si es necesario
+    </script>
+</body>
+</html>
