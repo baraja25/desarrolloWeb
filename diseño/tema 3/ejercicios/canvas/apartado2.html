@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibujo con Canvas - Gradiente Radial</title>
+</head>
+<body>
+    <canvas id="miCanvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
+    <script>
+
+        var canvas = document.getElementById('miCanvas');
+        var ctx = canvas.getContext('2d');
+
+
+        var gradiente = ctx.createRadialGradient(200, 200, 0, 200, 200, 50);
+        gradiente.addColorStop(0, 'red');    
+        gradiente.addColorStop(1, 'violet'); 
+        // Dibujar el círculo completo con el gradiente
+        ctx.beginPath();
+        ctx.arc(200, 200, 50, 0, Math.PI * 2, true); // Círculo completo
+        ctx.fillStyle = gradiente; // Aplicar el gradiente como relleno
+        ctx.fill();
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curva de Bézier en Canvas</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+      // Obtener el contexto del canvas
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+
+      // Estilo de la figura
+      ctx.strokeStyle = "blue";
+      ctx.lineWidth = 3;
+
+      // Comenzar el dibujo
+      ctx.beginPath();
+      ctx.moveTo(50, 150); // Punto inicial de la curva
+
+      // los parametros son: (punto de control 1 x, punto de control 1 y, punto de control 2 x, punto de control 2 y, punto final x, punto final y)
+      ctx.bezierCurveTo(150, 50, 200, 250, 250, 150);
+
+      // Trazo de la curva
+      ctx.stroke();
+    </script>
+  </body>
+</html>

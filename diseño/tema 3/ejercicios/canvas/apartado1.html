@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dibujo con Canvas</title>
+  </head>
+  <body>
+    <canvas
+      id="miCanvas"
+      width="400"
+      height="400"
+      style="border: 1px solid #000000"
+    ></canvas>
+    <script>
+      var canvas = document.getElementById("miCanvas");
+      var ctx = canvas.getContext("2d");
+
+      // 1. Dibuja un arco rojo
+      ctx.beginPath();
+      ctx.arc(100, 150, 50, Math.PI, 2 * Math.PI, false);
+      ctx.strokeStyle = "red";
+      ctx.lineWidth = 5;
+      ctx.stroke();
+
+      // 2. Dibuja un medio círculo azul
+      ctx.beginPath();
+      ctx.arc(210, 150, 50, 0, Math.PI, true);
+      ctx.fillStyle = "blue";
+      ctx.fill();
+
+      // 3. Dibuja un arco verde al revés
+      ctx.beginPath();
+      ctx.arc(100, 250, 50, 0, Math.PI, false);
+      ctx.strokeStyle = "green";
+      ctx.lineWidth = 5;
+      ctx.stroke();
+      // 4. Dibuja un círculo amarillo
+      ctx.beginPath();
+      ctx.arc(210, 250, 50, 0, Math.PI * 2, true);
+      ctx.fillStyle = "yellow";
+      ctx.fill();
+    </script>
+  </body>
+</html>
