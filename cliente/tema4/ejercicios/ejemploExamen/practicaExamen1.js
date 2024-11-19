@@ -152,3 +152,108 @@ class Televisor extends Electrodomestico {
     }
 
 }
+
+
+class Hogar {
+    constructor(nombre) {
+        this.nombre = nombre;
+        this.electrodomesticos = [];
+    }
+
+    agregarElectrodomestico(electrodomestico) {
+        this.electrodomesticos.push(electrodomestico);
+    }
+
+    eliminarElectrodomestico(marca, modelo) {
+        this.electrodomesticos = this.electrodomesticos.filter(electrodomestico => {
+            return !(electrodomestico.marca === marca && electrodomestico.modelo === modelo);
+        })
+    }
+
+    buscarElectrodomestico(marca, modelo) {
+        const electroDomesticoEncontrado =  this.electrodomesticos.find(electrodomestico => {
+            return electrodomestico.marca === marca && electrodomestico.modelo === modelo;
+        })
+        if(electroDomesticoEncontrado) {
+            return electroDomesticoEncontrado;
+        } else {
+            return `No se encontro el electrodomestico con marca: ${marca} y modelo: ${modelo}.`;
+        }
+    }
+
+    contarElectrodomesticoPorTipo(tipo) {
+        let contador = 0;
+
+        for (let i = 0; i < this.electrodomesticos.length; ++i) {
+            if (this.electrodomesticos[i] instanceof Televisor && tipo === "Televisor") {
+                contador++;
+            } else if (this.electrodomesticos[i] instanceof Lavadora && tipo === "Lavadora") {
+                contador++;
+            }
+
+        }
+        return contador;
+    }
+
+    listarElectrodomestico() {
+        if (this.electrodomesticos.length === 0) {
+            console.log("No se encontro el electrodomestico.");
+            return;
+        }
+        console.log(`Electrodomesticos en ${this.nombre}: `);
+        this.electrodomesticos.forEach(electrodomestico => {
+            console.log(`- Marca: ${electrodomestico.marca}, Modelo: ${electrodomestico.modelo}`);
+        })
+    }
+}
+
+
+/* Tests */
+
+// Crear una instancia de Hogar
+const miHogar = new Hogar("Mi Casa");
+
+// Crear instancias de electrodomésticos
+const lavadora1 = new Lavadora("LG", "T123", 500, "A++", 8);
+const televisor1 = new Televisor("Samsung", "QLED", 1200, "A+", 55);
+const lavadora2 = new Lavadora("Samsung", "EcoBubble", 600, "A++", 9);
+const televisor2 = new Televisor("Sony", "Bravia", 1500, "A++", 65);
+
+// Agregar electrodomésticos al hogar
+miHogar.agregarElectrodomestico(lavadora1);
+miHogar.agregarElectrodomestico(televisor1);
+miHogar.agregarElectrodomestico(lavadora2);
+miHogar.agregarElectrodomestico(televisor2);
+
+// Listar todos los electrodomésticos en el hogar
+miHogar.listarElectrodomestico();
+
+// Contar electrodomésticos por tipo
+const cantidadLavadoras = miHogar.contarElectrodomesticoPorTipo("Lavadora");
+const cantidadTelevisores = miHogar.contarElectrodomesticoPorTipo("Televisor");
+
+console.log(`Cantidad de Lavadoras: ${cantidadLavadoras}`); // Debería mostrar 2
+console.log(`Cantidad de Televisores: ${cantidadTelevisores}`); // Debería mostrar 2
+
+// Buscar un electrodoméstico específico
+const busqueda1 = miHogar.buscarElectrodomestico("LG", "T123");
+console.log(busqueda1.mostrarInfo()); // Muestra la información del electrodoméstico
+
+const busqueda2 = miHogar.buscarElectrodomestico("Sony", "Bravia");
+console.log(busqueda2.mostrarInfo()); // Muestra la información del electrodoméstico
+
+// Encender y apagar electrodomésticos
+lavadora1.encender(); // Encender la lavadora
+lavadora1.iniciarLavado(); // Iniciar el ciclo de lavado
+
+televisor1.encender(); // Encender el televisor
+televisor1.cambiarCanal(); // Cambiar de canal
+
+// Apagar electrodomésticos
+lavadora1.apagar(); // Apagar la lavadora
+televisor1.apagar(); // Apagar el televisor
+
+// Eliminar un electrodoméstico
+miHogar.eliminarElectrodomestico("Samsung", "QLED");
+console.log("Después de eliminar el televisor Samsung QLED:");
+miHogar.listarElectrodomestico(); // Listar electrodomésticos después de la eliminación
