@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>estrella david</title>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+<script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    // Dibuja el triangulo normal
+    ctx.beginPath();
+    ctx.moveTo(200, 100);
+    ctx.lineTo(150, 200);
+    ctx.lineTo(250, 200);
+    ctx.closePath();
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = "blue";
+    ctx.stroke();
+
+    ctx.translate(200, 180);
+
+    ctx.rotate(Math.PI); // Rota 180 grados (Math.PI radianes)
+
+    // Dibuja el triángulo invertido
+    ctx.beginPath();
+    ctx.moveTo(0, -50);
+    ctx.lineTo(-50, 50);
+    ctx.lineTo(50, 50);
+    ctx.closePath();
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = "blue";
+    ctx.stroke();
+
+</script>
+</body>
+</html>
