@@ -161,13 +161,23 @@ class Hogar {
     }
 
     agregarElectrodomestico(electrodomestico) {
+        if (!(electrodomestico instanceof Electrodomestico)) {
+            console.error("Error: El objeto no es un electrodomestico.");
+            return;
+        }
         this.electrodomesticos.push(electrodomestico);
     }
 
     eliminarElectrodomestico(marca, modelo) {
-        this.electrodomesticos = this.electrodomesticos.filter(electrodomestico => {
-            return !(electrodomestico.marca === marca && electrodomestico.modelo === modelo);
-        })
+        const electrodomesticoExistente  =this.buscarElectrodomestico(marca, modelo);
+
+        if (electrodomesticoExistente instanceof Electrodomestico) {
+            this.electrodomesticos = this.electrodomesticos.filter(electrodomestico => {
+                return !(electrodomestico.marca === marca && electrodomestico.modelo === modelo);
+            });
+        } else {
+            console.error("No se encontro el electrodomestico.");
+        }
     }
 
     buscarElectrodomestico(marca, modelo) {
@@ -177,22 +187,21 @@ class Hogar {
         if(electroDomesticoEncontrado) {
             return electroDomesticoEncontrado;
         } else {
-            return `No se encontro el electrodomestico con marca: ${marca} y modelo: ${modelo}.`;
+            console.error(`No se encontro el electrodomestico con marca: ${marca} y modelo: ${modelo}.`);
+            return null;
         }
     }
 
     contarElectrodomesticoPorTipo(tipo) {
-        let contador = 0;
-
-        for (let i = 0; i < this.electrodomesticos.length; ++i) {
-            if (this.electrodomesticos[i] instanceof Televisor && tipo === "Televisor") {
-                contador++;
-            } else if (this.electrodomesticos[i] instanceof Lavadora && tipo === "Lavadora") {
-                contador++;
-            }
-
+        if (tipo !== "Televisor" && tipo !== "Lavadora") {
+            console.error("Error: Tipo de electrodoméstico inválido. Debe ser 'Televisor' o 'Lavadora'.");
+            return 0;
         }
-        return contador;
+
+        return this.electrodomesticos.filter(electrodomestico => {
+            return (tipo === "Televisor" && electrodomestico instanceof Televisor) ||
+                (tipo === "Lavadora" && electrodomestico instanceof Lavadora);
+        }).length;
     }
 
     listarElectrodomestico() {
@@ -237,10 +246,14 @@ console.log(`Cantidad de Televisores: ${cantidadTelevisores}`); // Debería most
 
 // Buscar un electrodoméstico específico
 const busqueda1 = miHogar.buscarElectrodomestico("LG", "T123");
-console.log(busqueda1.mostrarInfo()); // Muestra la información del electrodoméstico
+if (busqueda1) {
+    console.log(busqueda1.mostrarInfo()); // Muestra la información del electrodoméstico
+}
 
 const busqueda2 = miHogar.buscarElectrodomestico("Sony", "Bravia");
-console.log(busqueda2.mostrarInfo()); // Muestra la información del electrodoméstico
+if (busqueda2) {
+    console.log(busqueda2.mostrarInfo()); // Muestra la información del electrodoméstico
+}
 
 // Encender y apagar electrodomésticos
 lavadora1.encender(); // Encender la lavadora
