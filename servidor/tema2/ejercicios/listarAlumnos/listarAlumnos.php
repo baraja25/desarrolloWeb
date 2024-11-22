@@ -47,16 +47,18 @@ $idAlumno = isset($_GET['id']) ? $_GET['id'] : null;
 
 if ($idAlumno) {
     // Si se ha seleccionado un alumno, obtenemos sus notas
-    $consultaNotas = "SELECT * FROM notas WHERE IdAlum = '$idAlumno'";
+    $consultaNotas = "SELECT m.Nombre, n.Nota 
+                        FROM notas n, modulos m 
+                        WHERE n.IdAlum = '$idAlumno' and m.Id = n.IdMod ";
     $notasAlumnos = consultaDeDatos($consultaNotas);
 } else {
     $notasAlumnos = []; // Inicializamos como vacío si no hay alumno seleccionado
 }
 
-$consultaAlumnos = "SELECT * FROM alumnos";
+$consultaAlumnos = "SELECT * FROM alumnos ORDER BY 3,4,1";
 $alumnos = consultaDeDatos($consultaAlumnos); // obtiene un array asociativo de los alumnos
 $titulosAlumno = ['NIF', 'Nombre', 'Apellido 1', 'Apellido 2', 'Edad', 'Telefono']; // esta variable tiene los nombres de la cabecera de la tabla
-$titulosNotas = ['Id Alumno', 'Id Modulo', 'Nota'];
+$titulosNotas = ['modulo', 'Nota'];
 ?>
 
 <!DOCTYPE html>
