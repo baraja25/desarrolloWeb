@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de Recetas</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        #canvas {
+            border: 1px solid #ccc;
+            margin: 20px;
+            background-color: #fff;
+        }
+        .controls {
+            margin-bottom: 10px;
+        }
+        .draggable {
+            width: 150px;
+            height: 30px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 30px;
+            cursor: move;
+            margin: 5px;
+            display: inline-block;
+            user-select: none;
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+<h1>Crea tu Tarjeta de Recetas</h1>
+<div class="controls">
+    <div class="draggable" draggable="true" ondragstart="drag(event)">Nombre de la receta</div>
+    <div class="draggable" draggable="true" ondragstart="drag(event)">Ingredientes</div>
+    <div class="draggable" draggable="true" ondragstart="drag(event)">Instrucciones</div>
+    <input type="file" id="imageLoader" accept="image/*" />
+</div>
+<canvas id="canvas" width="400" height="600"></canvas>
+<button id="save">Guardar como imagen</button>
+
+<script>
+    const canvas = new fabric.Canvas('canvas');
+
+    function drag(event) {
+        event.dataTransfer.setData("text/plain", event.target.innerHTML);
+    }
+
+    canvas.on('drop', function(event) {
+        event.e.preventDefault();
+        const text = event.e.dataTransfer.getData("text/plain");
+        const textObj = new fabric.Text(text, {
+            left: event.pointer.x,
+            top: event.pointer.y,
+            fontSize: 20,
+            fill: 'black',
+            selectable: true
+        });
+        canvas.add(textObj);
+    });
+
+    const imageLoader = document.getElementById('imageLoader');
+    imageLoader.addEventListener('change', handleImage, false);
+
+    function handleImage(e) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            const imgObj = new Image();
+            imgObj.src = event.target.result;
+            imgObj.onload = function() {
+                const img = new fabric.Image(imgObj);
+                img.set({
+                    left: 100,
+                    top: 50,
+                    angle: 0,
+                    opacity: 1,
+                    scaleX: 0.5,
+                    scaleY: 0.5
+                });
+                canvas.add(img);
+            }
+        }
+        reader.readAsDataURL(e.target.files[0]);
+    }
+
+    document.getElementById('save').addEventListener('click', function() {
+        const dataURL = canvas.toDataURL({
+            format: 'png',
+            quality: 1
+        });
+        const link = document.createElement('a');
+        link.href = dataURL;
+        link.download = 'tarjeta_receta.png';
+        link.click();
+    });
+
+    canvas.on('mouse:over', function(event) {
+        event.e.preventDefault();
+    });
+</script>
+</body>
+</html>
