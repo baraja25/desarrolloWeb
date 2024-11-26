@@ -26,7 +26,7 @@ function mostrarTablaConEnlace($datos, $titulos)
         $edad = $fila['Edad'];
         $telefono = $fila['Telefono'];
 
-        // Creamos un enlace para cada alumno que muestra su nombre y apellidos
+        // Creamos un enlace 
         echo "<td><a href='?id=$nif'>$fila[NIF]</a></td>";
         echo "<td>$fila[Nombre]</td>";
         echo "<td>$fila[Apellido1]</td>";
