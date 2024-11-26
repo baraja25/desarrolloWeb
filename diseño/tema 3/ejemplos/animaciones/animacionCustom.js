@@ -7,8 +7,8 @@ image.height = 110;
 
 let x = 100; //posicion inicial
 let y = 100; //posicion inicial
-let dx = 5; //velocidad inicial
-let dy = 5; //velocidad inicial
+let dx = 2; //velocidad inicial
+let dy = 2; //velocidad inicial
 
 
 image.onload = function () {
