@@ -103,10 +103,6 @@ class Nave {
     }
 }
 
-const limpiar = (contexto) => {
-    contexto.clearRect(0, 0, contexto.canvas.width, contexto.canvas.height); // Limpiar el canvas
-}
-
 class Juego {
     constructor(micanvas, contexto) {
         this.viper = new Nave(micanvas, contexto); // Pasar el contexto aquí
@@ -120,3 +116,8 @@ class Juego {
         this.viper .dibujar(); // Dibujar la nave en su nueva posición
     }
 }
+
+const limpiar = (contexto) => {
+    contexto.clearRect(0, 0, contexto.canvas.width, contexto.canvas.height); // Limpiar el canvas
+}
+
