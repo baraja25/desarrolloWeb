@@ -1,8 +1,0 @@
-1:Iphone:Apple:11Pro:1000
-2:Galaxy:Samsung:S21:800
-3:ThinkPad:Lenovo:T14:1200
-4:XPS:Dell:13:1500
-5:MacBook:Apple:Air:1100
-6:Surface:Microsoft:Laptop3:1300
-7:Pixel:Google:6:700
-8:Aspire:Acer:5:600

@@ -1,6 +1,0 @@
-1:Distribuidora Tech S.A.
-2:Proveedor General Logística
-3:Electrodomésticos y Más
-4:Central de Tecnología
-5:Papelería y Oficina Global
-6:Componentes Industriales Ltda.
