@@ -96,4 +96,35 @@ function generarTablaConCheckboxes($datos, $nombreTabla) {
 //     }
 // }
 
+
+/* Obtener datos de un archivo de texto */
+function ObtenerDatosDeArchivo($nombreArchivo, $delimitador, $numeroCamposEsperados)
+{
+    $datos = array();   // Array para almacenar las líneas del archivo
+
+    $fd = fopen($nombreArchivo, "r") or die("Error al abrir el archivo");
+
+    // Mostramos el contenido del archivo
+    while (!feof($fd))     // Mientras no hay llegado al fin del archivo
+    {
+        $linea = fgets($fd); // Extraemos una línea de ese archivo
+        $linea = trim($linea); // Eliminamos espacios en blanco al principio y al final
+
+        if ($linea === '') continue; // Saltamos líneas vacías
+
+        $campos = explode($delimitador, $linea); // Separamos la línea en campos usando el delimitador proporcionado
+
+        // Validamos el número de campos esperados
+        if (count($campos) == $numeroCamposEsperados) 
+        {
+            // Guardamos la línea en el array de datos
+            $datos[$campos[0]] = $linea; 
+        }
+    }
+
+    fclose($fd);
+
+    return $datos; // Devolvemos el array con los datos
+}
+
 ?>
