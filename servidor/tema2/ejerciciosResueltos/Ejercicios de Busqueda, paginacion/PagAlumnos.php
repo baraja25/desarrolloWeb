@@ -100,7 +100,7 @@ if (isset($_GET['Numero']) )
  <fieldset><legend>Paginación de Alumnos</legend> 
       <form name="f1" method="post" action="<?php echo $_SERVER['PHP_SELF']  ?>">
       
-        Num Filas<select name="Numero" onChange="f1.submit();"'>
+        Num Filas<select name="Numero" onChange="f1.submit();">
                   <option value=""></option> 
                   <?php 
                   

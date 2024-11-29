@@ -50,7 +50,7 @@ function paginacion($host, $user, $pass, $base, $tabla, $num = 5, $pagina = 1) {
     $num_paginas = calcular_num_paginas($db, $num, $tabla);
 
     // Enlaces de paginación
-    echo "<div class='pagination'>";
+    echo "<div>";
     for ($i = 1; $i <= $num_paginas; $i++) {
         echo "<a href='$_SERVER[PHP_SELF]?Numero=$num&Pag=$i'>$i</a> ";
     }
