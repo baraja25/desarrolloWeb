@@ -22,18 +22,18 @@ function Mostrar($numeros)
     
 }
 
-function Contar($numeros,&$repeticiones)
+function Contar($array,&$Arrayrepeticiones)
 {
-   for($i=0;$i<count($numeros);$i++) 
+   for($i=0;$i<count($array);$i++) 
    {
-       if (!isset($repeticiones[$numeros[$i]]   )   )     //Si ese número no esta en el array de repeticiones
+       if (!isset($repeticiones[$array[$i]]   )   )     //Si ese número no esta en el array de repeticiones
        {
-           $repeticiones[$numeros[$i]]=1;
+           $repeticiones[$array[$i]]=1;
            
        }
        else   //Ese numero ya tenia una entrada en el array de repetidos
        {
-           $repeticiones[$numeros[$i]]=$repeticiones[$numeros[$i]]+1;  //Incrementamos sus repeticiones
+           $repeticiones[$array[$i]]=$repeticiones[$array[$i]]+1;  //Incrementamos sus repeticiones
        }
      
    }

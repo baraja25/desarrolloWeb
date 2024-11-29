@@ -188,7 +188,7 @@ function MostrarTabla($filas)
  
  $pass="";
  
- $base="Prueba";
+ $base="tema2";
  
  $db=mysqli_connect($host,$user,$pass,$base);   //Nos conectamos a ese servidor de base de datos y recibimos el descriptor de conexion
  
