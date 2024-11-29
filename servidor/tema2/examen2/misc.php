@@ -127,4 +127,17 @@ function ObtenerDatosDeArchivo($nombreArchivo, $delimitador, $numeroCamposEspera
     return $datos; // Devolvemos el array con los datos
 }
 
+
+// Ejemplo de uso
+// Definimos el nombre del archivo, el delimitador y el número de campos esperados
+// $nombreArchivo = "datos.txt";
+// $delimitador = ",";
+// $numeroCamposEsperados = 3;
+
+// // Llamamos a la función para obtener los datos del archivo
+// $datos = ObtenerDatosDeArchivo($nombreArchivo, $delimitador, $numeroCamposEsperados);
+
+// // Mostramos los datos obtenidos
+// print_r($datos);
+
 ?>
