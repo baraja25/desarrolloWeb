@@ -1,0 +1,55 @@
+1. Pasajeros con id del 1 al 100
+
+select * from titanic
+where passengerId between 1 and 100;
+
+2.Nombre de las personas de las que no sabemos la edad
+
+select name
+from titanic
+where age is null;
+
+3.Todos los datos de las personas que NO se subieron en Southampton
+
+SELECT passengerId, survived, class, name, sex, age, sibSp, parch, ticket, fare, cabin, embarked
+FROM disasters.titanic
+WHERE embarked NOT LIKE 's';
+
+4.Nombre y edad de las personas de 1ª y 2ª clase
+
+select name, age
+from titanic
+where class in (1, 2);
+
+5. Contar cuánta gente tuvo azúcar y el colesterol por encima de 250, diferenciando entre los que tuvieron o no enfermedad cardíaca, si al menos se encontraron 30 pacientes que lo cumplían.
+
+SELECT enfCard,COUNT(*) AS Numero_Gente
+FROM corazon
+WHERE azucarAyunas = 1 AND colesterol > 250
+GROUP BY enfCard HAVING COUNT(*) >= 30;
+
+6.Mostrar la analítica de las personas que tengan el tipo de dolor torácico más común
+
+SELECT *
+from analitica
+where tipoDolorToracico = (select tipoDolorToracico
+from analitica
+group by tipoDolorToracico 
+order by count(*) desc
+limit 1);
+
+7. ejemplo de where 1
+
+So, if your base query is stored in a string like this (example is in PHP, but it certainly applies to many other languages):
+
+$sql = "select * from foo where 1 ";
+Then you can just concatenate a lot of filtering conditions with an AND clause regardless of it being the first condition you are using or not:
+
+// pseudo php follows...
+if ($filter_by_name) {
+    $sql = $sql . " and name = ? ";
+}
+if ($filter_by_number) {
+    $sql = $sql . " and number = ? ";
+}
+// so on, and so forth.
