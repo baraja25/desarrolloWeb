@@ -44,7 +44,7 @@ $categorias = consultaDeDatos($consultaCategoria);
 
 <body>
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" name="f1">
-        <input type="radio" name="operacionSQL" value="1" onchange="f1.submit()"> Insertar
+        <input type="radio" name="operacionSQL" value="1" onchange="f1.submit()" checked> Insertar
         <input type="radio" name="operacionSQL" value="2" onchange="f1.submit()"> Buscar
         <br>
         
