@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambiar Imagen con Vue</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <img :src="currentImage" alt="Imagen dinámica" width="300" />
+  <button @click="changeImage">Cambiar imagen</button>
+</div>
+
+<script src="1.js"></script>
+</body>
+</html>
