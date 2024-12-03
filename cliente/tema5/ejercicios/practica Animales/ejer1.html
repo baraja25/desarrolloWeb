@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Mundo de Mascotas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+    }
+    header img {
+      width: 50px;
+      height: 50px;
+      margin-right: 20px;
+    }
+    nav {
+      background-color: #333;
+      color: white;
+      display: flex;
+      padding: 10px;
+      justify-content: space-around;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 10px;
+    }
+    nav a:hover {
+      background-color: #575757;
+    }
+    main {
+      display: flex;
+      flex: 1;
+    }
+    #left-panel, #central-panel {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+    #left-panel {
+      width: 20%;
+      background-color: #f4f4f4;
+    }
+    #central-panel {
+      flex: 1;
+      background-color: #fff;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo de mascotas">
+    <h1>Mi Mundo de Mascotas</h1>
+  </header>
+  <nav id="menu">
+    <!-- Menú dinámico se carga aquí -->
+  </nav>
+  <main>
+    <section id="left-panel">
+      <!-- Panel de categorías -->
+    </section>
+    <section id="central-panel">
+      <!-- Panel central -->
+    </section>
+  </main>
+  <footer>
+    &copy; 2024 Mi Mundo de Mascotas
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
