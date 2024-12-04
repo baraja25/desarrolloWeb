@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+.container {
+    height: 200px;
+    width: 800px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1em;
+    border: 2px solid black;
+    padding: 5px;
+}
+
+.grid {
+    background-color: #6f42c1;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
