@@ -1,0 +1,26 @@
+body {
+    background-color: #d3d3d3;
+}
+.principal {
+    border: #0dcaf0 solid 1px;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #808080;
+    padding: 10px;
+    border-radius: 10px;
+    width: 50%;
+    margin: auto;
+}
+
+.menu {
+    margin-right: 50px;
+}
+ .menu a {
+    text-decoration: none;
+    color: white;
+ }
+.social {
+    margin-right: 10px;
+}
