@@ -20,8 +20,8 @@ const ballRadius = 4;
 let x = canvas.width / 2;
 let y = canvas.height - 30;
 /* Velocidad pelota */
-let dx = 5;
-let dy = -5;
+let dx = 2;
+let dy = -2;
 /* Variables de la paleta */
 const paddleHeight = 10;
 const paddleWidth = 50;
@@ -251,7 +251,7 @@ function drawStartScreen() {
 function drawScore() {
     ctx.font = "16px Arial";
     ctx.fillStyle = "white";
-    ctx.fillText(`Puntuación: ${score}`, 10, 20);
+    ctx.fillText(`Puntuación: ${score}`, 60, 20);
 }
 
 function drawGameOver() {
@@ -271,10 +271,10 @@ function drawGameOver() {
 function draw() {
     cleanCanvas();
     if (!gameOver) {
+        drawScore();
         drawBall();
         drawPaddle();
         drawBricks();
-        drawScore();
 
         //colisiones y movimientos
         collisionDetection();
