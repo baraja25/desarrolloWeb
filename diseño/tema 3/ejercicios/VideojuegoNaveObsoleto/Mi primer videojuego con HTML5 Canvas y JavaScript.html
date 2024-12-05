@@ -6,15 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mi primer videojuego con HTML5 Canvas y JavaScript</title>
     <style>
+        body {
+            background-color: #111;
+        }
         canvas {
-            background: #000;
+            border: 4px solid white;
+            border-bottom: transparent;
+            margin: 0 auto;
+            background: url("img/bkg.png") repeat;
+            display: block;
+        }
+        #restartButton {
+            display: none; /* Ocultar el botón inicialmente */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            font-size: 20px;
+            color: white; /* Color del texto */
+            background-color: #007BFF; /* Color de fondo */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+            transition: background-color 0.3s; /* Transición suave para el color de fondo */
+        }
+
+        #restartButton:hover {
+            background-color: #0056b3; /* Color de fondo al pasar el mouse */
+        }
+
+        #restartButton:focus {
+            outline: none; /* Eliminar el contorno al hacer clic */
+        }
+        #startButton {
+            display: none; /* Ocultar el botón inicialmente */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            font-size: 20px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #startButton:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 
 <body>
-    <canvas id="espacio" height="480" width="600" style="border: 1px solid #c3c3c3;"></canvas>
-
+    <canvas id="espacio"></canvas>
+    <img src="img/bricks.png" hidden id="bricks">>
+    <img src="img/player.png" hidden id="player">
+    <button id="startButton">Iniciar Juego</button>
+    <button id="restartButton">Reiniciar Juego</button>
     <script src="Naves.js"></script>
 </body>
 
