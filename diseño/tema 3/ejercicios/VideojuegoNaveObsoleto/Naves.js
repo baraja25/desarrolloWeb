@@ -3,11 +3,16 @@ const ctx = canvas.getContext('2d');
 
 const $player = document.querySelector('#player');
 const $bricks = document.querySelector('#bricks');
+const breakSound = new Audio('sounds/break.wav');
+const bounceSound = new Audio('sounds/bounce.wav');
+const gameOverSound = new Audio('sounds/gameOver.wav');
+
 
 canvas.width = 448;
 canvas.height = 400;
 /* Estado del juego */
 let gameOver = false;
+let score = 0;
 const restartButton = document.querySelector('#restartButton');
 /* Variables Pelota */
 const ballRadius = 4;
@@ -63,6 +68,7 @@ function generateBricks() {
         }
     }
 }
+
 //inicializar los ladrillos
 generateBricks();
 
@@ -135,6 +141,8 @@ function collisionDetection() {
             if (isBallCollidingX && isBallCollidingY) {
                 dy = -dy;
                 currentBrick.status = BRICK_STATUS.DESTROYED;
+                score += 10;
+                breakSound.play();
             }
         }
     }
@@ -147,10 +155,12 @@ function ballMovement() {
         x + dx < ballRadius
     ) {
         dx = -dx;
+        bounceSound.play();
     }
     // rebotar pared izquierda
     if (y + dy < ballRadius) {
         dy = -dy;
+        bounceSound.play();
     }
 
 
@@ -163,8 +173,10 @@ function ballMovement() {
 
     if (ballxSameAsPaddle && ballTouchingPaddle) {
         dy = -dy; // cambia la direccion de la pelota
+        bounceSound.play();
     } else if (y + dy > canvas.width - ballRadius) {
         gameOver = true;
+        gameOverSound.play();
     }
     //mover la pelota
 
@@ -216,11 +228,30 @@ function initEvents() {
 // Función para reiniciar el juego
 function restartGame() {
     gameOver = false; // Reiniciar el estado del juego
+    score = 0;
     x = canvas.width / 2; // Reiniciar la posición de la pelota
     y = canvas.height - 30;
     paddleX = (canvas.width - paddleWidth) / 2; // Reiniciar la posición de la pala
     restartButton.style.display = "none"; // Ocultar el botón de reinicio
     generateBricks(); // Generar nuevos ladrillos
+}
+
+function drawStartScreen() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.5)"; // Fondo semi-transparente
+    ctx.fillRect(0, 0, canvas.width, canvas.height); // Dibuja el fondo
+
+    ctx.fillStyle = "white"; // Color del texto
+    ctx.font = "48px Arial"; // Estilo de fuente
+    ctx.textAlign = "center"; // Alinear el texto al centro
+    ctx.fillText("Bienvenido al juego de ladrillos", canvas.width / 2, canvas.height / 2 - 20); // Dibuja el texto
+    ctx.font = "24px Arial"; // Estilo de fuente para el botón
+    ctx.fillText("Haz clic para empezar", canvas.width / 2, canvas.height / 2 + 20); // Mensaje
+}
+
+function drawScore() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "white";
+    ctx.fillText(`Puntuación: ${score}`, 10, 20);
 }
 
 function drawGameOver() {
@@ -243,7 +274,7 @@ function draw() {
         drawBall();
         drawPaddle();
         drawBricks();
-        //drawScore();
+        drawScore();
 
         //colisiones y movimientos
         collisionDetection();
