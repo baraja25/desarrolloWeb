@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mi primer videojuego con HTML5 Canvas y JavaScript</title>
+    <style>
+        body {
+            background-color: #111;
+            margin: 0;
+            overflow: hidden; /* Evitar scroll en la página */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        canvas {
+            border: 4px solid white;
+            border-bottom: transparent;
+            background: url("img/bkg.png") repeat;
+        }
+
+        button {
+            position: absolute;
+            padding: 10px 20px;
+            font-size: 20px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        #startButton {
+            display: block;
+            bottom: 20px; /* Centrado en la parte inferior */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #restartButton {
+            display: none;
+            bottom: 20px;
+            left: 50%;
+            transform: translate(-50%);
+        }
+    </style>
+</head>
+
+<body>
+<canvas id="espacio"></canvas>
+<img src="img/bricks.png" hidden id="bricks">>
+<img src="img/player.png" hidden id="player">
+<button id="startButton">Iniciar Juego</button>
+<button id="restartButton">Reiniciar Juego</button>
+<script src="logicaBreakout.js"></script>
+</body>
+
+</html>
