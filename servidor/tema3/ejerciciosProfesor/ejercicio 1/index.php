@@ -1,7 +1,8 @@
 <?php
 require_once("libreria.php");
 //funciones
-function obtenerMarcas() {
+function obtenerMarcas()
+{
     $datosObtenidos = array();
     $consulta = "SELECT * FROM marcas";
     $datosObtenidos = consultaDatos($consulta);
@@ -9,7 +10,7 @@ function obtenerMarcas() {
 }
 
 //inicializacion de variables
-$marca = isset($_POST['marcas']) ? $_POST['marcas'] : ""; 
+$marca = isset($_POST['marcas']) ? $_POST['marcas'] : "";
 $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : "";
 
 
@@ -28,33 +29,33 @@ $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : "";
         Nombre<input type="text" name="nombre"><br>
         Marcas <select name="marcas" onchange="f1.submit();">
             <option value=""></option>
-        <?php 
-        $marcasObtenidas = obtenerMarcas();
-        foreach ($marcasObtenidas as $key => $value) {
-            echo "<option value='$value[id]' ";
-            if ($marca === $marcasObtenidas[0]['id']) {
-                echo " selected ";
-                $imagen = $value['Imagen'];
+            <?php
+            $marcasObtenidas = obtenerMarcas();
+            foreach ($marcasObtenidas as $key => $value) {
+                echo "<option value='$value[id]' ";
+                if ($marca === $marcasObtenidas[0]['id']) {
+                    echo " selected ";
+                    $imagen = $value['Imagen'];
+                }
+                echo " >$value[Nombre]</option>";
             }
-            echo " >$value[Nombre]</option>";
-        }
-        
-        ?>
+
+            ?>
         </select>
-        <img src='img/marcas/<?php echo $imagen?>' width="70" height="70">
+        <img src='img/marcas/<?php echo $imagen ?>' width="70" height="70">
         <br>
         Modelo<input type="text" name="modelo"><br>
         Precio<input type="number" name="precio"><br>
         Foto<input type="file" name="foto"><br>
-        <?php 
-        if (isset($_POST['Guardar'])) {
+        <?php
+        if (isset($_POST['guardar'])) {
             $modelo = $_POST['modelo'];
             $precio = $_POST['precio'];
 
 
-            if ($_FILES['Foto']['name']!="") {
-                $nombreFoto = $_FILES['Foto']['name'];
-                $nombreTemp = $_FILES['Foto']['tmp_name'];
+            if ($_FILES['foto']['name'] != "") {
+                $nombreFoto = $_FILES['foto']['name'];
+                $nombreTemp = $_FILES['foto']['tmp_name'];
 
                 copy($nombreTemp, "img/vehiculos/$nombreFoto");
             }
@@ -62,7 +63,7 @@ $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : "";
             $consulta = "INSERT INTO coches VALUES(null, $nombre, $marca, $modelo, $nombreFoto)";
             consultaSimple($consulta);
         }
-        
+
         ?>
         <input type="submit" value="Guardar" name="guardar">
     </form>
