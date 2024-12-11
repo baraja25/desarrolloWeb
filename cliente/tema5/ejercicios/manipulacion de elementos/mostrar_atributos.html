@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 14</title>
+</head>
+<body>
+<img id="myImage" src="ibai.jpg" alt="Imagen de prueba" width="300">
+
+<script>
+  // Obtener el elemento de imagen por su ID
+  const myImage = document.getElementById('myImage');
+
+  // Iterar sobre los atributos del elemento
+  for (let i = 0; i < myImage.attributes.length; i++) {
+    const attribute = myImage.attributes[i];
+    // Mostrar el nombre y valor de cada atributo en la consola
+    console.log(attribute.name + ': ' + attribute.value);
+  }
+</script>
+</body>
+</html>

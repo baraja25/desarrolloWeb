@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 12</title>
+</head>
+<body>
+<button id="myButton" class="btn primary" data-info="1234">Botón con atributos</button>
+<ul id="attributeList"></ul>
+
+<script>
+  // Obtener el botón por su ID
+  const button = document.getElementById('myButton');
+  // Obtener la lista donde se mostrarán los atributos
+  const attributeList = document.getElementById('attributeList');
+
+  // Obtener todos los atributos del botón
+  const attributes = button.attributes;
+
+  // Iterar sobre los atributos y crear elementos <li>
+  for (let i = 0; i < attributes.length; i++) {
+    const attr = attributes[i];
+    const listItem = document.createElement('li');
+    listItem.textContent = `${attr.name}: ${attr.value}`;
+    attributeList.appendChild(listItem);
+  }
+</script>
+</body>
+</html>

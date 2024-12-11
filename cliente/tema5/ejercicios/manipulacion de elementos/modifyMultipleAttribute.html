@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 8</title>
+</head>
+<body>
+<input type="text" id="textInput" placeholder="Escribe algo">
+<button id="modifyInput">Modificar Atributos</button>
+
+<script>
+  document.getElementById('modifyInput').addEventListener('click', function() {
+    // Obtener el input
+    const input = document.getElementById('textInput');
+    // Cambiar el type a password
+    input.setAttribute('type', 'password');
+    // Establecer un nuevo placeholder
+    input.setAttribute('placeholder', 'Nueva entrada de contraseña');
+  });
+</script>
+</body>
+</html>

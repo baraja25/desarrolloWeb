@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 16</title>
+</head>
+<body>
+<div id="infoBox" data-info="Información importante" style="border: 1px solid black; padding: 10px;">
+  Este es un cuadro de información.
+</div>
+<button id="toggleAttributes">Alternar Atributos</button>
+
+<script>
+  // Obtener el elemento div y el botón por su ID
+  const infoBox = document.getElementById('infoBox');
+  const toggleButton = document.getElementById('toggleAttributes');
+
+  // Agregar un evento de clic al botón
+  toggleButton.addEventListener('click', function() {
+    // Comprobar si infoBox tiene atributos
+    if (infoBox.hasAttributes()) {
+      console.log("El elemento tiene atributos.");
+
+      // Cambiar el valor de data-info y style
+      const currentInfo = infoBox.getAttribute('data-info');
+      const newInfo = currentInfo === "Información importante" ? "Información actualizada" : "Información importante";
+      infoBox.setAttribute('data-info', newInfo);
+
+      // Alternar el estilo
+      const currentStyle = infoBox.getAttribute('style');
+      const newStyle = currentStyle === "border: 1px solid black;" ? "border: 2px dashed red;" : "border: 1px solid black;";
+      infoBox.setAttribute('style', newStyle);
+
+      console.log("Atributos actualizados: data-info = " + newInfo + ", style = " + newStyle);
+    } else {
+      console.log("El elemento no tiene atributos.");
+    }
+  });
+</script>
+</body>
+</html>

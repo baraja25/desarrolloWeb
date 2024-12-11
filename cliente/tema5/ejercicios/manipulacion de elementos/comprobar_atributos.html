@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 13</title>
+</head>
+<body>
+<div id="emptyDiv"></div>
+<p id="paragraph" class="text">Texto de ejemplo</p>
+<button id="checkAttributes">Comprobar Atributos</button>
+<p id="result"></p>
+
+<script>
+  // Obtener los elementos por su ID
+  const emptyDiv = document.getElementById('emptyDiv');
+  const paragraph = document.getElementById('paragraph');
+  const result = document.getElementById('result');
+  const checkButton = document.getElementById('checkAttributes');
+
+  // Agregar un evento de clic al botón
+  checkButton.addEventListener('click', function() {
+    // Comprobar si emptyDiv tiene atributos
+    const divHasAttributes = emptyDiv.hasAttributes();
+    // Comprobar si paragraph tiene atributos
+    const paragraphHasAttributes = paragraph.hasAttributes();
+
+    // Crear mensajes para mostrar el resultado
+    const divMessage = divHasAttributes ? "El div tiene atributos." : "El div no tiene atributos.";
+    const paragraphMessage = paragraphHasAttributes ? "El párrafo tiene atributos." : "El párrafo no tiene atributos.";
+
+    // Mostrar los resultados en el elemento <p> con id result
+    result.textContent = divMessage + " " + paragraphMessage;
+  });
+</script>
+</body>
+</html>

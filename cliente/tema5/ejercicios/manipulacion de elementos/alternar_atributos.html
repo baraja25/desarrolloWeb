@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 10</title>
+  <style>
+    .active {
+      background-color: green;
+      color: white;
+    }
+    .inactive {
+      background-color: red;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<button id="toggleButton" class="active">Botón Activo</button>
+
+<script>
+  document.getElementById('toggleButton').addEventListener('click', function() {
+    // Obtener el botón
+    const button = document.getElementById('toggleButton');
+    // Verificar la clase actual
+    const currentClass = button.getAttribute('class');
+
+    // Alternar entre "active" e "inactive"
+    if (currentClass === 'active') {
+      button.setAttribute('class', 'inactive');
+      button.textContent = 'Botón Inactivo';
+    } else {
+      button.setAttribute('class', 'active');
+      button.textContent = 'Botón Activo';
+    }
+  });
+</script>
+</body>
+</html>

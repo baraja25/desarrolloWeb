@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 11</title>
+  <style>
+    /* Estilo para el borde rojo */
+    .error {
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+<form id="myForm">
+  <input type="email" id="emailInput" placeholder="Ingresa tu email">
+  <button type="submit">Enviar</button>
+</form>
+<p id="errorMsg"></p>
+
+<script>
+  document.getElementById('myForm').addEventListener('submit', function(event) {
+    // Prevenir el envío del formulario
+    event.preventDefault();
+
+    // Obtener el input de email
+    const emailInput = document.getElementById('emailInput');
+    const errorMsg = document.getElementById('errorMsg');
+
+    // Verificar si el valor del input está vacío
+    if (emailInput.value.trim() === '') {
+      // Agregar estilo de error al input
+      emailInput.setAttribute('style', 'border: 2px solid red');
+      // Mostrar mensaje de error
+      errorMsg.textContent = 'Por favor, ingresa un email válido.';
+    } else {
+      // Si el input es válido, puedes proceder con el envío del formulario
+      errorMsg.textContent = ''; // Limpiar mensaje de error
+      // Aquí podrías agregar lógica para enviar el formulario
+      alert('Formulario enviado con éxito'); // Ejemplo de acción
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 15</title>
+</head>
+<body>
+<a id="myLink" href="https://www.ejemplo.com" target="_blank" title="Enlace a Ejemplo">Ir al Ejemplo</a>
+<button id="checkAndRemove">Comprobar y Eliminar</button>
+
+<script>
+    // Obtener el enlace por su ID
+    const myLink = document.getElementById('myLink');
+    const checkAndRemoveButton = document.getElementById('checkAndRemove');
+
+    // Agregar un evento de clic al botón
+    checkAndRemoveButton.addEventListener('click', function() {
+        // Comprobar si myLink tiene atributos
+        if (myLink.hasAttributes()) {
+            console.log("El elemento tiene atributos.");
+
+            // Iterar sobre los atributos y eliminarlos
+            const attributes = myLink.attributes;
+            for (let i = attributes.length - 1; i >= 0; i--) {
+                const attribute = attributes[i];
+                myLink.removeAttribute(attribute.name);
+            }
+
+            console.log("Todos los atributos han sido eliminados.");
+        } else {
+            console.log("El elemento no tiene atributos.");
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+.bold {
+    font-weight: bold;
+}
+
+.active {
+    color: blue;
+}
+
+.normal {
+    font-weight: normal;
+    color: black;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+<a id="link" href="https://www.ejemplo.com" target="_blank">Visita este enlace</a>
+<button id="showHref">Mostrar URL del enlace</button>
+<p id="output"></p>
+
+<script>
+    document.getElementById('showHref').addEventListener('click', function() {
+        // Obtener el enlace
+        const enlace = document.getElementById('link');
+        // Obtener el valor del atributo href
+        const url = enlace.getAttribute('href');
+        // Mostrar la URL en el elemento <p> con id output
+        document.getElementById('output').textContent = url;
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 9</title>
+</head>
+<body>
+<div id="product" data-product-id="123" data-product-name="Producto A">Producto</div>
+<button id="showProductInfo">Mostrar Información</button>
+<p id="productInfo"></p>
+
+<script>
+  document.getElementById('showProductInfo').addEventListener('click', function() {
+    // Obtener el div del producto
+    const productDiv = document.getElementById('product');
+    // Obtener los valores de los atributos data-product-id y data-product-name
+    const productId = productDiv.getAttribute('data-product-id');
+    const productName = productDiv.getAttribute('data-product-name');
+    // Mostrar la información en el elemento <p> con id productInfo
+    document.getElementById('productInfo').textContent = `ID: ${productId}, Nombre: ${productName}`;
+  });
+</script>
+</body>
+</html>
