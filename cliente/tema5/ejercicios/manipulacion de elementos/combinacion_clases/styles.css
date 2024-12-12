@@ -1,0 +1,22 @@
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: lightgray; /* Color de fondo inicial */
+    transition: all 0.3s; /* Transición suave para cambios */
+}
+
+.bordered {
+    border: 5px solid blue; /* Estilo para la clase bordered */
+}
+
+.highlighted {
+    background-color: yellow; /* Color de fondo para la clase highlighted */
+}
+
+.visible {
+    opacity: 1; /* Opacidad completa cuando está visible */
+}
+
+.hidden {
+    opacity: 0; /* Invisible cuando no está visible */
+}

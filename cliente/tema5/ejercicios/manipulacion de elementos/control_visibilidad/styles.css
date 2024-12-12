@@ -1,0 +1,7 @@
+.hidden {
+    display: none; /* Oculta el elemento */
+}
+
+.visible {
+    display: block; /* Muestra el elemento */
+}

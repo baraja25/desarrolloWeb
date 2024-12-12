@@ -1,0 +1,13 @@
+.btn {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave para el cambio de color */
+}
+
+.active {
+    background-color: green;
+    font-size: 18px;
+}
