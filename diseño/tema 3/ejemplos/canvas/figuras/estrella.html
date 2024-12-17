@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dibujo de Estrella</title>
+</head>
+<body>
+<canvas id="miCanvas" width="200" height="200" style="border:1px solid #000000;"></canvas>
+<script>
+  var canvas = document.getElementById("miCanvas");
+  var ctx = canvas.getContext("2d");
+  ctx.beginPath();
+  ctx.moveTo(100, 10);
+  ctx.lineTo(120, 80);
+  ctx.lineTo(190, 80);
+  ctx.lineTo(130, 130);
+  ctx.lineTo(150, 200);
+  ctx.lineTo(100, 160);
+  ctx.lineTo(50, 200);
+  ctx.lineTo(70, 130);
+  ctx.lineTo(10, 80);
+  ctx.lineTo(80, 80);
+  ctx.closePath();
+  ctx.fillStyle = "yellow";
+  ctx.fill();
+  ctx.stroke();
+</script>
+</body>
+</html>

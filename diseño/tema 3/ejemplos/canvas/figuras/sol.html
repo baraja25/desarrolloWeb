@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dibujo de Sol</title>
+</head>
+<body>
+<canvas id="miCanvas" width="200" height="200" style="border:1px solid #000000;"></canvas>
+<script>
+  var canvas = document.getElementById("miCanvas");
+  var ctx = canvas.getContext("2d");
+
+  // Cuerpo del sol
+  ctx.beginPath();
+  ctx.arc(100, 100, 30, 0, Math.PI * 2);
+  ctx.fillStyle = "yellow";
+  ctx.fill();
+
+  // Rayos del sol
+  for (var i = 0; i < 12; i++) {
+    ctx.beginPath();
+    ctx.moveTo(100, 100);
+    ctx.lineTo(100 + 50 * Math.cos(i * Math.PI / 6), 100 + 50 * Math.sin(i * Math.PI / 6));
+    ctx.strokeStyle = "orange";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+</script>
+</body>
+</html>
