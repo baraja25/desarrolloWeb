@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    <title>Examen Jose Antonio Benitez Ruiz</title>
+</head>
+<body>
+<div class="contenedor">
+    <!--barra de navegacion-->
+    <aside>
+        <nav class="barra-lateral">
+            <a href="" onclick="cambiarContenido('contenidoPrincipal')">
+                <img src="img/recursos/barra%20de%20navegación/iconos_superior.png" alt=""
+                     class="barra-lateral-superior">
+            </a>
+            <a href="" onclick="cambiarContenido('miCanvas')" class="aside-social">
+                <img src="img/recursos/barra%20de%20navegación/icono1.png" alt="" class="social-icon">
+                <img src="img/recursos/barra%20de%20navegación/icono2.png" alt="" class="social-icon">
+                <img src="img/recursos/barra%20de%20navegación/icono3.png" alt="" class="social-icon">
+                <img src="img/recursos/barra%20de%20navegación/icono4.png" alt="" class="social-icon">
+            </a>
+            <img src="img/recursos/barra%20de%20navegación/iconos_inferior.png" alt="" class="barra-lateral-inferior">
+        </nav>
+    </aside>
+    <!--contenido principal-->
+    <canvas id="miCanvas" width="500" height="500" class="hidden"></canvas>
+    <main class="main-container" id="contenidoPrincipal">
+        <img src="img/recursos/ubicación.jpg" alt="" class="recursos-ubicacion">
+        <section class="busqueda-container">
+            <img src="img/recursos/iconobuscador.jpg" alt="" class="busqueda-img">
+            <img src="img/recursos/zonabusqueda.jpg" alt="" class="busqueda-img">
+        </section>
+        <!--        marcadores de tiendas-->
+        <section class="shops-container">
+            <article class="shop-item">
+                <img src="img/recursos/icono1.jpg" alt="" class="shop-item-img">
+                <p class="shop-item-description bg-red ff-candara">Black Friday Sale</p>
+            </article>
+            <article class="shop-item">
+                <img src="img/recursos/icono2.jpg" alt="" class="shop-item-img">
+                <p class="shop-item-description bg-green ff-cinzel">Black Friday Sale</p>
+            </article>
+            <article class="shop-item">
+                <img src="img/recursos/icono3.jpg" alt="" class="shop-item-img">
+                <p class="shop-item-description">Black Friday Sale</p>
+            </article>
+            <article class="shop-item">
+                <img src="img/recursos/icono4.jpg" alt="" class="shop-item-img">
+                <p class="shop-item-description">Black Friday Sale</p>
+            </article>
+            <article class="shop-item">
+                <img src="img/recursos/icono5.jpg" alt="" class="shop-item-img">
+                <p class="shop-item-description">Black Friday Sale</p>
+            </article>
+            <article class="shop-item">
+                <img src="img/recursos/icono6.jpg" alt="" class="shop-item-img">
+                <p class="shop-item-description">Black Friday Sale</p>
+            </article>
+            <article class="shop-item">
+                <img src="img/recursos/icono7.jpg" alt="" class="shop-item-img">
+                <p class="shop-item-description">Black Friday Sale</p>
+            </article>
+            <article class="shop-item">
+                <img src="img/recursos/icono8.jpg" alt="" class="shop-item-img">
+                <p class="shop-item-description">Black Friday Sale</p>
+            </article>
+            <article class="shop-item">
+                <img src="img/recursos/icono1.jpg" alt="" class="shop-item-img">
+                <p class="shop-item-description bg-red ff-candara">Black Friday Sale</p>
+            </article>
+            <article class="shop-item">
+                <img src="img/recursos/icono2.jpg" alt="" class="shop-item-img">
+                <p class="shop-item-description bg-green ff-cinzel">Black Friday Sale</p>
+            </article>
+            <article class="shop-item">
+                <img src="img/recursos/icono3.jpg" alt="" class="shop-item-img">
+                <p class="shop-item-description">Black Friday Sale</p>
+            </article>
+            <article class="shop-item">
+                <img src="img/recursos/icono4.jpg" alt="" class="shop-item-img">
+                <p class="shop-item-description">Black Friday Sale</p>
+            </article>
+        </section>
+    </main>
+</div>
+<!--pie de pagina-->
+<footer>
+    <span class="footer-fecha">18/12/2024</span>
+    <span class="footer-nombre">Jose Antonio Benitez Ruiz</span>
+    <section class="footer-socials">
+        <img src="img/recursos/social12.png" alt="" class="social">
+        <img src="img/recursos/social22.png" alt="" class="social">
+        <img src="img/recursos/social32.png" alt="" class="social">
+    </section>
+</footer>
+
+
+<script>
+    // El script añade display: none con la clase hidden y deberia quitar la clase segun donde doy click en el navegador lateral
+    // pero hace un bucle extraño donde solo muestra el canvas/main Content medio segundo
+    function cambiarContenido(opcion) {
+        // Ocultar todos los contenidos
+        document.getElementById('miCanvas').classList.add('hidden');
+        document.getElementById('contenidoPrincipal').classList.add('hidden');
+
+        // Mostrar el contenido correspondiente
+        switch (opcion) {
+            case 'contenidoPrincipal':
+                document.getElementById('contenidoPrincipal').classList.remove('hidden');
+                break;
+            case 'miCanvas':
+                document.getElementById('miCanvas').classList.remove('hidden');
+                break;
+            default:
+                document.getElementById('contenidoPrincipal').classList.remove('hidden');
+        }
+    }
+</script>
+<script src="js/canva.js"></script>
+</body>
+</html>
