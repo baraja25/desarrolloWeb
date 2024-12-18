@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de Video</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    video {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Ejemplo de Video en HTML</h1>
+<!--
+controls          Muestra los controles de reproducción (play, pause, volumen, etc.)
+autoplay          Reproduce el video automáticamente al cargar la página
+loop               Repite el video una vez que termina
+muted             Silencia el video al cargar
+poster="https://via.placeholder.com/600x400?text=Video+Preview"  Imagen que se muestra antes de que el video se reproduzca
+-->
+<video controls autoplay loop muted poster="https://via.placeholder.com/600x400?text=Video+Preview">
+  <source src="ruta_del_video.mp4" type="video/mp4">
+  <source src="ruta_del_video.webm" type="video/webm">
+  Tu navegador no soporta la etiqueta de video.
+</video>
+
+<p>Este es un video de ejemplo. Puedes usar los controles para reproducir, pausar y ajustar el volumen.</p>
+
+</body>
+</html>
