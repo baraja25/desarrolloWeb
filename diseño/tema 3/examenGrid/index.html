@@ -36,7 +36,7 @@
             <img src="img/recursos/iconobuscador.jpg" alt="" class="busqueda-img">
             <img src="img/recursos/zonabusqueda.jpg" alt="" class="busqueda-img">
         </section>
-        <!--        marcadores de tiendas-->
+        <!-- marcadores de tiendas -->
         <section class="shops-container">
             <article class="shop-item">
                 <img src="img/recursos/icono1.jpg" alt="" class="shop-item-img">
@@ -105,6 +105,7 @@
     // El script añade display: none con la clase hidden y deberia quitar la clase segun donde doy click en el navegador lateral
     // pero hace un bucle extraño donde solo muestra el canvas/main Content medio segundo
     function cambiarContenido(opcion) {
+        event.preventDefault();
         // Ocultar todos los contenidos
         document.getElementById('miCanvas').classList.add('hidden');
         document.getElementById('contenidoPrincipal').classList.add('hidden');
