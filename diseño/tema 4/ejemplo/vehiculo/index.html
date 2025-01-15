@@ -7,24 +7,25 @@
             position: absolute;
             top: 50%;
             left: 0;
-            transition: all 1s cubic-bezier(0.45, 0.14, 1, -0.04);
+            transition: transform 0.5s ease; /* Cambiado a una transición más simple */
             width: 200px;
             height: 200px;
+            transform: translateY(-50%); /* Centrar verticalmente */
         }
         .img-vehiculo:hover {
-            transform: translateX(100rem);
+            transform: translate(100rem, -50%); /* Mover solo horizontalmente */
         }
         .contenedor {
             overflow: hidden;
-
+            position: relative; /* Asegurarse de que el contenedor tenga posición relativa */
+            height: 200px; /* Altura del contenedor */
         }
     </style>
     <title>Vehiculo</title>
 </head>
 <body>
 <div class="contenedor">
-
-<img src="c15.png" class="img-vehiculo">
+    <img src="c15.png" class="img-vehiculo">
 </div>
 </body>
 </html>

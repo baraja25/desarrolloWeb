@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <style>
+    .circulo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      animation: scaleToBlue 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes scaleToBlue {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.5);
+        background-color: #0c63e4;
+      }
+    }
+  </style>
+    <title>ejemplo 4</title>
+</head>
+<body>
+<div class="circulo"></div>
+</body>
+</html>

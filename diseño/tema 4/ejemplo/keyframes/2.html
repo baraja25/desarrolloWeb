@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .container {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation: move 5s infinite alternate, rotate 3s 2 alternate;
+        }
+        @keyframes move {
+            from {
+                transform: translateX(0);
+                background-color: red;
+            }
+            to {
+                transform: translateX(1000px);
+                background-color: gold;
+            }
+        }
+        @keyframes rotate {
+            from {
+                transform: rotate(180deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <title>ejemplo 2</title>
+</head>
+<body>
+<div class="container"></div>
+</body>
+</html>
