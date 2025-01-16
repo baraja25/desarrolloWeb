@@ -6,6 +6,7 @@
 -Un botón llamado Mostrar que al pulsarlo mostrará por pantalla las palabras del archivo 1 que estén en el archivo 2 en caso de seleccionar en el radio la primera 
 opción.
 En caso de seleccionar la segunda mostrará las palabras del archivo1 que no estén en el archivo 2. */
+
 ?>
 <?php
 function obtenerPalabras($nombre)
