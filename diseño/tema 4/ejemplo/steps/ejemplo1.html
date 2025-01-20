@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ejemplo 1</title>
+    <style>
+        #contenedor {
+            margin: 20%;
+            width: 0.9em;
+            border: 1px solid black;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        #digitos {
+            font-size: 2em;
+            font-family: monospace;
+            display: inline-block;
+            transition: all 2s steps(9, start);
+        }
+
+        .animar-adelante {
+            transform: translate(-90%);
+        }
+
+        .animar-atras {
+            transform: translate(0%);
+        }
+    </style>
+</head>
+<body>
+<div id="contenedor">
+    <div id="digitos">0123456789</div>
+</div>
+<script>
+    const contenedor = document.getElementById("contenedor");
+    const digitos = document.getElementById("digitos");
+    let estaAnimandoAdelante = true;
+
+    contenedor.addEventListener("click", () => {
+        if (estaAnimandoAdelante) {
+            digitos.classList.add("animar-adelante");
+            digitos.classList.remove("animar-atras");
+        } else {
+            digitos.classList.add("animar-atras");
+            digitos.classList.remove("animar-adelante");
+        }
+        estaAnimandoAdelante = !estaAnimandoAdelante;
+    });
+</script>
+</body>
+</html>
