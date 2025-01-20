@@ -4,9 +4,9 @@ class db
 {
     // establece la conexión con la base de datos
     private $pdo; // esta propiedad recoge el objeto PDO
-    private $host;
-    private $user;
-    private $password;
+    private $host = 'localhost';
+    private $user = 'root';
+    private $password = '';
     private $database;
 
     public $rows = array(); // filas de los resultados de la consulta
