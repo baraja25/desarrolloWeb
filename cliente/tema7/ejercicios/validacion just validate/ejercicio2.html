@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Contacto</title>
+  <!-- JustValidate Library -->
+  <script src="https://cdn.jsdelivr.net/npm/just-validate@latest/dist/just-validate.production.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+  <h1 class="mb-4">Formulario de Contacto</h1>
+  <form id="contacto-form">
+    <!-- Campo Nombre -->
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre:</label>
+      <input type="text" class="form-control" id="nombre" name="nombre">
+      <div class="form-text text-danger" id="error-nombre"></div>
+    </div>
+
+    <!-- Campo Correo Electrónico -->
+    <div class="mb-3">
+      <label for="correo" class="form-label">Correo Electrónico:</label>
+      <input type="email" class="form-control" id="correo" name="correo">
+      <div class="form-text text-danger" id="error-correo"></div>
+    </div>
+
+    <!-- Campo Teléfono -->
+    <div class="mb-3">
+      <label for="telefono" class="form-label">Teléfono:</label>
+      <input type="text" class="form-control" id="telefono" name="telefono">
+      <div class="form-text text-danger" id="error-telefono"></div>
+    </div>
+
+    <!-- Campo Mensaje -->
+    <div class="mb-3">
+      <label for="mensaje" class="form-label">Mensaje:</label>
+      <textarea class="form-control" id="mensaje" name="mensaje" rows="4"></textarea>
+      <div class="form-text text-danger" id="error-mensaje"></div>
+    </div>
+
+    <!-- Botón Enviar -->
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</div>
+
+<script>
+  // Inicializar la validación con JustValidate
+  const validation = new JustValidate('#contacto-form', {
+    errorFieldCssClass: 'is-invalid',
+    successFieldCssClass: 'is-valid',
+  });
+
+  validation
+          .addField('#nombre', [
+            {
+              rule: 'required',
+              errorMessage: 'El nombre es obligatorio',
+            },
+            {
+              rule: 'minLength',
+              value: 3,
+              errorMessage: 'El nombre debe tener al menos 3 caracteres',
+            },
+            {
+              rule: 'customRegexp',
+              value: /^[a-zA-Z\s]+$/, // Solo letras y espacios
+              errorMessage: 'El nombre solo puede contener letras y espacios',
+            },
+          ])
+          .addField('#correo', [
+            {
+              rule: 'required',
+              errorMessage: 'El correo es obligatorio',
+            },
+            {
+              rule: 'email',
+              errorMessage: 'Por favor, ingresa un correo válido',
+            },
+          ])
+          .addField('#telefono', [
+            {
+              rule: 'customRegexp',
+              value: /^\d{10}$/, // Solo 10 dígitos
+              errorMessage: 'El teléfono debe tener exactamente 10 dígitos',
+            },
+          ])
+          .addField('#mensaje', [
+            {
+              rule: 'required',
+              errorMessage: 'El mensaje es obligatorio',
+            },
+            {
+              rule: 'minLength',
+              value: 20,
+              errorMessage: 'El mensaje debe tener al menos 20 caracteres',
+            },
+          ])
+          .onSuccess((event) => {
+            event.preventDefault();
+
+            // Obtener los valores de los campos
+            const nombre = document.getElementById('nombre').value;
+            const correo = document.getElementById('correo').value;
+            const telefono = document.getElementById('telefono').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            console.log('Datos del formulario:', { nombre, correo, telefono, mensaje });
+
+            alert('¡Formulario enviado exitosamente! Revisa la consola para ver los datos.');
+
+            // Limpiar el formulario
+            event.target.reset();
+          });
+</script>
+</body>
+</html>
