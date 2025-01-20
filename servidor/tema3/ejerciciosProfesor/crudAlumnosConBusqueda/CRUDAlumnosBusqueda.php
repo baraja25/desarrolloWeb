@@ -154,15 +154,61 @@ if (isset($_POST['Actualizar']) && (isset($_POST['Selec'])))   //Si la acción s
     }
 }
 
+$numReg = isset($_POST['numReg']) ? $_POST['numReg'] : 5;  //Número de registros a mostrar por página
+
+
 //Obtenemos los datos de los alumnos
 
-$consulta = "select * from Alumnos  ";
+$consulta = "select * from Alumnos where 1 ";
 
 $param = array();
 
 $db->consultaDeDatos($consulta, $param);
 
+if (isset($_POST['Buscar']))   //Si se ha pulsado el botón de buscar
+{
 
+    $nif = $_POST['NIF'];
+    $nombre = $_POST['Nombre'];
+    $Apellido1 = $_POST['Apellido1'];
+    $Apellido2 = $_POST['Apellido2'];
+    $Telefono = $_POST['Telefono'];
+    $Premios = $_POST['Premios'];
+    $FechaNac = $_POST['FechaNac'];
+    if ($nif != "") {
+        $consulta .= " and NIF like :NIF ";
+        $param[':NIF'] = '%' . $nif . '%';
+    }
+    if ($nombre != "") {
+        $consulta .= " and Nombre like :Nombre ";
+        $param[':Nombre'] = '%' . $nombre . '%';
+    }
+    if ($Apellido1 != "") {
+        $consulta .= " and Apellido1 like :Apellido1 ";
+        $param[':Apellido1'] = '%' . $Apellido1 . '%';
+    }
+    if ($Apellido2 != "") {
+        $consulta .= " and Apellido2 like :Apellido2 ";
+        $param[':Apellido2'] = '%' . $Apellido2 . '%';
+    }
+    if ($Telefono != "") {
+        $consulta .= " and Telefono like :Telefono ";
+        $param[':Telefono'] = '%' . $Telefono . '%';
+    }
+    if ($Premios != "") {
+        $consulta .= " and Premios like :Premios ";
+        $param[':Premios'] = '%' . $Premios . '%';
+    }
+    if ($FechaNac != "") {
+        $campos = explode("/", $FechaNac);
+        $FechaNac = mktime(0, 0, 0, $campos[1], $campos[0], $campos[2]);
+        
+        $consulta .= " and FechaNac=:FechaNac ";
+        $param[':FechaNac'] = $FechaNac;
+    }
+  
+    $db->consultaDeDatos($consulta, $param);
+}
 
 
 ?>
@@ -176,10 +222,25 @@ $db->consultaDeDatos($consulta, $param);
     echo "<fieldset>";
 
     echo "<form name='f1' method='post' action='$_SERVER[PHP_SELF]' enctype='multipart/form-data'  >";
-
+    
     echo "<input type='submit' name='Actualizar' value='Actualizar'>";
     echo "<input type='submit' name='Borrar' value='Borrar'>";
     echo "<input type='submit' name='Insertar' value='Insertar'>";
+    echo "<input type='submit' name='Buscar' value='Buscar'>";
+
+    echo "Numero registros <select name='numReg' onchange='f1.submit()'>";
+    echo "<option value=''></option>";
+
+    for ($i = 1; $i <= 10; $i++) {
+        echo "<option value='$i'";
+        if ($i == $numReg) {
+            echo " selected ";
+        }
+
+        echo ">$i</option>";
+    }
+
+    echo "</select>";
 
     echo "<table border='2'>";
     echo "<thead>";
