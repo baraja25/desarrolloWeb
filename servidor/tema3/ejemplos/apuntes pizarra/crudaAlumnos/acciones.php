@@ -1,4 +1,6 @@
 <?php
+// esto es una mierda 
+
 function mostrarFormulario($nif) {
     global $pdo;
     $consulta = "SELECT * FROM alumnos WHERE NIF = :NIF";
