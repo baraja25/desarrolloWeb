@@ -1,0 +1,63 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    width: 7em;
+    height: 7em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    animation: rotate 2s linear infinite;
+}
+
+.aspa {
+    height: 3em;
+    width: 3em;
+
+}
+.border-izq {
+    border-radius: 9999px 9999px 9999px 0;
+}
+
+.border-der {
+    border-radius: 9999px 9999px 0 9999px;
+}
+
+.border-upRight {
+    border-radius: 9999px 0 9999px 9999px;
+}
+
+.border-upLeft {
+    border-radius: 0 9999px 9999px 9999px;
+}
+
+.bg-yellow {
+    background: yellow;
+}
+
+.bg-pink {
+    background: #f83c53;
+}
+
+.bg-purple {
+    background: #963efc;
+}
+
+.bg-orange {
+    background: #f45236;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
