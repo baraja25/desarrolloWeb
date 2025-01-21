@@ -3,7 +3,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #212020;
 }
+/* Contenedor para las aspas */
 .container {
     width: 7em;
     height: 7em;
@@ -13,14 +15,18 @@ body {
     align-items: center;
     gap: 5px;
     padding: 5px;
+}
+/* Ejecutar la animacion al hacer hover */
+.container:hover {
     animation: rotate 2s linear infinite;
 }
-
+/* Tamaño de las aspas */
 .aspa {
+    margin: 0.1em 0.1em;
     height: 3em;
     width: 3em;
-
 }
+/* Bordes para generar el efecto de una punta al centro */
 .border-izq {
     border-radius: 9999px 9999px 9999px 0;
 }
@@ -36,6 +42,8 @@ body {
 .border-upLeft {
     border-radius: 0 9999px 9999px 9999px;
 }
+
+/* Colores de las aspas */
 
 .bg-yellow {
     background: yellow;
@@ -53,6 +61,7 @@ body {
     background: #f45236;
 }
 
+/* Animacion de rotacion */
 @keyframes rotate {
     from {
         transform: rotate(0deg);

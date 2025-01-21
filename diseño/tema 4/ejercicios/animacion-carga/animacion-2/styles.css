@@ -1,0 +1,56 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+    margin: 0;
+}
+
+.logo {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    animation: rotate 2s ease-in-out;
+    display: flex; /* Centrado dentro del logo */
+    justify-content: center;
+    align-items: center;
+}
+
+.outer-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 5px solid black;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.inner-circle {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border: 3px solid black;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.quarter-circle {
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    border: 3px solid black;
+    border-radius: 50%;
+    background-color: white;
+    clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
