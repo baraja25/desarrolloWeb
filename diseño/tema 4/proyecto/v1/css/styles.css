@@ -1,0 +1,43 @@
+.seccion-consejos {
+    background-color: #6B8E23;
+    color: #FFFFFF; /* Texto blanco para contraste */
+    padding: 20px;
+}
+
+.boton-accion {
+    background-color: #6B8E23;
+    color: #FFFFFF; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+h2 {
+    color: #D2691E;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.tarjeta-receta {
+    border: 2px solid #D2691E;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+.tarjeta-receta {
+    background-color: #F5F5DC;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+
+.boton-accion:hover {
+    background-color: #D2691E; /* Cambia a terracota */
+    color: #FFFFFF; /* Texto blanco */
+}
