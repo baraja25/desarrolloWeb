@@ -154,12 +154,22 @@ if (isset($_POST['Actualizar']) && (isset($_POST['Selec'])))   //Si la acción s
     }
 }
 
+
+$numeroPagina = 1; // por defecto mostramos la página 1
+
+if (isset($_GET['numPag'])) {
+    $numeroPagina = $_GET['numPag'];
+}
+
 $numReg = isset($_POST['numReg']) ? $_POST['numReg'] : 5;  //Número de registros a mostrar por página
 
+$numReg = isset($_GET['numReg']) ? $_GET['numReg'] : $numReg;  //Número de registros cuando clicamos en siguiente o anterior
+
+$inicio = ($numeroPagina - 1) * $numReg;  //Calculamos el registro por el que empezamos
 
 //Obtenemos los datos de los alumnos
 
-$consulta = "select * from Alumnos where 1 ";
+$consulta = "select * from Alumnos where 1 limit $inicio, $numReg ";
 
 $param = array();
 
@@ -206,7 +216,13 @@ if (isset($_POST['Buscar']))   //Si se ha pulsado el botón de buscar
         $consulta .= " and FechaNac=:FechaNac ";
         $param[':FechaNac'] = $FechaNac;
     }
-  
+    $consulta .= " limit $inicio, $numReg ";
+    
+    // $param[':inicio'] = (int)$inicio;
+
+    // $param[':numReg'] = (int)$numReg;
+
+
     $db->consultaDeDatos($consulta, $param);
 }
 
@@ -308,6 +324,23 @@ if (isset($_POST['Buscar']))   //Si se ha pulsado el botón de buscar
 
     echo "</form>";
 
+    // mostramos los enlaces para avanzar y retroceder páginas
+
+    $consulta = "select count(*) as total from Alumnos";
+    $db->consultaDeDatos($consulta);
+    $totalRegistros = $db->rows[0]['total'];
+    $paginas = ceil($totalRegistros / $numReg);
+    
+    
+    
+
+    if ($numeroPagina > 1) {
+        echo "<a href='?numPag=" . ($numeroPagina - 1) . "&numReg=$numReg'>Anterior</a> ";
+    }
+
+    if ($numeroPagina < $paginas) {
+        echo "<a href='?numPag=" . ($numeroPagina + 1) . "&numReg=$numReg'>Siguiente</a>";
+    }
     echo "</fieldset>";
 
     ?>
