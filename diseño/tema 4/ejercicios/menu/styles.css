@@ -1,4 +1,6 @@
-
+.container {
+    height: 400px;
+}
 .menu {
     display: flex;
     justify-content: center;
@@ -15,7 +17,7 @@
 .menu-item {
     background-color: black;
     color: white;
-    padding: 50px 20px;
+    padding: 20px;
     position: relative;
     overflow: hidden;
 }
