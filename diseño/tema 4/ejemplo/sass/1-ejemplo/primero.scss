@@ -1,0 +1,15 @@
+// variables con colores del sitio
+$gris: #868686;
+
+$header-background: $gris;
+
+$link-normal: #000;
+$link-hover: #d7cd34;
+$link-visited: #dc3b3b;
+$link-active: #368d34;
+$margin: 4px;
+
+
+.header {
+  background-color: $header-background;
+}
