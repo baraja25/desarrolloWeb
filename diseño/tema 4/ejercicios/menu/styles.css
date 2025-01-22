@@ -1,0 +1,76 @@
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.texto {
+    position: relative;
+    text-shadow: black 1px 1px;
+    z-index: 10;
+}
+.menu-item {
+    background-color: black;
+    color: white;
+    padding: 50px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease, background-color 0.5s ease;
+    z-index: 1;
+}
+
+.menu-item-yellow {
+    border-top: 5px solid #bbbb56;
+}
+
+.menu-item-yellow::before {
+    background-color: #bbbb56;
+}
+
+.menu-item-green {
+    border-top: 5px solid green;
+}
+
+.menu-item-green::before {
+    background-color: green;
+}
+
+.menu-item-red {
+    border-top: 5px solid red;
+}
+
+.menu-item-red::before {
+    background-color: red;
+}
+
+.menu-item-purple {
+    border-top: 5px solid purple;
+}
+
+.menu-item-purple::before {
+    background-color: purple;
+}
+
+/* Hover para animación */
+.menu-item:hover::before {
+    transform: translateY(0);
+}
+
+
+
+
+
