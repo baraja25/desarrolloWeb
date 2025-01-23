@@ -11,7 +11,7 @@ if (file_exists($archivo_ruta))
     foreach ($lineas as $linea) 
     {
         $datos = explode(" ", trim($linea), 2); // Separar ID y nombre
-        var_dump($datos);
+
         if (count($datos) === 2) 
         {
             $archivos[$datos[0]] = $datos[1];
