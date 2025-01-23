@@ -47,10 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <h1>Generador de Menú</h1>
 <form method="post" action="">
     <label for="titulo">Título del Menú:</label><br>
-    <input type="text" id="titulo" name="titulo" required><br><br>
+    <input type="text" id="titulo" name="titulo" ><br><br>
 
     <label for="elementos">Elementos del Menú (separados por comas):</label><br>
-    <textarea id="elementos" name="elementos" required></textarea><br><br>
+    <textarea id="elementos" name="elementos" ></textarea><br><br>
 
     <label for="tipo_lista">Tipo de Lista:</label><br>
     <select id="tipo_lista" name="tipo_lista">
