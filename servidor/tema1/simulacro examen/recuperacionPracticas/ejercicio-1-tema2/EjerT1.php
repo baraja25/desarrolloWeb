@@ -3,35 +3,30 @@
 // Leer contenido de Archivos.txt
 $archivo_ruta = "Archivos.txt";
 $archivos = array();
-if (file_exists($archivo_ruta)) 
-{
+
+if (file_exists($archivo_ruta)) {
     $contenido = file_get_contents($archivo_ruta);
-    $lineas = explode("\n", $contenido);
-    
-    foreach ($lineas as $linea) 
-    {
-        $datos = explode(" ", trim($linea), 2); // Separar ID y nombre
-        var_dump($datos);
-        if (count($datos) === 2) 
-        {
-            $archivos[$datos[0]] = $datos[1];
-            
+    $lineas = explode("\n", trim($contenido));
+
+    foreach ($lineas as $linea) {
+        $linea = trim($linea); // Eliminar espacios en blanco
+        if (!empty($linea)) { // Ignorar líneas vacías
+            $archivos[$linea] = $linea; // Asociar ID con el nombre del archivo
         }
     }
+} else {
+    die("No se encontró el archivo Archivos.txt en la ruta actual: " . __DIR__);
 }
 
 // Recuperar parámetros para orden y selección
-if (isset($_POST['MostrarRep'])) 
-{
+if (isset($_POST['MostrarRep'])) {
     $seleccionados = isset($_POST['Selec']) ? $_POST['Selec'] : array();
-} else 
-{
+} else {
     $seleccionados = isset($_GET['seleccionados']) ? unserialize($_GET['seleccionados']) : array();
 }
 
 // Asegurar que $seleccionados sea un array válido
-if (!is_array($seleccionados)) 
-{
+if (!is_array($seleccionados)) {
     $seleccionados = array();
 }
 
@@ -40,26 +35,20 @@ $orden = isset($_GET['orden']) ? $_GET['orden'] : null;
 
 // Procesar formulario para mostrar las repeticiones
 $resultados = array();
-foreach ($seleccionados as $id => $value) 
-{ // Procesa las claves, ignora el atributo "value"
-    if (isset($archivos[$id]) && file_exists($archivos[$id])) 
-    {
+foreach ($seleccionados as $id => $value) { // Procesa las claves seleccionadas
+    if (isset($archivos[$id]) && file_exists($archivos[$id])) {
         $contenido = file_get_contents($archivos[$id]);
-        $palabras = array_filter(explode("\n", $contenido)); // Dividir palabras por línea
+        $palabras = array_filter(explode("\n", $contenido)); // Dividir por línea
         $conteo = array_count_values($palabras);
 
         // Si el archivo es el seleccionado para ordenar
-        
-        if ($archivo_orden === $archivos[$id]) 
-        {
-            if ($orden === "palabra") 
-            {
+        if ($archivo_orden === $archivos[$id]) {
+            if ($orden === "palabra") {
                 ksort($conteo); // Ordenar por palabra ascendente
             } elseif ($orden === "repeticiones") {
                 asort($conteo); // Ordenar por repeticiones ascendente
             }
-        } else 
-        {
+        } else {
             arsort($conteo); // Ordenar por repeticiones descendente por defecto
         }
 
@@ -69,10 +58,14 @@ foreach ($seleccionados as $id => $value)
 
 // Serializar los archivos seleccionados para pasarlos en la URL
 $seleccionados_serializados = serialize($seleccionados);
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Mostrar Repeticiones</title>
@@ -82,17 +75,21 @@ $seleccionados_serializados = serialize($seleccionados);
             border-collapse: collapse;
             margin: 10px 0;
         }
-        th, td {
+
+        th,
+        td {
             border: 1px solid #000;
             padding: 8px;
             text-align: left;
         }
+
         th a {
             text-decoration: none;
             color: blue;
         }
     </style>
 </head>
+
 <body>
     <form method="POST">
         <table>
@@ -102,12 +99,10 @@ $seleccionados_serializados = serialize($seleccionados);
                 <th>Archivo</th>
             </tr>
             <?php
-            foreach ($archivos as $id => $nombre) 
-            {
+            foreach ($archivos as $id => $nombre) {
                 echo "<tr>";
                 echo "<td><input type='checkbox' name='Selec[$id]'";
-                if (isset($seleccionados[$id])) 
-                {
+                if (isset($seleccionados[$id])) {
                     echo " checked";
                 }
                 echo "></td>";
@@ -121,19 +116,16 @@ $seleccionados_serializados = serialize($seleccionados);
     </form>
 
     <?php
-    if (!empty($resultados)) 
-    {
-        foreach ($resultados as $archivo => $conteo) 
-        {
+    if (!empty($resultados)) {
+        foreach ($resultados as $archivo => $conteo) {
             echo "<h3>Archivo: " . htmlspecialchars($archivo) . "</h3>";
             echo "<table>";
             echo "<tr>";
-            echo "<th><a href='$_SERVER[PHP_SELF]?archivo=$archivo&orden=palabra&seleccionados=$seleccionados_serializados';   >Palabra</a></th>";
-            echo "<th><a href='$_SERVER[PHP_SELF]?archivo=$archivo&orden=repeticiones&seleccionados=$seleccionados_serializados'; >Repeticiones</a></th>";
+            echo "<th><a href='" . $_SERVER['PHP_SELF'] . "?archivo=" . urlencode($archivo) . "&orden=palabra&seleccionados=" . urlencode($seleccionados_serializados) . "'>Palabra</a></th>";
+            echo "<th><a href='" . $_SERVER['PHP_SELF'] . "?archivo=" . urlencode($archivo) . "&orden=repeticiones&seleccionados=" . urlencode($seleccionados_serializados) . "'>Repeticiones</a></th>";
             echo "</tr>";
 
-            foreach ($conteo as $palabra => $repeticiones) 
-            {
+            foreach ($conteo as $palabra => $repeticiones) {
                 echo "<tr>";
                 echo "<td>" . htmlspecialchars($palabra) . "</td>";
                 echo "<td>" . $repeticiones . "</td>";
@@ -145,4 +137,5 @@ $seleccionados_serializados = serialize($seleccionados);
     }
     ?>
 </body>
+
 </html>
