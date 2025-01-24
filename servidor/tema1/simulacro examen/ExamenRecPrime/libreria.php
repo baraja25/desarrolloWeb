@@ -90,5 +90,69 @@ function Cerrar($db)
     
 }
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mover Productos</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="">
+        <table>
+            <thead>
+                <tr>
+                    <th>Seleccionar</th>
+                    <th>Producto</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $file = fopen("Productos.txt", "r");
+                while (($line = fgets($file)) !== false) {
+                    list($producto, $descripcion, $precio) = explode(" :", trim($line));
+                    echo "<tr>
+                            <td><input type='checkbox' name='productos[]' value='$line'></td>
+                            <td>$producto</td>
+                            <td>$descripcion</td>
+                            <td>$precio</td>
+                          </tr>";
+                }
+                fclose($file);
+                ?>
+            </tbody>
+        </table>
+        <br>
+        <input type="radio" name="area" value="Area1" required> Area1
+        <input type="radio" name="area" value="Area2"> Area2
+        <input type="radio" name="area" value="Area3"> Area3
+        <br><br>
+        <button type="submit" name="mover">Mover</button>
+    </form>
 
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mover'])) {
+        $selectedProducts = $_POST['productos'];
+        $selectedArea = $_POST['area'];
+
+        echo "<h2>$selectedArea</h2>";
+        echo "<textarea rows='10' cols='50'>";
+        foreach ($selectedProducts as $product) {
+            echo $product;
+        }
+        echo "</textarea>";
+    }
+    ?>
+</body>
+</html>
 ?>
