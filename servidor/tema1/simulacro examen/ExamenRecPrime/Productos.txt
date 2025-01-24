@@ -1,0 +1,8 @@
+4:XPS:Dell:13:1500
+5:MacBook:Apple:Air:1100
+6:Surface:Microsoft:Laptop3:1300
+7:Pixel:Google:6:700
+8:Aspire:Acer:5:600
+22:aa:ss:dd:100
+23:aa:ss:dd:100
+50:GT3:huawei:GT32:1000
