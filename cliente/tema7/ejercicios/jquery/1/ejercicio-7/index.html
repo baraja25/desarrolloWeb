@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 7</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    #resaltarPrimeroUltimo {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .resaltado-amarillo {
+      background-color: yellow;
+    }
+    .resaltado-rojo {
+      background-color: red;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<ul>
+  <li>Elemento 1</li>
+  <li>Elemento 2</li>
+  <li>Elemento 3</li>
+  <li>Elemento 4</li>
+  <li>Elemento 5</li>
+  <li>Elemento 6</li>
+</ul>
+<button id="resaltarPrimeroUltimo">Resaltar Primero y Último</button>
+<script>
+  $(document).ready(function() {
+    $('#resaltarPrimeroUltimo').click(function() {
+      // Resaltar el primer elemento con fondo amarillo
+      $('ul li:first').addClass('resaltado-amarillo');
+
+      // Resaltar el último elemento con fondo rojo
+      $('ul li:last').addClass('resaltado-rojo');
+    });
+  });
+</script>
+</body>
+</html>

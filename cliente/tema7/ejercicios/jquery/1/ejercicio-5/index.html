@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 5</title>
+  <style>
+    #resaltarSubelementos {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .resaltado {
+      background-color: yellow; /* Color de fondo para resaltar */
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+<ul>
+  <li>
+    Elemento 1
+    <ul>
+      <li>Subelemento 1.1</li>
+      <li>Subelemento 1.2</li>
+      <li>Subelemento 1.3</li>
+    </ul>
+  </li>
+  <li>Elemento 2</li>
+  <li>Elemento 3</li>
+</ul>
+<button id="resaltarSubelementos">Resaltar Subelementos</button>
+<script>
+  $(document).ready(function() {
+    $('#resaltarSubelementos').click(function() {
+      // Resaltar los elementos <li> dentro del segundo nivel de la lista
+      $('ul > li > ul > li').addClass('resaltado');
+    });
+  });
+</script>
+</body>
+</html>

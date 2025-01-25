@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 6</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    #resaltarHijos {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .resaltado {
+      background-color: blue; /* Color de fondo para resaltar */
+      color: white; /* Cambiar el color del texto a blanco para mejor contraste */
+    }
+  </style>
+</head>
+<body>
+<div class="contenedor">
+  <p>Soy un hijo directo</p>
+  <div>
+    <p>Soy un hijo indirecto</p>
+  </div>
+</div>
+<button id="resaltarHijos">Resaltar Hijos Directos</button>
+<script>
+  $(document).ready(function() {
+    $('#resaltarHijos').click(function() {
+      // Resaltar solo los hijos directos <p> del contenedor principal
+      $('.contenedor > p').addClass('resaltado');
+    });
+  });
+</script>
+</body>
+</html>

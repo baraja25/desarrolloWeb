@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        .container {
+            width: 300px;
+            margin: auto;
+            text-align: center;
+        }
+
+        #task-list li {
+            list-style: none;
+            margin: 5px 0;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            background-color: #f0f0f0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+
+        .editable {
+            border: 2px dashed blue;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>Lista de Tareas</h1>
+    <form id="task-form">
+        <input type="text" id="task-input" placeholder="Nueva tarea">
+        <button type="submit" id="add-task">Agregar</button>
+    </form>
+    <ul id="task-list"></ul>
+    <button id="restore-tasks">Restaurar Tareas Eliminadas</button>
+    <button id="remove-completed">Eliminar Tareas Completadas</button>
+</div>
+<script>
+    $(document).ready(function () {
+        let removedTasks = [];
+
+        // Agregar tarea
+        $('#task-form').on('submit', function (e) {
+            e.preventDefault();
+            const taskText = $('#task-input').val().trim();
+            if (taskText) {
+                $('#task-list').append(`<li>${taskText} <button class="complete-task">Completar</button> <button class="remove-task">Eliminar</button></li>`);
+                $('#task-input').val('');
+            }
+        });
+
+        // 1. Agregar una clase al botón "Agregar" al hacer clic
+        $('#add-task').on('click', function () {
+            $(this).addClass('active');
+        });
+
+        // 2. Agregar múltiples clases al hacer doble clic en una tarea
+        $('#task-list').on('dblclick', 'li', function () {
+            $(this).addClass('highlight editable');
+        });
+
+        // 3. Eliminar la clase highlight al hacer clic en un elemento que ya la tenga
+        $('#task-list').on('click', 'li.highlight', function () {
+            $(this).removeClass('highlight');
+        });
+
+        // 4. Alternar la clase hidden del botón "Restaurar Tareas"
+        function toggleRestoreButton() {
+            if (removedTasks.length === 0) {
+                $('#restore-tasks').addClass('hidden');
+            } else {
+                $('#restore-tasks').removeClass('hidden');
+            }
+        }
+
+        toggleRestoreButton();
+
+        // Marcar tarea como completada
+        $('#task-list').on('click', '.complete-task', function () {
+            $(this).parent().toggleClass('completed');
+        });
+
+        // Eliminar tarea
+        $('#task-list').on('click', '.remove-task', function () {
+            const task = $(this).parent();
+            removedTasks.push(task);
+            task.remove();
+            toggleRestoreButton();
+        });
+
+        // 5. Eliminar un elemento del DOM - Eliminar todas las tareas completadas
+        $('#remove-completed').on('click', function () {
+            $('#task-list .completed').fadeOut(300, function () {
+                $(this).remove();
+            });
+        });
+
+        // 6. Restaurar tareas eliminadas con clases originales
+        $('#restore-tasks').on('click', function () {
+            removedTasks.forEach(task => {
+                $('#task-list').append(task);
+            });
+            removedTasks = [];
+            toggleRestoreButton();
+        });
+
+        // 7. Modificar el contenido de un elemento - Editar texto de tarea
+        $('#task-list').on('dblclick', 'li', function () {
+            const currentText = $(this).contents().get(0).nodeValue.trim();
+            const input = $(`<input type="text" value="${currentText}">`);
+            $(this).html(input);
+            input.on('blur', function () {
+                const updatedText = $(this).val();
+                $(this).parent().html(`${updatedText} <button class="complete-task">Completar</button> <button class="remove-task">Eliminar</button>`);
+            });
+            input.focus();
+        });
+
+        // 8. Modificar con animaciones - Desvanecer tareas completadas antes de eliminarlas
+        $('#task-list').on('click', '.remove-task', function () {
+            const task = $(this).parent();
+            if (task.hasClass('completed')) {
+                task.fadeOut(300, function () {
+                    removedTasks.push(task);
+                    task.remove();
+                    toggleRestoreButton();
+                });
+            } else {
+                removedTasks.push(task);
+                task.remove();
+                toggleRestoreButton();
+            }
+        });
+
+        // 9. Acceder a los elementos padre con parent(), parents() y closest()
+        $('#task-list').on('click', '.remove-task', function () {
+            const parentClasses = $(this).parent().attr('class');
+            console.log(`Clases del padre directo: ${parentClasses}`);
+
+            const allParents = $(this).parents().map(function () {
+                return $(this).attr('class');
+            }).get();
+            console.log(`Clases de todos los padres: ${allParents}`);
+
+            const closestLi = $(this).closest('li').attr('class');
+            console.log(`Clase del elemento li más cercano: ${closestLi}`);
+        });
+    });
+</script>
+</body>
+
+</html>
