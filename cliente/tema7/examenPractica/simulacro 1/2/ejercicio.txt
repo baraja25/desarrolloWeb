@@ -1,0 +1,15 @@
+Ejercicio 2: Manipulación del BOM y Redirección
+Descripción: Crea una página web que muestre información sobre el navegador del usuario y permita redirigir a otra página. La página debe mostrar el ancho y alto de la ventana, la URL actual y el nombre y versión del navegador. Además, incluye un botón que, al hacer clic, redirija al usuario a una página externa.
+
+Requisitos:
+
+Utiliza window.innerWidth y window.innerHeight para mostrar el tamaño de la ventana en un elemento de la página.
+Muestra la URL actual utilizando window.location.href.
+Muestra el nombre y versión del navegador utilizando window.navigator.userAgent.
+Crea un botón que, al hacer clic, redirija al usuario a "https://www.ejemplo.com".
+Utiliza setTimeout para mostrar un mensaje de alerta después de 5 segundos que indique que la redirección se realizará en breve.
+Implementa un temporizador con setInterval que actualice un contador en la página cada segundo, indicando cuántos segundos han pasado desde que se cargó la página.
+Utiliza window.open para abrir una ventana emergente que muestre un mensaje de bienvenida al usuario.
+Puntos Extra:
+
+Implementa la gestión del historial del navegador para que el usuario pueda volver a la página anterior después de la redirección.
