@@ -83,7 +83,7 @@
 
     // Validación del formulario
     form.addEventListener("submit", (e) => {
-      e.preventDefault(); // Prevenir el envío del formulario
+
       let allValid = true;
 
       // Validar todos los campos antes de enviar
@@ -96,6 +96,7 @@
       if (allValid) {
         alert("Formulario enviado correctamente.");
       } else {
+        e.preventDefault(); // Prevenir el envío del formulario
         alert("Por favor, corrija los errores antes de enviar.");
       }
     });
