@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo Completo</title>
+  <style>
+    .error { color: red; font-size: 0.9em; }
+    .hidden { display: none; }
+    .highlight { border: 2px solid blue; }
+  </style>
+</head>
+<body>
+<h1>Ejemplo Completo para Examen</h1>
+
+<!-- Formulario con múltiples tipos de campos -->
+<form id="form">
+  <label for="textInput">Texto:</label>
+  <input type="text" id="textInput">
+  <span class="error hidden">Debe tener al menos 3 caracteres.</span>
+  <br><br>
+
+  <label for="emailInput">Correo Electrónico:</label>
+  <input type="email" id="emailInput">
+  <span class="error hidden">Ingrese un correo válido.</span>
+  <br><br>
+
+  <label for="passwordInput">Contraseña:</label>
+  <input type="password" id="passwordInput">
+  <span class="error hidden">Debe tener al menos 6 caracteres.</span>
+  <br><br>
+
+  <label>
+    <input type="checkbox" id="terms"> Acepto los términos.
+  </label>
+  <span class="error hidden">Debe aceptar los términos.</span>
+  <br><br>
+
+  <label>Género:</label>
+  <input type="radio" name="gender" value="male" id="male"> Hombre
+  <input type="radio" name="gender" value="female" id="female"> Mujer
+  <span class="error hidden">Seleccione un género.</span>
+  <br><br>
+
+  <label for="colorSelect">Color favorito:</label>
+  <select id="colorSelect">
+    <option value="">Seleccione un color</option>
+    <option value="red">Rojo</option>
+    <option value="blue">Azul</option>
+    <option value="green">Verde</option>
+  </select>
+  <span class="error hidden">Seleccione un color.</span>
+  <br><br>
+
+  <button type="submit">Enviar</button>
+</form>
+
+<button id="openPopup">Abrir Ventana Emergente</button>
+<button id="historyBack">Ir Atrás</button>
+<button id="historyForward">Ir Adelante</button>
+<button id="redirectButton">Redirigir a Google</button> <!-- Botón para redirigir -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("#form");
+    const inputs = document.querySelectorAll("#form input, #form select");
+    const errors = document.querySelectorAll(".error");
+
+    // Validación en tiempo real
+    inputs.forEach((input, index) => {
+      input.addEventListener("input", () => {
+        let valid = true;
+        if (input.id === "textInput" && input.value.length < 3) valid = false;
+        if (input.id === "emailInput" && !input.value.includes("@")) valid = false;
+        if (input.id === "passwordInput" && input.value.length < 6) valid = false;
+        if (input.id === "terms" && !input.checked) valid = false;
+        if (input.id === "colorSelect" && input.value === "") valid = false;
+
+        // Mostrar u ocultar el mensaje de error
+        errors[index].classList.toggle("hidden", valid);
+      });
+    });
+
+    // Validación del formulario
+    form.addEventListener("submit", (e) => {
+      e.preventDefault(); // Prevenir el envío del formulario
+      let allValid = true;
+
+      // Validar todos los campos antes de enviar
+      inputs.forEach((input, index) => {
+        if (errors[index].classList.contains("hidden") === false) {
+          allValid = false; // Si hay algún error, no se envía
+        }
+      });
+
+      if (allValid) {
+        alert("Formulario enviado correctamente.");
+      } else {
+        alert("Por favor, corrija los errores antes de enviar.");
+      }
+    });
+
+    // Abrir ventana emergente
+    document.querySelector("#openPopup").addEventListener("click", () => {
+      const popup = window.open("https://www.wikipedia.org", "popup", "width=600,height=400");
+      if (!popup) alert("Por favor habilite ventanas emergentes.");
+    });
+
+    // Ir atrás en el historial
+    document.querySelector("#historyBack").addEventListener("click", () => {
+      history.back();
+    });
+
+    // Ir adelante en el historial
+    document.querySelector("#historyForward").addEventListener("click", () => {
+      history.forward();
+    });
+
+    // Redirigir a Google
+    document.querySelector("#redirectButton").addEventListener("click", () => {
+      window.location.href = "https://www.google.com"; // Redirigir a Google
+    });
+
+    // Mostrar propiedades del BOM
+    console.log("Ancho ventana: ", window.innerWidth);
+    console.log("Alto ventana: ", window.innerHeight);
+    console.log("URL actual: ", window.location.href);
+    console.log("Navegador: ", window.navigator.userAgent);
+
+    // Temporizadores
+    setTimeout(() => console.log("Este mensaje aparece después de 3 segundos."), 3000);
+
+    let counter = 0;
+    const interval = setInterval(() => {
+      counter++;
+      console.log(`Intervalo ejecutado ${counter} veces.`);
+      if (counter === 5) clearInterval(interval);
+    }, 1000);
+
+    // Cambiar contenido de un elemento
+    const errorMessage = document.createElement("div");
+    errorMessage.innerHTML = "Este es un mensaje de error genérico."; // Uso de innerHTML
+    document.body.appendChild(errorMessage); // Agregar el mensaje al cuerpo del documento
+
+    // Cambiar atributos de un elemento
+    const textInput = document.querySelector("#textInput");
+    textInput.setAttribute("placeholder", "Ingrese su texto aquí"); // Cambiar el atributo placeholder
+
+    // Cambiar estilos de un elemento
+    textInput.style.border = "1px solid green"; // Cambiar el estilo del borde del input de texto
+
+    // Ejemplo de eliminar un elemento
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Eliminar Mensaje de Error";
+    document.body.appendChild(removeButton);
+    removeButton.addEventListener("click", () => {
+      if (errorMessage.parentNode) {
+        errorMessage.parentNode.removeChild(errorMessage); // Eliminar el mensaje de error
+      }
+    });
+  });
+</script>
+</body>
+</html>
