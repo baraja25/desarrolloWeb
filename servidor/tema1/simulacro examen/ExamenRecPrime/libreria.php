@@ -89,7 +89,7 @@ function Cerrar($db)
     mysqli_close($db);
     
 }
-
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,7 +106,7 @@ function Cerrar($db)
     </style>
 </head>
 <body>
-    <form method="post" action="">
+    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
         <table>
             <thead>
                 <tr>
