@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Examen de JavaScript</title>
+    <style>
+        .error { color: red; }
+        .success { color: green; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+<!-- Formulario -->
+<form id="miFormulario">
+    <div>
+        <label>Nombre:</label>
+        <input type="text" id="nombre" data-valida="texto">
+        <div class="error" id="errorNombre"></div>
+    </div>
+
+    <div>
+        <label>Email:</label>
+        <input type="email" id="email">
+        <div class="error" id="errorEmail"></div>
+    </div>
+
+    <div>
+        <label>Aceptar términos:</label>
+        <input type="checkbox" id="terminos">
+        <div class="error" id="errorTerminos"></div>
+    </div>
+
+    <button type="submit">Enviar</button>
+</form>
+
+<!-- Información BOM -->
+<div id="infoNavegador"></div>
+
+<!-- Área dinámica -->
+<div id="contenidoDinamico"></div>
+
+<script>
+    // Selección de elementos
+    const formulario = document.getElementById('miFormulario');
+    const errores = document.getElementsByClassName('error');
+    const inputNombre = document.querySelector('#nombre');
+    const todosInputs = document.querySelectorAll('input');
+
+    // Validación en tiempo real
+    inputNombre.addEventListener('input', validarNombre);
+    document.getElementById('email').addEventListener('input', validarEmail);
+    document.getElementById('terminos').addEventListener('change', validarTerminos);
+
+    function validarNombre() {
+        const valor = inputNombre.value.trim();
+        const error = document.getElementById('errorNombre');
+
+        if(valor.length < 3) {
+            error.textContent = 'El nombre debe tener al menos 3 caracteres';
+            inputNombre.setAttribute('aria-invalid', 'true');
+        } else {
+            error.textContent = '';
+            inputNombre.removeAttribute('aria-invalid');
+        }
+    }
+
+    function validarEmail() {
+        const email = document.getElementById('email').value;
+        const error = document.getElementById('errorEmail');
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if(!regex.test(email)) {
+            error.textContent = 'Ingrese un email válido';
+            error.style.display = 'block';
+        } else {
+            error.style.display = 'none';
+        }
+    }
+
+    function validarTerminos() {
+        const check = document.getElementById('terminos');
+        const error = document.getElementById('errorTerminos');
+
+        if(!check.checked) {
+            error.classList.add('error');
+            error.classList.remove('hidden');
+        } else {
+            error.classList.add('hidden');
+        }
+    }
+
+    // Manejo de envío del formulario
+    formulario.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        validarNombre();
+        validarEmail();
+        validarTerminos();
+
+        if(document.querySelectorAll('[aria-invalid="true"]').length === 0) {
+            // Crear elemento dinámico
+            const success = document.createElement('div');
+            success.className = 'success';
+            success.innerHTML = '¡Formulario enviado correctamente! <button class="cerrar">X</button>';
+            document.getElementById('contenidoDinamico').appendChild(success);
+
+            // Redirección después de 3 segundos
+            setTimeout(() => {
+                window.location.href = 'https://ejemplo.com';
+            }, 3000);
+
+            // Manipular historial
+            history.pushState({}, '', '#exito');
+        }
+    });
+
+    // Delegación de eventos para botón cerrar
+    document.body.addEventListener('click', function(e) {
+        if(e.target.classList.contains('cerrar')) {
+            e.target.parentElement.remove();
+            e.stopPropagation();
+        }
+    });
+
+    // Manejo de BOM
+    function actualizarInfoBOM() {
+        const info = document.getElementById('infoNavegador');
+        info.innerHTML = `
+                Ancho ventana: ${window.innerWidth}px<br>
+                Alto ventana: ${window.innerHeight}px<br>
+                URL actual: ${window.location.href}<br>
+                Navegador: ${navigator.userAgent}
+            `;
+    }
+
+    // Actualizar info al cambiar tamaño
+    window.addEventListener('resize', actualizarInfoBOM);
+    actualizarInfoBOM();
+
+    // Temporizador
+    let contador = 0;
+    setInterval(() => {
+        console.log(`Tiempo transcurrido: ${++contador} segundos`);
+    }, 1000);
+
+    // Ventana emergente
+    const botonEmergente = document.createElement('button');
+    botonEmergente.textContent = 'Mostrar alerta';
+    botonEmergente.addEventListener('click', () => {
+        alert('¡Esta es una ventana emergente!');
+    });
+    document.body.appendChild(botonEmergente);
+</script>
+</body>
+</html>

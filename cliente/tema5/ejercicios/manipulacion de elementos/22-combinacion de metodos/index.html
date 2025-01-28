@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .box { width: 100px; height: 100px; }
+        .bordered { border: 2px solid black; }
+        .highlighted { background-color: yellow; }
+        .visible { opacity: 1; }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<div id="multiBox" class="box"></div>
+<button id="actionButton">Realizar Acción</button>
+<script>
+    document.getElementById('actionButton').addEventListener('click', function() {
+        const multiBox = document.getElementById('multiBox');
+        multiBox.classList.add('bordered');
+
+        if (multiBox.classList.contains('box')) {
+            multiBox.classList.remove('box');
+        }
+
+        if (multiBox.classList.contains('bordered')) {
+            multiBox.classList.replace('bordered', 'highlighted');
+        }
+
+        multiBox.classList.toggle('visible');
+    });
+</script>
+</body>
+</html>

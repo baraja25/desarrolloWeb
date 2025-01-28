@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Examen Práctico</title>
+  <style>
+    .error { color: red; font-size: 0.8em; }
+    .exito {
+      background: #dff0d8;
+      padding: 10px;
+      margin: 10px 0;
+      position: relative;
+    }
+    .cerrar {
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div id="dimensiones"></div>
+
+<form id="formRegistro">
+  <div class="campo">
+    <label>Usuario:</label>
+    <input type="text" id="usuario" data-min="5">
+    <div class="error" id="errorUsuario"></div>
+  </div>
+
+  <div class="campo">
+    <label>Email:</label>
+    <input type="email" id="email">
+    <div class="error" id="errorEmail"></div>
+  </div>
+
+  <div class="campo">
+    <label><input type="checkbox" id="terminos"> Acepto los términos</label>
+    <div class="error" id="errorTerminos"></div>
+  </div>
+
+  <button type="submit">Registrar</button>
+</form>
+
+<button id="btnInfo">Ver info</button>
+<div id="mensajes"></div>
+
+<script>
+  // Selección de elementos (4 métodos diferentes)
+  const form = document.getElementById('formRegistro'); // getElementById
+  const errorElements = document.getElementsByClassName('error'); // getElementsByClassName
+  const usuarioInput = document.querySelector('#usuario'); // querySelector
+  const todosCampos = document.querySelectorAll('.campo input'); // querySelectorAll
+
+  // Validación en tiempo real
+  usuarioInput.addEventListener('input', validarUsuario);
+  document.getElementById('email').addEventListener('input', validarEmail);
+  document.getElementById('terminos').addEventListener('change', validarTerminos);
+
+  function validarUsuario() {
+    const minCaracteres = parseInt(usuarioInput.dataset.min);
+    const error = document.getElementById('errorUsuario');
+
+    if(usuarioInput.value.length < minCaracteres) {
+      error.textContent = `Mínimo ${minCaracteres} caracteres`;
+      usuarioInput.setAttribute('aria-invalid', 'true');
+    } else {
+      error.textContent = '';
+      usuarioInput.removeAttribute('aria-invalid');
+    }
+  }
+
+  function validarEmail() {
+    const email = document.getElementById('email');
+    const error = document.getElementById('errorEmail');
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!regex.test(email.value)) {
+      error.textContent = 'Formato de email inválido';
+      email.style.borderColor = 'red';
+    } else {
+      error.textContent = '';
+      email.style.borderColor = '';
+    }
+  }
+
+  function validarTerminos() {
+    const check = document.getElementById('terminos');
+    const error = document.getElementById('errorTerminos');
+
+    error.textContent = check.checked ? '' : 'Debes aceptar los términos';
+  }
+
+  // Manejo de envío
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    validarUsuario();
+    validarEmail();
+    validarTerminos();
+
+    if(document.querySelectorAll('[aria-invalid="true"]').length === 0) {
+      // Mensaje de éxito
+      const mensajeExito = document.createElement('div');
+      mensajeExito.className = 'exito';
+      mensajeExito.innerHTML = '¡Registro exitoso! <span class="cerrar">×</span>';
+      document.getElementById('mensajes').appendChild(mensajeExito);
+
+      // Autoeliminar después de 5 segundos
+      setTimeout(() => {
+        mensajeExito.remove();
+        window.location.href = 'https://ejemplo.com/exito';
+      }, 5000);
+
+      // Actualizar historial
+      history.pushState({}, '', '/nueva-ruta');
+    }
+  });
+
+  // Delegación de eventos para botón cerrar
+  document.getElementById('mensajes').addEventListener('click', function(e) {
+    if(e.target.classList.contains('cerrar')) {
+      e.target.parentElement.remove();
+      e.stopPropagation();
+    }
+  });
+
+  // Info BOM
+  document.getElementById('btnInfo').addEventListener('click', function() {
+    alert(`User Agent: ${navigator.userAgent}\nURL: ${location.href}`);
+  });
+
+  // Mostrar dimensiones
+  function actualizarDimensiones() {
+    document.getElementById('dimensiones').textContent =
+            `Ventana: ${window.innerWidth}x${window.innerHeight}`;
+  }
+
+  window.addEventListener('resize', actualizarDimensiones);
+  actualizarDimensiones();
+
+  // Temporizador para actualizar título cada minuto
+  let minutos = 0;
+  setInterval(() => {
+    document.title = `Registro (${++minutos} min)`;
+  }, 60000);
+</script>
+</body>
+</html>
