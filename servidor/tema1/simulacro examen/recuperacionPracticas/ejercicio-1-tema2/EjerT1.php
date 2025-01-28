@@ -6,25 +6,12 @@ $archivos = array();
 
 if (file_exists($archivo_ruta)) {
     $contenido = file_get_contents($archivo_ruta);
-<<<<<<< HEAD
     $lineas = explode("\n", trim($contenido));
 
     foreach ($lineas as $linea) {
         $linea = trim($linea); // Eliminar espacios en blanco
         if (!empty($linea)) { // Ignorar líneas vacías
             $archivos[$linea] = $linea; // Asociar ID con el nombre del archivo
-=======
-    $lineas = explode("\n", $contenido);
-    
-    foreach ($lineas as $linea) 
-    {
-        $datos = explode(" ", trim($linea), 2); // Separar ID y nombre
-
-        if (count($datos) === 2) 
-        {
-            $archivos[$datos[0]] = $datos[1];
-            
->>>>>>> 10852a8ed81054cc77cd5696d99cdeae493fda9e
         }
     }
 } else {
