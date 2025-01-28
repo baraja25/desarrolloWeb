@@ -1,5 +1,5 @@
 <?php
-
+// rehacer el código de la clase DaoStock para que sea similar a las clases DaoTiendas y DaoFamilias
 require_once 'DB.php';
 require_once 'stock.php';
 
