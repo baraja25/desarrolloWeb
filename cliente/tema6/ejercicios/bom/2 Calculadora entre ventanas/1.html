@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventana Principal</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    #resultado { margin-top: 20px; font-size: 1.2em; color: blue; }
+  </style>
+</head>
+<body>
+<h1>Calculadora entre ventanas</h1>
+<label for="operacion">Ingresa una operación matemática (ej: 5+3):</label>
+<input type="text" id="operacion" />
+<button id="enviarOperacion">Calcular</button>
+<p id="resultado">Resultado: </p>
+<script>
+  let ventanaSecundaria;
+
+  document.getElementById('enviarOperacion').onclick = function() {
+    const operacion = document.getElementById('operacion').value;
+    ventanaSecundaria = window.open('2.html', 'Calculadora Secundaria', 'width=400,height=300');
+    ventanaSecundaria.onload = function() {
+      ventanaSecundaria.document.getElementById('operacionRecibida').value = operacion;
+      ventanaSecundaria.calcular();
+    };
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.origin === window.location.origin) {
+      document.getElementById('resultado').innerText = `Resultado: ${event.data}`;
+    }
+  });
+</script>
+</body>
+</html>

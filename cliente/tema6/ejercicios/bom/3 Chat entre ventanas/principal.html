@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Principal</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    #historial { margin-top: 20px; border: 1px solid black; padding: 10px; height: 200px; overflow-y: auto; }
+  </style>
+</head>
+<body>
+<h1>Ventana Principal - Chat</h1>
+<div id="historial">Historial:</div>
+<input type="text" id="mensaje" placeholder="Escribe tu mensaje" />
+<button id="enviarMensaje">Enviar</button>
+<script>
+  let ventanaSecundaria;
+
+  document.getElementById('enviarMensaje').onclick = function() {
+    const mensaje = document.getElementById('mensaje').value;
+    if (!ventanaSecundaria || ventanaSecundaria.closed) {
+      ventanaSecundaria = window.open('secundaria.html', 'Chat Secundaria', 'width=400,height=300');
+    }
+    ventanaSecundaria.postMessage(mensaje, '*');
+    document.getElementById('historial').innerHTML += `<div>Yo: ${mensaje}</div>`;
+    document.getElementById('mensaje').value = '';
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.origin === window.location.origin) {
+      document.getElementById('historial').innerHTML += `<div>Secundaria: ${event.data}</div>`;
+    }
+  });
+</script>
+</body>
+</html>

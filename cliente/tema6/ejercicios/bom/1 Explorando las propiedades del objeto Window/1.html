@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorando Window</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    button { margin: 5px 0; }
+    pre { background-color: #f0f0f0; padding: 10px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+<h1>Explorando el objeto Window</h1>
+<!-- Sección 1: window.document -->
+<section>
+  <h2>1. window.document</h2>
+  <p id="domInfo">Contenido original del DOM</p>
+  <button id="modificarDom">Modificar DOM</button>
+</section>
+<!-- Sección 2: window.innerWidth y window.innerHeight -->
+<section>
+  <h2>2. window.innerWidth y window.innerHeight</h2>
+  <p id="tamañoVentana">Tamaño de la ventana: </p>
+  <button id="actualizarTamaño">Actualizar tamaño</button>
+</section>
+<!-- Sección 3: window.location -->
+<section>
+  <h2>3. window.location</h2>
+  <p id="urlActual">URL actual: </p>
+  <button id="redirigir">Redirigir a Google</button>
+</section>
+<!-- Sección 4: window.navigator -->
+<section>
+  <h2>4. window.navigator</h2>
+  <pre id="infoNavegador">Información del navegador: </pre>
+</section>
+<!-- Sección 5: window.history -->
+<section>
+  <h2>5. window.history</h2>
+  <button id="atras">Atrás</button>
+  <button id="adelante">Adelante</button>
+</section>
+<script>
+  // 1. window.document: Modificar el DOM
+  document.getElementById('modificarDom').onclick = function() {
+    document.getElementById('domInfo').innerText = "DOM modificado!";
+  };
+
+  // 2. window.innerWidth y window.innerHeight: Mostrar tamaño de la ventana
+  document.getElementById('actualizarTamaño').onclick = function() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    document.getElementById('tamañoVentana').innerText = `Tamaño de la ventana: ${width} x ${height}`;
+  };
+
+  // 3. window.location: Mostrar la URL actual y redirigir
+  document.getElementById('urlActual').innerText = `URL actual: ${window.location.href}`;
+  document.getElementById('redirigir').onclick = function() {
+    window.location.href = "https://www.google.com";
+  };
+
+  // 4. window.navigator: Mostrar información del navegador
+  const navigatorInfo = `Nombre: ${window.navigator.appName}, Versión: ${window.navigator.appVersion}, Idioma: ${window.navigator.language}, Plataforma: ${window.navigator.platform}`;
+  document.getElementById('infoNavegador').innerText = navigatorInfo;
+
+  // 5. window.history: Navegar en el historial
+  document.getElementById('atras').onclick = function() {
+    window.history.back();
+  };
+  document.getElementById('adelante').onclick = function() {
+    window.history.forward();
+  };
+</script>
+</body>
+</html>
