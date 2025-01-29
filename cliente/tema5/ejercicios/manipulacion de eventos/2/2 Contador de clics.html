@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 2: Contador de clics</title>
+</head>
+<body>
+<button id="contadorBoton">Haz clic</button>
+<p>Has hecho clic <span id="contador">0</span> veces.</p>
+<script>
+  const boton = document.getElementById('contadorBoton');
+  const span = document.getElementById('contador');
+  let contador = 0;
+
+  boton.addEventListener('click', () => {
+    contador++;
+    span.textContent = contador;
+  });
+</script>
+</body>
+</html>

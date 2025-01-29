@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 10: Input de Texto con Respuesta Limitada</title>
+</head>
+<body>
+<input type="text" id="textInput" placeholder="Escribe algo aquí...">
+<button id="stopButton">Detener Escucha</button>
+<p id="displayText">Texto ingresado: </p>
+<script>
+  const textInput = document.getElementById('textInput');
+  const displayText = document.getElementById('displayText');
+  const stopButton = document.getElementById('stopButton');
+
+  const updateText = () => {
+    displayText.textContent = `Texto ingresado: ${textInput.value}`;
+  };
+
+  textInput.addEventListener('input', updateText);
+
+  stopButton.addEventListener('click', () => {
+    textInput.removeEventListener('input', updateText);
+  });
+</script>
+</body>
+</html>

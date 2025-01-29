@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 29: Notificador personalizado</title>
+</head>
+<body>
+<div>
+  <button id="click-button">Haz clic aquí</button>
+  <p id="message"></p>
+</div>
+<script>
+  const clickButton = document.getElementById('click-button');
+  const message = document.getElementById('message');
+  let clickCount = 0;
+
+  clickButton.addEventListener('click', () => {
+    clickCount++;
+    if (clickCount === 5) {
+      const event = new CustomEvent('maxClicksReached');
+      clickButton.dispatchEvent(event);
+    }
+  });
+
+  clickButton.addEventListener('maxClicksReached', () => {
+    message.textContent = '¡Has alcanzado 5 clics!';
+  });
+</script>
+</body>
+</html>

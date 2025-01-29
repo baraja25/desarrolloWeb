@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 22: Validar la entrada de un campo de texto</title>
+</head>
+<body>
+<form>
+  <input type="text" id="emailField" placeholder="Introduce tu correo electrónico">
+</form>
+<p id="message"></p>
+<script>
+  const emailField = document.getElementById('emailField');
+  const message = document.getElementById('message');
+
+  emailField.addEventListener('blur', () => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(emailField.value)) {
+      message.textContent = 'Introduce un correo electrónico válido';
+    } else {
+      message.textContent = '';
+    }
+  });
+
+  emailField.addEventListener('focus', () => {
+    message.textContent = '';
+  });
+</script>
+</body>
+</html>

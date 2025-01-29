@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 5: Evento con captura</title>
+  <style>
+    #padre {
+      padding: 20px;
+      border: 2px solid red;
+    }
+    #hijo {
+      padding: 20px;
+      border: 2px solid blue;
+    }
+  </style>
+</head>
+<body>
+<div id="padre">Padre
+  <div id="hijo">Hijo</div>
+</div>
+<script>
+  const padre = document.getElementById('padre');
+  const hijo = document.getElementById('hijo');
+
+  padre.addEventListener('click', () => {
+    console.log('Evento en el Padre (fase de captura)');
+  }, { capture: true });
+
+  hijo.addEventListener('click', () => {
+    console.log('Evento en el Hijo');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 21: Resaltar el campo activo</title>
+</head>
+<body>
+<form>
+  <input type="text" id="inputField" placeholder="Escribe algo...">
+  <button type="submit">Enviar</button>
+</form>
+<script>
+  const inputField = document.getElementById('inputField');
+
+  inputField.addEventListener('focus', () => {
+    inputField.style.border = '2px solid green';
+  });
+
+  inputField.addEventListener('blur', () => {
+    inputField.style.border = '2px solid red';
+  });
+</script>
+</body>
+</html>

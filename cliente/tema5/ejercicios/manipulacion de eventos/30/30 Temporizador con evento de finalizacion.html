@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 30: Temporizador con evento de finalización</title>
+</head>
+<body>
+<div>
+  <input type="number" id="time-input" placeholder="Ingresa segundos">
+  <button id="start-timer">Iniciar Temporizador</button>
+  <p id="timer-display"></p>
+</div>
+<script>
+  const timeInput = document.getElementById('time-input');
+  const startTimerButton = document.getElementById('start-timer');
+  const timerDisplay = document.getElementById('timer-display');
+
+  startTimerButton.addEventListener('click', () => {
+    let timeLeft = parseInt(timeInput.value);
+    timerDisplay.textContent = `Tiempo restante: ${timeLeft} segundos`;
+
+    const interval = setInterval(() => {
+      timeLeft--;
+      timerDisplay.textContent = `Tiempo restante: ${timeLeft} segundos`;
+
+      if (timeLeft <= 0) {
+        clearInterval(interval);
+        const event = new CustomEvent('timerEnded');
+        startTimerButton.dispatchEvent(event);
+      }
+    }, 1000);
+  });
+
+  startTimerButton.addEventListener('timerEnded', () => {
+    timerDisplay.textContent = '¡El temporizador ha terminado!';
+  });
+</script>
+</body>
+</html>

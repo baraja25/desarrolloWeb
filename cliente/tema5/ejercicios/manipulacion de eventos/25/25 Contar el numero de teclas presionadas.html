@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 25: Contar el número de teclas presionadas</title>
+</head>
+<body>
+<input type="text" id="textInput" placeholder="Escribe algo...">
+<p>Teclas presionadas: <span id="keyCount">0</span></p>
+<script>
+  const textInput = document.getElementById('textInput');
+  const keyCountDisplay = document.getElementById('keyCount');
+  let keyCount = 0;
+
+  textInput.addEventListener('keydown', () => {
+    keyCount++;
+    keyCountDisplay.textContent = keyCount;
+  });
+</script>
+</body>
+</html>

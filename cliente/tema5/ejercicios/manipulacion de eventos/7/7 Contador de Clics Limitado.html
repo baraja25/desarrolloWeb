@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 7: Contador de Clics Limitado</title>
+</head>
+<body>
+<button id="clickButton">Haz clic aquí</button>
+<div id="clickCount">Clics: 0</div>
+<script>
+  const button = document.getElementById('clickButton');
+  const clickCountDiv = document.getElementById('clickCount');
+  let count = 0;
+
+  const handleClick = () => {
+    count++;
+    clickCountDiv.textContent = `Clics: ${count}`;
+    if (count >= 5) {
+      button.removeEventListener('click', handleClick);
+    }
+  };
+
+  button.addEventListener('click', handleClick);
+</script>
+</body>
+</html>

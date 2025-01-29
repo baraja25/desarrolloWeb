@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 4: Escucha única con once</title>
+</head>
+<body>
+<button id="botonOnce">Haz clic aquí</button>
+<script>
+  const boton = document.getElementById('botonOnce');
+  boton.addEventListener('click', () => {
+    alert('Este mensaje se mostrará solo una vez');
+  }, { once: true });
+</script>
+</body>
+</html>

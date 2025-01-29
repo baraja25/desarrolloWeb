@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 8: Eliminar Evento de Movimiento del Ratón</title>
+  <style>
+    #colorBox {
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+<div id="colorBox"></div>
+<button id="stopButton">Detener Cambio de Color</button>
+<script>
+  const colorBox = document.getElementById('colorBox');
+  const stopButton = document.getElementById('stopButton');
+
+  const changeColor = () => {
+    colorBox.style.backgroundColor = getRandomColor();
+  };
+
+  function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  colorBox.addEventListener('mousemove', changeColor);
+
+  stopButton.addEventListener('click', () => {
+    colorBox.removeEventListener('mousemove', changeColor);
+  });
+</script>
+</body>
+</html>

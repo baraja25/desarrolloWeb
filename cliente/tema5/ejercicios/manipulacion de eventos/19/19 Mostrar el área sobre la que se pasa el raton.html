@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+        <html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 19: Mostrar el área sobre la que se pasa el ratón</title>
+  <style>
+    .colorBox {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      display: inline-block;
+    }
+    .red { background-color: red; }
+    .green { background-color: green; }
+    .blue { background-color: blue; }
+  </style>
+</head>
+<body>
+<div class="colorBox red"></div>
+<div class="colorBox green"></div>
+<div class="colorBox blue"></div>
+<p id="colorName"></p>
+<script>
+  const colorBoxes = document.querySelectorAll('.colorBox');
+  const colorName = document.getElementById('colorName');
+
+  colorBoxes.forEach(box => {
+    box.addEventListener('mouseover', function() {
+      colorName.textContent = `Color: ${this.classList[1]}`;
+    });
+    box.addEventListener('mouseout', function() {
+      colorName.textContent = '';
+    });
+  });
+</script>
+</body>
+</html>

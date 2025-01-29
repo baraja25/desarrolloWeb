@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 16: Cambiar el texto al pasar el ratón</title>
+</head>
+<body>
+<p>Pasa el ratón por aquí 1</p>
+<p>Pasa el ratón por aquí 2</p>
+<p>Pasa el ratón por aquí 3</p>
+<script>
+  const paragraphs = document.querySelectorAll('p');
+
+  paragraphs.forEach(paragraph => {
+    paragraph.addEventListener('mouseover', function() {
+      this.textContent = '¡Texto cambiado!';
+    });
+  });
+</script>
+</body>
+</html>

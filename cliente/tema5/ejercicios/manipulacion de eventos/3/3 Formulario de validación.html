@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 3: Formulario de validación</title>
+</head>
+<body>
+<form id="miFormulario">
+  <input type="text" id="entrada" placeholder="Escribe algo...">
+  <button id="enviar" type="submit">Enviar</button>
+</form>
+<script>
+  const formulario = document.getElementById('miFormulario');
+  const entrada = document.getElementById('entrada');
+
+  formulario.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (entrada.value === '') {
+      alert('El campo no puede estar vacío');
+    } else {
+      console.log(entrada.value);
+    }
+  });
+</script>
+</body>
+</html>

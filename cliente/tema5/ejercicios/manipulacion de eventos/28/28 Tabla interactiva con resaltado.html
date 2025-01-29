@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 28: Tabla interactiva con resaltado</title>
+</head>
+<body>
+<form id="add-row-form">
+  <input type="text" id="name" placeholder="Nombre" required>
+  <input type="text" id="age" placeholder="Edad" required>
+  <button type="submit">Agregar Fila</button>
+</form>
+<table border="1">
+  <thead>
+  <tr>
+  <th>Nombre</th>
+  <th>Edad</th>
+  </tr>
+  </thead>
+  <tbody id="table-body"></tbody>
+</table>
+<script>
+  const addRowForm = document.getElementById('add-row-form');
+  const tableBody = document.getElementById('table-body');
+
+  addRowForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const age = document.getElementById('age').value;
+
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${name}</td><td>${age}</td>`;
+    tableBody.appendChild(row);
+
+    addRowForm.reset();
+  });
+
+  tableBody.addEventListener('mouseover', (event) => {
+    if (event.target.tagName === 'TD') {
+      const row = event.target.parentElement;
+      row.style.backgroundColor = 'blue';
+    }
+  });
+
+  tableBody.addEventListener('mouseout', (event) => {
+    if (event.target.tagName === 'TD') {
+      const row = event.target.parentElement;
+      row.style.backgroundColor = '';
+    }
+  });
+</script>
+</body>
+</html>

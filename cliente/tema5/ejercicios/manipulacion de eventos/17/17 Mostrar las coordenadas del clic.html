@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 17: Mostrar las coordenadas del clic</title>
+</head>
+<body>
+<p>Haz clic en cualquier parte de la página para ver las coordenadas.</p>
+<p id="coordinates"></p>
+<script>
+  const coordinatesDisplay = document.getElementById('coordinates');
+
+  document.addEventListener('click', (event) => {
+    coordinatesDisplay.textContent = `Coordenadas: X: ${event.clientX}, Y: ${event.clientY}`;
+  });
+</script>
+</body>
+</html>

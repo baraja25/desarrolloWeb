@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 24: Restringir la entrada de caracteres</title>
+</head>
+<body>
+<input type="text" id="numberInput" placeholder="Introduce solo números">
+<script>
+  const numberInput = document.getElementById('numberInput');
+
+  numberInput.addEventListener('keypress', (event) => {
+    if (event.charCode < 48 || event.charCode > 57) {
+      event.preventDefault();
+    }
+  });
+</script>
+</body>
+</html>

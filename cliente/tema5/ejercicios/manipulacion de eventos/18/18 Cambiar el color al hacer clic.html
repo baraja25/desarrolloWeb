@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 18: Cambiar el color al hacer clic</title>
+</head>
+<body>
+<div id="colorBox" style="width: 200px; height: 100px; text-align: center; line-height: 100px;">Haz clic para cambiar el color</div>
+<script>
+  const colorBox = document.getElementById('colorBox');
+
+  colorBox.addEventListener('click', () => {
+    colorBox.style.backgroundColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
+  });
+</script>
+</body>
+</html>

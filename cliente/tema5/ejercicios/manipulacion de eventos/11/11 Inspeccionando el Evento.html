@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 11: Inspeccionando el Evento</title>
+</head>
+<body>
+<button id="clickButton">Haz clic aquí</button>
+<p id="eventInfo"></p>
+<script>
+  const button = document.getElementById('clickButton');
+  const eventInfo = document.getElementById('eventInfo');
+
+  button.addEventListener('click', (event) => {
+    eventInfo.innerHTML = `Tipo: ${event.type}, Target: ${event.target.tagName}, Timestamp: ${event.timeStamp}`;
+    button.style.backgroundColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
+  });
+</script>
+</body>
+</html>

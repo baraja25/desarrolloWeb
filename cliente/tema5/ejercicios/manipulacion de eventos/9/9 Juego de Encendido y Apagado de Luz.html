@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 9: Juego de Encendido y Apagado de Luz</title>
+  <style>
+    #light {
+      width: 100px;
+      height: 100px;
+      background-color: gray;
+      border-radius: 50%;
+      margin: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .light-on {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+<div id="light">Luz</div>
+<script>
+  const light = document.getElementById('light');
+  let clickCount = 0;
+
+  const toggleLight = () => {
+    clickCount++;
+    light.classList.toggle('light-on');
+    if (clickCount >= 3) {
+      light.removeEventListener('click', toggleLight);
+    }
+  };
+
+  light.addEventListener('click', toggleLight);
+</script>
+</body>
+</html>

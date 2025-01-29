@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 26: Detectar combinaciones de teclas</title>
+</head>
+<body>
+<p>Presiona Ctrl + S o Ctrl + P</p>
+<script>
+  document.addEventListener('keydown', (event) => {
+    if (event.ctrlKey && event.key === 's') {
+      event.preventDefault();
+      console.log('Combinación Ctrl + S detectada');
+    } else if (event.ctrlKey && event.key === 'p') {
+      console.log('Combinación Ctrl + P detectada');
+    } else {
+      console.log(`Tecla presionada: ${event.key}`);
+    }
+  });
+</script>
+</body>
+</html>

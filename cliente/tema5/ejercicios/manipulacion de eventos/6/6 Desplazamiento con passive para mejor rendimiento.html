@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 6: Desplazamiento con passive</title>
+  <style>
+    #contenedor {
+      width: 200px;
+      height: 100px;
+      overflow-y: scroll;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+<div id="contenedor">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec urna nec libero volutpat dictum. Integer ac eros nec urna hendrerit lacinia...</p>
+  <p>(Repite este párrafo para llenar el contenedor)</p>
+</div>
+<script>
+  const contenedor = document.getElementById('contenedor');
+  contenedor.addEventListener('scroll', (event) => {
+    console.log(`Desplazamiento actual: ${contenedor.scrollTop}`);
+  }, { passive: true });
+</script>
+</body>
+</html>

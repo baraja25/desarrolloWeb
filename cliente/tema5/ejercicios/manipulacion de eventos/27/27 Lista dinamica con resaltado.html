@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 27: Lista dinámica con resaltado</title>
+</head>
+<body>
+<div>
+  <button id="add-item">Agregar Elemento</button>
+  <ul id="dynamic-list"></ul>
+</div>
+<script>
+  const addItemButton = document.getElementById('add-item');
+  const dynamicList = document.getElementById('dynamic-list');
+  let itemCount = 0;
+
+  addItemButton.addEventListener('click', () => {
+    itemCount++;
+    const li = document.createElement('li');
+    li.textContent = `Elemento ${itemCount}`;
+    dynamicList.appendChild(li);
+  });
+
+  dynamicList.addEventListener('click', (event) => {
+    if (event.target.tagName === 'LI') {
+      event.target.style.backgroundColor = event.target.style.backgroundColor === 'yellow' ? '' : 'yellow';
+    }
+  });
+</script>
+</body>
+</html>
