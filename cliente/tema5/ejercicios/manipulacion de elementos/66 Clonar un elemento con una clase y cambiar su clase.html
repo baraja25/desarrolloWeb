@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clonar un elemento con una clase y cambiar su clase</title>
+</head>
+<body>
+<div id="container">
+  <p class="message">Este es un mensaje.</p>
+</div>
+<button id="cloneAndChangeClass">Clonar y Cambiar Clase</button>
+
+<script>
+  document.getElementById('cloneAndChangeClass').addEventListener('click', function() {
+    const message = document.querySelector('.message');
+    const clone = message.cloneNode(true);
+    clone.className = "newMessage";
+    document.getElementById('container').appendChild(clone);
+  });
+</script>
+</body>
+</html>

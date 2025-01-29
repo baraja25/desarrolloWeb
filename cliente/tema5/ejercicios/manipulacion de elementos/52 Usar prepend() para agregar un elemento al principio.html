@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Usar prepend() para agregar un elemento al principio</title>
+</head>
+<body>
+<div id="container">
+    <p>Primer párrafo</p>
+</div>
+<button id="addFirst">Añadir al Principio</button>
+<script>
+    document.getElementById("addFirst").onclick = function () {
+        let p = document.createElement("p");
+        p.textContent = "Este párrafo se añadió al principio";
+        document.getElementById("container").prepend(p);
+    };
+</script>
+</body>
+</html>

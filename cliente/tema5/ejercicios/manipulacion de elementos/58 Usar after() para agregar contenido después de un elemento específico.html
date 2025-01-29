@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Usar after() para agregar contenido después de un elemento específico</title>
+</head>
+<body>
+<div id="container">
+  <p id="first">Primer párrafo</p>
+  <p id="second">Segundo párrafo</p>
+</div>
+<button id="addAfter">Añadir Después</button>
+
+<script>
+  document.getElementById('addAfter').addEventListener('click', function() {
+    const newParagraph = document.createElement("p");
+    newParagraph.textContent = "Párrafo añadido después del primero";
+    document.getElementById('first').after(newParagraph);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceder al primer hijo</title>
+</head>
+<body>
+<div id="container">
+    <p>Primer párrafo</p>
+    <p>Segundo párrafo</p>
+    <p>Tercer párrafo</p>
+</div>
+<button id="firstChild">Mostrar Primer Hijo</button>
+<p id="outputFirst"></p>
+
+<script>
+    document.getElementById('firstChild').addEventListener('click', () => {
+        const first = document.getElementById('container').firstElementChild;
+        document.getElementById('outputFirst').textContent = first.textContent;
+    });
+</script>
+</body>
+</html>

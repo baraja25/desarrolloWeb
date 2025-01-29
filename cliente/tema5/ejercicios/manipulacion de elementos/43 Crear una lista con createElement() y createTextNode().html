@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear una lista con createElement() y createTextNode()</title>
+</head>
+<body>
+<ul id="list"></ul>
+<button id="createList">Crear Lista</button>
+<script>
+  document.getElementById("createList").onclick = function() {
+    let list = document.getElementById("list");
+    for (let i = 1; i <= 3; i++) {
+      let li = document.createElement("li");
+      li.textContent = "Item " + i;
+      list.appendChild(li);
+    }
+  };
+</script>
+</body>
+</html>

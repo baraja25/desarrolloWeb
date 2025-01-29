@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar un atributo personalizado</title>
+</head>
+<body>
+<div id="product" data-product-id="101" data-product-name="Zapatos">Producto</div>
+<button id="removeAttribute">Eliminar Atributo</button>
+
+<script>
+    document.getElementById('removeAttribute').addEventListener('click', () => {
+        const product = document.getElementById('product');
+        product.removeAttribute('data-product-name');
+        console.log(product.getAttribute('data-product-name')); // Debe mostrar null
+    });
+</script>
+</body>
+</html>

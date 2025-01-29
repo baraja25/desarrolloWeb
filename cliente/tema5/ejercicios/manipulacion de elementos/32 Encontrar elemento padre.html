@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Encontrar elemento padre</title>
+</head>
+<body>
+<div id="parent">
+    <div id="child">Elemento hijo</div>
+</div>
+<button id="findParent">Encontrar Elemento Padre</button>
+<p id="output"></p>
+
+<script>
+    document.getElementById('findParent').addEventListener('click', () => {
+        const child = document.getElementById('child');
+        document.getElementById('output').textContent = child.parentElement.id;
+    });
+</script>
+</body>
+</html>

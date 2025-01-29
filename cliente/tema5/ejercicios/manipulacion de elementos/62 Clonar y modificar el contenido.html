@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clonar y modificar el contenido</title>
+</head>
+<body>
+<div id="container">
+  <p id="original">Este es el párrafo original.</p>
+</div>
+<button id="cloneAndModify">Clonar y Modificar</button>
+<script>
+  document.getElementById('cloneAndModify').addEventListener('click', function() {
+    const original = document.getElementById('original');
+    const clone = original.cloneNode(true);
+    clone.textContent = "Este es el párrafo clonado y modificado.";
+    document.getElementById('container').appendChild(clone);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear un div con clases y texto dinámico</title>
+</head>
+<body>
+<div id="boxContainer"></div>
+<button id="createBox">Crear Caja</button>
+<script>
+    document.getElementById("createBox").onclick = function () {
+        let div = document.createElement("div");
+        div.classList.add("box", "highlighted");
+        div.textContent = "Caja creada dinámicamente";
+        document.getElementById("boxContainer").appendChild(div);
+    };
+</script>
+</body>
+</html>

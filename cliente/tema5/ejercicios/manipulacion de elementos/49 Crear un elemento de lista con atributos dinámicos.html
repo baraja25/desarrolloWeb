@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear un elemento de lista con atributos dinámicos</title>
+</head>
+<body>
+<ul id="dynamicList"></ul>
+<button id="addToList">Añadir a la Lista</button>
+<script>
+    document.getElementById("addToList").onclick = function () {
+        let li = document.createElement("li");
+        li.textContent = "Nuevo Item";
+        li.setAttribute("data-id", "123");
+        document.getElementById("dynamicList").appendChild(li);
+    };
+</script>
+</body>
+</html>

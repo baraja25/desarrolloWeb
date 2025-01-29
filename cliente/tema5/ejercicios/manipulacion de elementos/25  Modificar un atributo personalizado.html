@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Modificar un atributo personalizado</title>
+</head>
+<body>
+<div id="user" data-user-id="123" data-role="admin">Usuario</div>
+<button id="changeRole">Cambiar Rol</button>
+
+<script>
+    document.getElementById('changeRole').addEventListener('click', () => {
+        const user = document.getElementById('user');
+        user.setAttribute('data-role', 'user');
+        console.log(user.getAttribute('data-role'));
+    });
+</script>
+</body>
+</html>

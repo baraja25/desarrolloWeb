@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Obtener siguiente hermano</title>
+</head>
+<body>
+<div id="firstDiv">Primer div</div>
+<div id="secondDiv">Segundo div</div>
+<div id="thirdDiv">Tercer div</div>
+<button id="nextSibling">Mostrar Siguiente Hermano</button>
+<p id="outputNext"></p>
+
+<script>
+    document.getElementById('nextSibling').addEventListener('click', () => {
+        const next = document.getElementById('firstDiv').nextElementSibling;
+        document.getElementById('outputNext').textContent = next.textContent;
+    });
+</script>
+</body>
+</html>

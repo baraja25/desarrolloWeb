@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear y acceder a un atributo personalizado</title>
+</head>
+<body>
+<div id="product" data-product-id="001" data-product-name="Camiseta" data-price="25.99">Producto</div>
+<button id="showProductData">Mostrar Datos del Producto</button>
+<p id="output"></p>
+<script>
+    document.getElementById('showProductData').addEventListener('click', () => {
+        const product = document.getElementById('product');
+        const info = `ID: ${product.getAttribute('data-product-id')}, Nombre: ${product.getAttribute('data-product-name')}, Precio: ${product.getAttribute('data-price')}`;
+        document.getElementById('output').textContent = info;
+    });
+</script>
+</body>
+</html>

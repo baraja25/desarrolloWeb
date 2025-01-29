@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar varias imágenes con createElement()</title>
+</head>
+<body>
+<div id="imageGallery"></div>
+<button id="addImages">Añadir Imágenes</button>
+<script>
+    document.getElementById("addImages").onclick = function () {
+        let gallery = document.getElementById("imageGallery");
+        for (let i = 1; i <= 3; i++) {
+            let img = document.createElement("img");
+            img.setAttribute("src", `https://via.placeholder.com/150?text=Imagen+${i}`);
+            gallery.appendChild(img);
+        }
+    };
+</script>
+</body>
+</html>

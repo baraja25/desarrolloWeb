@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear un enlace con createElement() y createTextNode()</title>
+</head>
+<body>
+<div id="links"></div>
+<button id="createLink">Crear Enlace</button>
+<script>
+    document.getElementById("createLink").onclick = function () {
+        let a = document.createElement("a");
+        a.textContent = "Haz clic aquí";
+        a.setAttribute("href", "https://www.ejemplo.com");
+        document.getElementById("links").appendChild(a);
+    };
+</script>
+</body>
+</html>

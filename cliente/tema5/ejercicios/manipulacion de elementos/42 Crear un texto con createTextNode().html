@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear un texto con createTextNode()</title>
+</head>
+<body>
+<div id="message"></div>
+<button id="createMessage">Crear Mensaje</button>
+<script>
+    document.getElementById("createMessage").onclick = function () {
+        let textNode = document.createTextNode("Este es un mensaje");
+        document.getElementById("message").appendChild(textNode);
+    };
+</script>
+</body>
+</html>

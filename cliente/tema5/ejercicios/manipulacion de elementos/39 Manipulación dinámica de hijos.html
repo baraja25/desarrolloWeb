@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulación dinámica de hijos</title>
+</head>
+<body>
+<div id="parent">
+  <p id="child1">Hijo 1</p>
+  <p id="child2">Hijo 2</p>
+</div>
+<button id="addChild">Añadir Nuevo Hijo</button>
+<button id="showLastChild">Mostrar Último Hijo</button>
+<p id="outputLastChild"></p>
+
+<script>
+  document.getElementById('addChild').addEventListener('click', () => {
+    const newChild = document.createElement('p');
+    newChild.textContent = 'Nuevo Hijo';
+    document.getElementById('parent').appendChild(newChild);
+  });
+
+  document.getElementById('showLastChild').addEventListener('click', () => {
+    const last = document.getElementById('parent').lastElementChild;
+    document.getElementById('outputLastChild').textContent = last.textContent;
+  });
+</script>
+</body>
+</html>

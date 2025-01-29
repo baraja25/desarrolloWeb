@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navegar entre hermanos</title>
+</head>
+<body>
+<div id="item1">Elemento 1</div>
+<div id="item2">Elemento 2</div>
+<div id="item3">Elemento 3</div>
+<button id="navigateSiblings">Navegar Hermanos</button>
+<p id="outputSiblings"></p>
+
+<script>
+    document.getElementById('navigateSiblings').addEventListener('click', () => {
+        const item1 = document.getElementById('item1');
+        const next = item1.nextElementSibling;
+        const prev = next.previousElementSibling;
+        document.getElementById('outputSiblings').textContent = `Siguiente: ${next.textContent}, Anterior: ${prev.textContent}`;
+    });
+</script>
+</body>
+</html>

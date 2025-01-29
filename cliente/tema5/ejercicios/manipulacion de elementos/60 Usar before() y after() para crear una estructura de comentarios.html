@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Usar before() y after() para crear una estructura de comentarios</title>
+</head>
+<body>
+<div id="comments">
+  <div class="comment">Comentario 1</div>
+  <div class="comment">Comentario 2</div>
+</div>
+<button id="addComment">Añadir Comentario</button>
+
+<script>
+  document.getElementById('addComment').addEventListener('click', function() {
+    const newCommentBefore = document.createElement("div");
+    newCommentBefore.className = "comment";
+    newCommentBefore.textContent = "Nuevo comentario antes de Comentario 1";
+    document.querySelector('#comments .comment').before(newCommentBefore);
+
+    const newCommentAfter = document.createElement("div");
+    newCommentAfter.className = "comment";
+    newCommentAfter.textContent = "Nuevo comentario después de Comentario 2";
+    const lastComment = document.querySelector('#comments .comment:last-child');
+    lastComment.after(newCommentAfter);
+  });
+</script>
+</body>
+</html>

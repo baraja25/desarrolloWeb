@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clonar un contenedor con varios elementos</title>
+</head>
+<body>
+<div id="container">
+  <h2>Encabezado</h2>
+  <p>Este es un párrafo.</p>
+</div>
+<button id="cloneContainer">Clonar Contenedor</button>
+
+<script>
+  document.getElementById('cloneContainer').addEventListener('click', function() {
+    const container = document.getElementById('container');
+    const clone = container.cloneNode(true);
+    document.body.appendChild(clone);
+  });
+</script>
+</body>
+</html>

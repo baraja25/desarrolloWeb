@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clonar un botón y agregarlo al final</title>
+</head>
+<body>
+<button id="originalButton">Botón Original</button>
+<div id="buttonContainer"></div>
+<button id="cloneButton">Clonar Botón</button>
+
+<script>
+    document.getElementById('cloneButton').addEventListener('click', function () {
+        const originalButton = document.getElementById('originalButton');
+        const clone = originalButton.cloneNode(true);
+        document.getElementById('buttonContainer').appendChild(clone);
+    });
+</script>
+</body>
+</html>

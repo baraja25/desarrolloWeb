@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clonar y eliminar el original</title>
+</head>
+<body>
+<div id="container">
+  <p id="message">Este es un mensaje a eliminar.</p>
+</div>
+<button id="cloneAndRemove">Clonar y Eliminar Original</button>
+
+<script>
+  document.getElementById('cloneAndRemove').addEventListener('click', function() {
+    const original = document.getElementById('message');
+    const clone = original.cloneNode(true);
+    document.getElementById('container').appendChild(clone);
+    original.remove();
+  });
+</script>
+</body>
+</html>

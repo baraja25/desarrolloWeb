@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verificar estructura del contenedor</title>
+</head>
+<body>
+<div id="container">
+  <div id="box1">Caja 1</div>
+  <div id="box2">Caja 2</div>
+  <div id="box3">Caja 3</div>
+</div>
+<button id="checkStructure">Verificar Estructura</button>
+<p id="structureResult"></p>
+
+<script>
+  document.getElementById('checkStructure').addEventListener('click', () => {
+    const container = document.getElementById('container');
+    const result = `
+            Primer hijo: ${container.firstElementChild.textContent},
+            Último hijo: ${container.lastElementChild.textContent}
+        `;
+    document.getElementById('structureResult').textContent = result;
+  });
+</script>
+</body>
+</html>

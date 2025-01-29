@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear un párrafo con texto dinámico</title>
+</head>
+<body>
+<div id="content"></div>
+<button id="createParagraph">Crear Párrafo</button>
+<script>
+  document.getElementById("createParagraph").onclick = function() {
+    let p = document.createElement("p");
+    p.textContent = "Este es un párrafo creado dinámicamente";
+    document.getElementById("content").appendChild(p);
+  };
+</script>
+</body>
+</html>

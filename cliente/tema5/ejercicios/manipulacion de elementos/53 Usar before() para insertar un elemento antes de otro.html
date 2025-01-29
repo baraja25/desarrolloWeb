@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Usar before() para insertar un elemento antes de otro</title>
+</head>
+<body>
+<div id="container">
+    <p id="paragraph">Este es un párrafo</p>
+</div>
+<button id="insertBefore">Insertar Antes</button>
+<script>
+    document.getElementById("insertBefore").onclick = function () {
+        let p = document.createElement("p");
+        p.textContent = "Soy un párrafo insertado antes";
+        document.getElementById("paragraph").before(p);
+    };
+</script>
+</body>
+</html>

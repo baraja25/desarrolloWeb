@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clonar una lista de elementos</title>
+</head>
+<body>
+<ul id="list">
+  <li>Elemento 1</li>
+  <li>Elemento 2</li>
+  <li>Elemento 3</li>
+</ul>
+<button id="cloneList">Clonar Lista</button>
+
+<script>
+  document.getElementById('cloneList').addEventListener('click', function() {
+    const list = document.getElementById('list');
+    const clone = list.cloneNode(true);
+    document.body.appendChild(clone);
+  });
+</script>
+</body>
+</html>

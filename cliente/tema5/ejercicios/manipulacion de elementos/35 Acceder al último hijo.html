@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceder al último hijo</title>
+</head>
+<body>
+<div id="container">
+    <p>Primer párrafo</p>
+    <p>Segundo párrafo</p>
+    <p>Último párrafo</p>
+</div>
+<button id="lastChild">Mostrar Último Hijo</button>
+<p id="outputLast"></p>
+
+<script>
+    document.getElementById('lastChild').addEventListener('click', () => {
+        const last = document.getElementById('container').lastElementChild;
+        document.getElementById('outputLast').textContent = last.textContent;
+    });
+</script>
+</body>
+</html>

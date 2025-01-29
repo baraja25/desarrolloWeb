@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador con atributo personalizado</title>
+</head>
+<body>
+<div id="counter" data-count="0">Contador: 0</div>
+<button id="increment">Incrementar</button>
+
+<script>
+    document.getElementById('increment').addEventListener('click', () => {
+        const counter = document.getElementById('counter');
+        let count = parseInt(counter.getAttribute('data-count')) + 1;
+        counter.setAttribute('data-count', count);
+        counter.textContent = `Contador: ${count}`;
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Usar before() para agregar contenido antes de un elemento específico</title>
+</head>
+<body>
+<div id="container">
+  <p id="first">Primer párrafo</p>
+  <p id="second">Segundo párrafo</p>
+</div>
+<button id="addBefore">Añadir Antes</button>
+
+<script>
+  document.getElementById('addBefore').addEventListener('click', function() {
+    const newParagraph = document.createElement("p");
+    newParagraph.textContent = "Párrafo añadido antes del primero";
+    document.getElementById('first').before(newParagraph);
+  });
+</script>
+</body>
+</html>

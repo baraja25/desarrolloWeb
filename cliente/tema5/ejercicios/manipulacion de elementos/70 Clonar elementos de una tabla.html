@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clonar elementos de una tabla</title>
+</head>
+<body>
+<table id="table">
+  <tr>
+    <td>Celda 1</td>
+    <td>Celda 2</td>
+  </tr>
+</table>
+<button id="cloneTableRow">Clonar Fila</button>
+
+<script>
+  document.getElementById('cloneTableRow').addEventListener('click', function() {
+    const row = document.querySelector('#table tr'); // Selecciona la fila
+    const clone = row.cloneNode(true); // Clona la fila y su contenido
+    document.getElementById('table').appendChild(clone); // Añade la clonación al final de la tabla
+  });
+</script>
+</body>
+</html>

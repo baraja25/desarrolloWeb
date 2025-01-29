@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcular Precio Total</title>
+</head>
+<body>
+<ul>
+    <li data-product-price="15.99">Producto 1</li>
+    <li data-product-price="25.99">Producto 2</li>
+    <li data-product-price="35.99">Producto 3</li>
+</ul>
+<button id="totalPrice">Calcular Precio Total</button>
+<p id="total"></p>
+
+<script>
+    document.getElementById('totalPrice').addEventListener('click', () => {
+        const items = document.querySelectorAll('li');
+        let total = 0;
+        items.forEach(item => total += parseFloat(item.getAttribute('data-product-price')));
+        document.getElementById('total').textContent = total.toFixed(2);
+    });
+</script>
+</body>
+</html>

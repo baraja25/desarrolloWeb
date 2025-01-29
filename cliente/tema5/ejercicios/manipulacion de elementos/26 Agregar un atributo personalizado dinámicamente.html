@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar un atributo personalizado dinámicamente</title>
+</head>
+<body>
+<div id="item">Elemento de lista</div>
+<button id="addCustomAttribute">Añadir Atributo Personalizado</button>
+
+<script>
+    document.getElementById('addCustomAttribute').addEventListener('click', () => {
+        const item = document.getElementById('item');
+        item.setAttribute('data-item-status', 'available');
+        console.log(item.getAttribute('data-item-status'));
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Usar append() para agregar un elemento al final</title>
+</head>
+<body>
+<div id="container"></div>
+<button id="addDiv">Añadir Div</button>
+<script>
+    document.getElementById("addDiv").onclick = function () {
+        let div = document.createElement("div");
+        div.textContent = "Soy un div agregado al final";
+        document.getElementById("container").append(div);
+    };
+</script>
+</body>
+</html>

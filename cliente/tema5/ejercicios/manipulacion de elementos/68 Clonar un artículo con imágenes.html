@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clonar un artículo con imágenes</title>
+</head>
+<body>
+<article id="article">
+  <h2>Título del Artículo</h2>
+  <img src="image.jpg" alt="Imagen de ejemplo">
+  <p>Contenido del artículo.</p>
+</article>
+<button id="cloneArticle">Clonar Artículo</button>
+
+<script>
+  document.getElementById('cloneArticle').addEventListener('click', function() {
+    const article = document.getElementById('article');
+    const clone = article.cloneNode(true);
+    document.body.appendChild(clone);
+  });
+</script>
+</body>
+</html>

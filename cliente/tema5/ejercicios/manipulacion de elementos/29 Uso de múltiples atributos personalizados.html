@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uso de múltiples atributos personalizados</title>
+</head>
+<body>
+<div id="movie" data-movie-id="101" data-title="Inception" data-director="Christopher Nolan">Película</div>
+<button id="showMovieInfo">Mostrar Información de Película</button>
+
+<script>
+    document.getElementById('showMovieInfo').addEventListener('click', () => {
+        const movie = document.getElementById('movie');
+        const info = `ID: ${movie.getAttribute('data-movie-id')}, Título: ${movie.getAttribute('data-title')}, Director: ${movie.getAttribute('data-director')}`;
+        console.log(info);
+    });
+</script>
+</body>
+</html>

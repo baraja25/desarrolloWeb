@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clonar un campo de formulario</title>
+</head>
+<body>
+<form id="form">
+  <input type="text" id="inputField" placeholder="Escribe algo...">
+</form>
+<button id="cloneFormField">Clonar Campo</button>
+
+<script>
+  document.getElementById('cloneFormField').addEventListener('click', function() {
+    const inputField = document.getElementById('inputField');
+    const clone = inputField.cloneNode(true);
+    document.getElementById('form').appendChild(clone);
+  });
+</script>
+</body>
+</html>

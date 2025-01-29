@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Usar append() para agregar contenido al final de un elemento</title>
+</head>
+<body>
+<div id="container">
+    <p>Contenido original</p>
+</div>
+<button id="addContent">Añadir Contenido</button>
+<script>
+    document.getElementById("addContent").onclick = function () {
+        document.getElementById("container").append(" Texto adicional");
+    };
+</script>
+</body>
+</html>

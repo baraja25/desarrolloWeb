@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validación con atributos personalizados</title>
+</head>
+<body>
+<input type="text" id="userInput" data-required="true" placeholder="Escribe tu nombre">
+<button id="validateInput">Validar Entrada</button>
+<p id="validationMessage"></p>
+
+<script>
+    document.getElementById('validateInput').addEventListener('click', () => {
+        const input = document.getElementById('userInput');
+        const msg = input.getAttribute('data-required') === 'true'
+            ? 'Este campo es obligatorio'
+            : '';
+        document.getElementById('validationMessage').textContent = msg;
+    });
+</script>
+</body>
+</html>
