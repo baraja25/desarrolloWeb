@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorando Window Avanzado</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        button { margin: 5px 0; }
+        pre { background-color: #f0f0f0; padding: 10px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Explorando más propiedades del objeto Window</h1>
+
+    <!-- Sección 1: window.screen -->
+    <section>
+        <h2>1. Propiedades de la ventana</h2>
+        <p id="infoPantalla">Resolución de pantalla:</p>
+        <button id="mostrarPantalla" onclick="actualizarDimensiones()">Mostrar información</button>
+    </section>
+
+    <!-- Sección 2: Ventana emergente con envío de información -->
+    <section>
+        <h1>2. Calculadora entre ventanas</h1>
+        <label for="operacion">Ingresa una operación matemática (ej: 2+3):</label>
+        <input type="text" id="operacion" />
+        <button id="calcular">Calcular</button>
+        <p id="resultado">Resultado: </p>
+    </section>
+
+    <!-- Sección 3: Envío de mensajes entre ventanas -->
+    <section>
+        <h1>Ventana Principal - Chat</h1>
+        <div id="historial">Historial:</div>
+        <input type="text" id="mensaje" placeholder="Escribe tu mensaje" />
+        <button id="enviarMensaje">Enviar</button>
+    </section>
+    <script>
+        // seccion 1
+        function actualizarDimensiones() {
+            document.getElementById('infoPantalla').textContent =
+                `Ventana: ${window.innerWidth}x${window.innerHeight}`;
+        }
+
+        // window.addEventListener('resize', actualizarDimensiones);
+        actualizarDimensiones();
+
+        // seccion 2
+        let ventanaSecundaria;
+
+        document.getElementById('enviarOperacion').onclick = function() {
+            const operacion = document.getElementById('operacion').value;
+            ventanaSecundaria = window.open('2.html', 'Calculadora Secundaria', 'width=400,height=300');
+            ventanaSecundaria.onload = function() {
+                ventanaSecundaria.document.getElementById('operacionRecibida').value = operacion;
+                ventanaSecundaria.calcular();
+            };
+        };
+
+        window.addEventListener('message', function(event) {
+            if (event.origin === window.location.origin) {
+                document.getElementById('resultado').innerText = `Resultado: ${event.data}`;
+            }
+        });
+
+        //seccion 3
+        document.getElementById('enviarMensaje').onclick = function() {
+            const mensaje = document.getElementById('mensaje').value;
+            if (!ventanaSecundaria || ventanaSecundaria.closed) {
+                ventanaSecundaria = window.open('secundaria.html', 'Chat Secundaria', 'width=400,height=300');
+            }
+            ventanaSecundaria.postMessage(mensaje, '*');
+            document.getElementById('historial').innerHTML += `<div>Yo: ${mensaje}</div>`;
+            document.getElementById('mensaje').value = '';
+        };
+
+        window.addEventListener('message', function(event) {
+            if (event.origin === window.location.origin) {
+                document.getElementById('historial').innerHTML += `<div>Secundaria: ${event.data}</div>`;
+            }
+        });
+    </script>
+</body>
+</html>

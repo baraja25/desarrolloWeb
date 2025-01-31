@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventana Secundaria</title>
+</head>
+<body>
+<h1>Calculadora</h1>
+<p>Recibiendo operación...</p>
+<input type="text" id="operacionRecibida" />
+<button id="calcularResultado">Calcular</button>
+<script>
+  document.getElementById('calcularResultado').onclick = function() {
+    const operacion = document.getElementById('operacionRecibida').value;
+    const resultado = eval(operacion); // Evaluar la operación
+    window.opener.postMessage(resultado, '*'); // Enviar resultado a la ventana principal
+    window.close(); // Cerrar ventana secundaria
+  };
+</script>
+</body>
+</html>
