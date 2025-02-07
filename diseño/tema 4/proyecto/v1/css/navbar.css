@@ -1,0 +1,90 @@
+:root {
+  /* Colores base */
+  --color-fondo: #fffcf5;
+  --color-texto: #2d2a26;
+
+  /* Colores acento */
+  --color-primario: #ff7f50; /* Coral */
+  --color-secundario: #6b8e23; /* Oliva */
+  --color-destacado: #ffd700; /* Oro */
+  --color-neutral: #fffcf5; /* Beige */
+
+  /* Tamaño fuente */
+  --h1: 2.5rem;
+  --h2: 2rem;
+  --h3: 1.75rem;
+  --h4: 1.5rem;
+  --h5: 1.25rem;
+  --texto-base: 1rem;
+  --texto-pequeno: 0.875rem;
+
+  /* tamaños */
+  --xx-small: 0.25rem;
+  --x-small: 0.5rem;
+  --small: 1rem;
+  --medium: 1.5rem;
+  --large: 2rem;
+  --x-large: 3rem;
+
+  /* Familia para títulos */
+  --font-titulos: "Merriweather", serif;
+  --font-titulos-regular: 400;
+  --font-titulos-bold: 700;
+
+  /* Familia para cuerpo */
+  --font-cuerpo: "Roboto", sans-serif;
+  --font-cuerpo-light: 300;
+  --font-cuerpo-regular: 400;
+  --font-cuerpo-medium: 500;
+}
+
+* {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.navbar {
+  position: relative;
+  width: 100vw;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: var(--h4);
+  font-family: var(--font-cuerpo);
+  font-weight: var(--font-cuerpo-medium);
+  .navbar-logo {
+    position: absolute;
+    height: 150%;
+    left: 0;
+    margin-left: 2rem;
+  }
+
+  .navbar-list {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    list-style: none;
+    padding: 0;
+
+    .navbar-item a {
+      color: var(--color-texto);
+      text-decoration: none;
+      transition: background-size 0.3s;
+    }
+    .navbar-item a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background-color: var(--color-primario);
+      transition: width 0.3s;
+    }
+    .navbar-item a:hover {
+      color: var(--color-primario);
+    }
+    .navbar-item a:hover::after {
+      width: 100%;
+    }
+  }
+}

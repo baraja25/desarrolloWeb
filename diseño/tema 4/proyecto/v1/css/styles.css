@@ -43,51 +43,7 @@
   box-sizing: border-box;
 }
 
-.navbar {
-  position: relative;
-  width: 100vw;
-  height: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  font-size: var(--h4);
-  font-family: var(--font-cuerpo);
-  font-weight: var(--font-cuerpo-medium);
-  .navbar-logo {
-    position: absolute;
-    height: 150%;
-    left: 0;
-    margin-left: 2rem;
-  }
 
-  .navbar-list {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-    list-style: none;
-    padding: 0;
-
-    .navbar-item a {
-      color: var(--color-texto);
-      text-decoration: none;
-      transition: background-size 0.3s;
-    }
-    .navbar-item a::after {
-      content: "";
-      display: block;
-      width: 0;
-      height: 2px;
-      background-color: var(--color-primario);
-      transition: width 0.3s;
-    }
-    .navbar-item a:hover {
-      color: var(--color-primario);
-    }
-    .navbar-item a:hover::after {
-      width: 100%;
-    }
-  }
-}
 
 .hero {
   width: 100vw;
