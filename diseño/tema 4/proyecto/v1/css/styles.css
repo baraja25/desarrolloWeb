@@ -112,10 +112,11 @@
     text-shadow: 4px 4px 4px #000;
   }
   .hero-description {
+
     font-family: var(--font-cuerpo);
     color: var(--color-texto);
     font-size: 3rem;
-    font-weight: var(--font-cuerpo-medium);
+    font-weight: 600;
   }
   .hero-button {
     background-color: var(--color-primario);
@@ -242,7 +243,7 @@
 
 .recetas-semana {
   width: 100vw;
-  height: 200vh;
+  height: 160vh;
   background-color: var(--color-neutral);
   display: flex;
   flex-direction: column;
