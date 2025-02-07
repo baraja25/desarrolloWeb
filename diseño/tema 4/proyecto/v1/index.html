@@ -22,11 +22,136 @@
 </header>
 <main>
     <section class="hero">
-
         <h1 class="hero-title">Qué Puedo Cocinar</h1>
         <p class="hero-description">¡Empieza a cocinar con lo que tienes hoy mismo!</p>
         <a href="" class="hero-button">Comenzar</a>
     </section>
+    <section class="categorias">
+        <h1 class="categorias-title">¿Qué hay en tu cocina?</h1>
+        <div class="categorias-search">
+            <input type="text" class="categorias-input" placeholder="Buscar ingredientes...">
+        </div>
+        <div class="categorias-ingredientes">
+            <div class="ingrediente-card">
+                <img src="img/icons/tomato.png" alt="Tomate" class="ingrediente-icon">
+                <p class="ingrediente-text">Tomate</p>
+            </div>
+            <div class="ingrediente-card">
+                <img src="img/icons/onion.png" alt="Cebolla" class="ingrediente-icon">
+                <p class="ingrediente-text">Cebolla</p>
+            </div>
+            <div class="ingrediente-card">
+                <img src="img/icons/garlic.png" alt="Ajo" class="ingrediente-icon">
+                <p class="ingrediente-text">Ajo</p>
+            </div>
+            <div class="ingrediente-card">
+                <img src="img/icons/carrot.png" alt="Zanahoria" class="ingrediente-icon">
+                <p class="ingrediente-text">Zanahoria</p>
+            </div>
+            <div class="ingrediente-card">
+                <img src="img/icons/potato.png" alt="Patata" class="ingrediente-icon">
+                <p class="ingrediente-text">Patata</p>
+            </div>
+            <div class="ingrediente-card">
+                <img src="img/icons/pepper.png" alt="Pimiento" class="ingrediente-icon">
+                <p class="ingrediente-text">Pimiento</p>
+            </div>
+            <div class="ingrediente-card">
+                <img src="img/icons/chicken.png" alt="Pollo" class="ingrediente-icon">
+                <p class="ingrediente-text">Pollo</p>
+            </div>
+            <div class="ingrediente-card">
+                <img src="img/icons/beef.png" alt="Carne de res" class="ingrediente-icon">
+                <p class="ingrediente-text">Carne de res</p>
+            </div>
+            <div class="ingrediente-card">
+                <img src="img/icons/fish.png" alt="Pescado" class="ingrediente-icon">
+                <p class="ingrediente-text">Pescado</p>
+            </div>
+            <div class="ingrediente-card">
+                <img src="img/icons/cheese.png" alt="Queso" class="ingrediente-icon">
+                <p class="ingrediente-text">Queso</p>
+            </div>
+            <div class="ingrediente-card">
+                <img src="img/icons/milk.png" alt="Leche" class="ingrediente-icon">
+                <p class="ingrediente-text">Leche</p>
+            </div>
+            <div class="ingrediente-card">
+                <img src="img/icons/egg.png" alt="Huevo" class="ingrediente-icon">
+                <p class="ingrediente-text">Huevo</p>
+            </div>
+        </div>
+        <button class="categorias-button">Buscar recetas</button>
+    </section>
+    <section class="recetas-semana">
+        <h1>Recetas de la semana</h1>
+        <h2>Basado en búsquedas populares</h2>
+        <div class="recetas-grid">
+            <div class="receta-card">
+                <img src="img/recetas/receta1.jpg" alt="Receta 1" class="receta-img">
+                <h3 class="receta-title">Receta 1</h3>
+                <p class="receta-description">Descripción breve de la receta 1.</p>
+                <a href="" class="receta-button">Ver receta</a>
+            </div>
+            <div class="receta-card">
+                <img src="img/recetas/receta2.jpg" alt="Receta 2" class="receta-img">
+                <h3 class="receta-title">Receta 2</h3>
+                <p class="receta-description">Descripción breve de la receta 2.</p>
+                <a href="" class="receta-button">Ver receta</a>
+            </div>
+            <div class="receta-card">
+                <img src="img/recetas/receta3.jpg" alt="Receta 3" class="receta-img">
+                <h3 class="receta-title">Receta 3</h3>
+                <p class="receta-description">Descripción breve de la receta 3.</p>
+                <a href="" class="receta-button">Ver receta</a>
+            </div>
+            <div class="receta-card">
+                <img src="img/recetas/receta4.jpg" alt="Receta 4" class="receta-img">
+                <h3 class="receta-title">Receta 4</h3>
+                <p class="receta-description">Descripción breve de la receta 4.</p>
+                <a href="" class="receta-button">Ver receta</a>
+            </div>
+            <div class="receta-card">
+                <img src="img/recetas/receta5.jpg" alt="Receta 5" class="receta-img">
+                <h3 class="receta-title">Receta 5</h3>
+                <p class="receta-description">Descripción breve de la receta 5.</p>
+                <a href="" class="receta-button">Ver receta</a>
+            </div>
+            <div class="receta-card">
+                <img src="img/recetas/receta6.jpg" alt="Receta 6" class="receta-img">
+                <h3 class="receta-title">Receta 6</h3>
+                <p class="receta-description">Descripción breve de la receta 6.</p>
+                <a href="" class="receta-button">Ver receta</a>
+            </div>
+        </div>
+        <button class="recetas-button">Ver más</button>
+    </section>
 </main>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-about">
+            <h3>Sobre Nosotros</h3>
+            <p>Somos una plataforma dedicada a ayudarte a cocinar con los ingredientes que tienes a mano. Encuentra recetas fáciles y deliciosas basadas en lo que tienes en tu cocina.</p>
+        </div>
+        <div class="footer-newsletter">
+            <h3 class="footer-newsletter-title">Suscríbete a nuestro boletín</h3>
+            <form action="#" method="post">
+            <input type="email" name="email" placeholder="Tu correo electrónico" required class="footer-newsletter-input">
+            <button type="submit" class="footer-newsletter-button">Suscribirse</button>
+            </form>
+        </div>
+        <ul class="footer-links-list">
+            <li class="footer-links-item"><a href="">Política de Privacidad</a></li>
+            <li class="footer-links-item"><a href="">Términos de Servicio</a></li>
+            <li class="footer-links-item"><a href="">Contacto</a></li>
+        </ul>
+        <div class="footer-social">
+            <a href="https://www.facebook.com" target="_blank"><img src="img/icons/facebook.png" alt="Facebook" class="footer-social-icon"></a>
+            <a href="https://www.twitter.com" target="_blank"><img src="img/icons/twitter.png" alt="Twitter" class="footer-social-icon"></a>
+            <a href="https://www.instagram.com" target="_blank"><img src="img/icons/instagram.png" alt="Instagram" class="footer-social-icon"></a>
+        </div>
+    </div>
+    <p class="footer-copyright">&copy; © 2025 CookShelf. Todos los derechos reservados..</p>
+</footer>
 </body>
 </html>

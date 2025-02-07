@@ -1,119 +1,445 @@
 :root {
-    /* Colores base */
-    --color-fondo: #FFFCF5;
-    --color-texto: #2D2A26;
+  /* Colores base */
+  --color-fondo: #fffcf5;
+  --color-texto: #2d2a26;
 
-    /* Colores acento */
-    --color-primario: #FF7F50;    /* Coral */
-    --color-secundario: #6B8E23;  /* Oliva */
-    --color-destacado: #FFD700;    /* Oro */
-    --color-neutral: #EDE7E3;      /* Beige */
+  /* Colores acento */
+  --color-primario: #ff7f50; /* Coral */
+  --color-secundario: #6b8e23; /* Oliva */
+  --color-destacado: #ffd700; /* Oro */
+  --color-neutral: #fffcf5; /* Beige */
 
-    /* Tamaño fuente */
-    --h1: 2.5rem;
-    --h2: 2rem;
-    --h3: 1.75rem;
-    --h4: 1.5rem;
-    --h5: 1.25rem;
-    --texto-base: 1rem;
-    --texto-pequeno: 0.875rem;
+  /* Tamaño fuente */
+  --h1: 2.5rem;
+  --h2: 2rem;
+  --h3: 1.75rem;
+  --h4: 1.5rem;
+  --h5: 1.25rem;
+  --texto-base: 1rem;
+  --texto-pequeno: 0.875rem;
 
-    /* tamaños */
-    --xx-small: 0.25rem;
-    --x-small: 0.5rem;
-    --small: 1rem;
-    --medium: 1.5rem;
-    --large: 2rem;
-    --x-large: 3rem;
+  /* tamaños */
+  --xx-small: 0.25rem;
+  --x-small: 0.5rem;
+  --small: 1rem;
+  --medium: 1.5rem;
+  --large: 2rem;
+  --x-large: 3rem;
 
-    /* Familia para títulos */
-    --font-titulos: 'Merriweather', serif;
-    --font-titulos-regular: 400;
-    --font-titulos-bold: 700;
+  /* Familia para títulos */
+  --font-titulos: "Merriweather", serif;
+  --font-titulos-regular: 400;
+  --font-titulos-bold: 700;
 
-    /* Familia para cuerpo */
-    --font-cuerpo: 'Roboto', sans-serif;
-    --font-cuerpo-light: 300;
-    --font-cuerpo-regular: 400;
-    --font-cuerpo-medium: 500;
-
+  /* Familia para cuerpo */
+  --font-cuerpo: "Roboto", sans-serif;
+  --font-cuerpo-light: 300;
+  --font-cuerpo-regular: 400;
+  --font-cuerpo-medium: 500;
 }
 
 * {
-    font-size: 16px;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
 .navbar {
-    position: relative;
-    width: 100vw;
-    height: 5rem;
+  position: relative;
+  width: 100vw;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: var(--h4);
+  font-family: var(--font-cuerpo);
+  font-weight: var(--font-cuerpo-medium);
+  .navbar-logo {
+    position: absolute;
+    height: 150%;
+    left: 0;
+    margin-left: 2rem;
+  }
+
+  .navbar-list {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    font-size: var(--h4);
-    font-family: var(--font-cuerpo);
-    font-weight: var(--font-cuerpo-medium);
-    .navbar-logo {
-        position: absolute;
-        height: 150%;
-        left: 0;
-    }
+    gap: 4rem;
+    list-style: none;
+    padding: 0;
 
-    .navbar-list {
-        display: flex;
-        align-items: center;
-        gap: 4rem;
-        list-style: none;
-        padding: 0;
-
-        .navbar-item a {
-            color: var(--color-texto);
-            text-decoration: none;
-            transition: background-size 0.3s;
-        }
-        .navbar-item a::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background-color: var(--color-primario);
-            transition: width 0.3s;
-        }
-        .navbar-item a:hover {
-            color: var(--color-primario);
-        }
-        .navbar-item a:hover::after {
-            width: 100%;
-        }
+    .navbar-item a {
+      color: var(--color-texto);
+      text-decoration: none;
+      transition: background-size 0.3s;
     }
+    .navbar-item a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background-color: var(--color-primario);
+      transition: width 0.3s;
+    }
+    .navbar-item a:hover {
+      color: var(--color-primario);
+    }
+    .navbar-item a:hover::after {
+      width: 100%;
+    }
+  }
 }
 
 .hero {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 4rem;
-    background-image: url("../img/heroBG.jpg");
-    background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 4rem;
+  background-attachment: fixed;
+  background-position: center;
+  background-image: url("../img/heroBG.jpg");
+  background-size: cover;
 
-    .hero-title {
+  .hero-title {
+    font-family: var(--font-titulos);
+    font-weight: var(--font-titulos-bold);
+    font-size: 9rem;
+    text-align: center;
+    width: 40%;
+    color: #fdea94;
+    text-shadow: 4px 4px 4px #000;
+  }
+  .hero-description {
+    font-family: var(--font-cuerpo);
+    color: var(--color-texto);
+    font-size: 3rem;
+    font-weight: var(--font-cuerpo-medium);
+  }
+  .hero-button {
+    background-color: var(--color-primario);
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    font-size: var(--h3);
+    font-family: var(--font-cuerpo);
+    font-weight: var(--font-cuerpo-medium);
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .hero-button:hover {
+    background-color: var(--color-secundario);
+    transform: scale(1.05);
+  }
+}
+
+.categorias {
+  width: 100vw;
+  background-color: #ffffff;
+  margin-top: -50px;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  border-radius: 50px 50px 0 0;
+  border: 4px solid var(--color-texto);
+  border-bottom: none;
+  border-left: none;
+  .categorias-title {
+    font-family: var(--font-titulos);
+    font-weight: var(--font-titulos-bold);
+    font-size: 5rem;
+    color: var(--color-primario);
+    text-align: center;
+  }
+
+  .categorias-search {
+    width: 50%;
+    padding: 0.5rem;
+    font-size: var(--texto-base);
+    border: 2px solid var(--color-secundario);
+    border-radius: 50px;
+  }
+
+  .categorias-input {
+    color: var(--color-secundario);
+    width: 100%;
+    padding: 0.5rem;
+    font-size: var(--texto-base);
+    border: none;
+  }
+  .categorias-input::placeholder {
+    color: var(--color-secundario);
+    font-size: var(--texto-base);
+  }
+
+  .categorias-input:focus {
+    outline: none;
+  }
+
+  .categorias-button {
+    background-color: var(--color-primario);
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: var(--h3);
+    font-family: var(--font-cuerpo);
+    font-weight: var(--font-cuerpo-medium);
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  .categorias-button:hover {
+    background-color: var(--color-secundario);
+    transform: scale(1.05);
+  }
+  .categorias-ingredientes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto;
+    gap: 1rem;
+    width: 50%;
+    padding: 2rem;
+    justify-items: center;
+
+    .ingrediente-card {
+      width: 140px;
+      height: 90px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      font-family: var(--font-cuerpo);
+      font-size: var(--texto-base);
+      color: var(--color-texto);
+      text-align: center;
+      transition: background-color 0.5s, transform 0.5s;
+
+      .ingrediente-icon {
+        width: 50px;
+        height: 50px;
+      }
+      .ingrediente-text {
+        font-size: var(--h5);
         font-family: var(--font-titulos);
-        font-weight: var(--font-titulos-bold);
-        font-size: 9rem;
-        text-align: center;
-        width: 40%;
-        color: #fdea94;
-        text-shadow: 4px 4px 4px #000;
+        font-weight: var(--font-titulos-regular);
+      }
     }
-    .hero-description {
-        color: var(--color-texto);
-        font-size: var(--h4);
-        font-weight: var(--font-cuerpo-medium);
-    }
-    .hero-button {
 
+    .ingrediente-card:hover {
+      background-color: var(--color-secundario);
+      color: #ffffff;
+      transform: scale(1.1);
     }
+  }
+}
+
+.recetas-semana {
+  width: 100vw;
+  height: 200vh;
+  background-color: var(--color-neutral);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 50px 50px 0 0;
+  border: 2px solid #000000;
+  h1 {
+    font-family: var(--font-titulos);
+    font-size: 7rem;
+    font-weight: 700;
+    color: var(--color-primario);
+    margin-top: 2rem;
+  }
+  h2 {
+    font-family: "roboto", sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-texto);
+    margin-top: 2rem;
+  }
+  .recetas-grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-items: center;
+
+    .receta-card {
+      width: 300px;
+      height: 400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #ffffff;
+      transition: transform 0.3s;
+      padding: 0 0 1rem 0;
+      .receta-img {
+        width: 100%;
+        height: 60%;
+        border-radius: 10px 10px 0 0;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .receta-title {
+        font-family: var(--font-titulos);
+        font-size: var(--h4);
+        font-weight: var(--font-titulos-bold);
+        color: var(--color-primario);
+        text-align: center;
+      }
+
+      .receta-description {
+        font-family: var(--font-cuerpo);
+        font-size: var(--texto-base);
+        color: var(--color-texto);
+        text-align: center;
+      }
+      .receta-button {
+        border: 2px solid var(--color-secundario);
+        color: var(--color-secundario);
+        background-color: transparent;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        font-size: var(--texto-base);
+        font-family: var(--font-cuerpo);
+        font-weight: var(--font-cuerpo-medium);
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+
+        &:hover {
+          background-color: var(--color-secundario);
+          color: #ffffff;
+        }
+      }
+    }
+    .receta-card:hover {
+      transform: scale(1.05);
+    }
+  }
+  .recetas-button {
+    margin-top: 3rem;
+    background-color: var(--color-primario);
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: var(--h3);
+    font-family: var(--font-cuerpo);
+    font-weight: var(--font-cuerpo-medium);
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    &:hover {
+      background-color: var(--color-secundario);
+      color: #ffffff;
+    }
+  }
+}
+.footer {
+  margin-top: -3rem;
+  background-color: var(--color-destacado);
+  color: var(--color-texto);
+  border-radius: 50px 50px 0 0;
+  border: 4px solid var(--color-texto);
+  display: flex;
+    flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 100vw;
+  .footer-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2rem;
+    .footer-about{
+        font-family: var(--font-cuerpo);
+        font-size: var(--texto-base);
+        font-weight: 700;
+        text-align: center;
+        width: 30%;
+    }
+    .footer-newsletter {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 30%;
+        .footer-newsletter-title {
+            font-family: var(--font-titulos);
+            font-size: var(--h4);
+            font-weight: var(--font-titulos-bold);
+            text-align: center;
+        }
+        .footer-newsletter-input {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: var(--texto-base);
+            border: 2px solid var(--color-secundario);
+            border-radius: 50px;
+        }
+        .footer-newsletter-button {
+            margin-top: 1rem;
+            background-color: var(--color-primario);
+            color: #ffffff;
+            border-radius: 5px;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: var(--texto-base);
+            font-family: var(--font-cuerpo);
+            font-weight: var(--font-cuerpo-medium);
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .footer-newsletter-button:hover {
+            background-color: var(--color-secundario);
+            transform: scale(1.05);
+        }
+    }
+    .footer-links-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        list-style: none;
+        padding: 0;
+        .footer-links-item a {
+            color: var(--color-texto);
+            text-decoration: none;
+            font-family: var(--font-cuerpo);
+            font-size: var(--texto-base);
+            transition: color 0.3s;
+        }
+
+        .footer-links-item a:hover {
+            color: var(--color-primario);
+        }
+    }
+    .footer-social {
+      display: flex;
+      gap: 2rem;
+      .footer-social-icon {
+        width: 2rem;
+        height: 2rem;
+        font-size: 2rem;
+        color: var(--color-texto);
+        transition: transform 0.3s;
+      }
+      .footer-social-icon:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .footer-copyright {
+    margin-top: 30px;
+  }
 }
