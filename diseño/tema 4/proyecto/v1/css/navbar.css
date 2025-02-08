@@ -53,11 +53,14 @@
   font-size: var(--h4);
   font-family: var(--font-cuerpo);
   font-weight: var(--font-cuerpo-medium);
+  background-color: #fff;
+  border-bottom: 1px solid #000;
   .navbar-logo {
     position: absolute;
     height: 150%;
     left: 0;
     margin-left: 2rem;
+    padding: 1rem;
   }
 
   .navbar-list {

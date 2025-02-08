@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/recetasDia.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <title>Receta del dia</title>
 </head>
 <body>
@@ -39,6 +40,77 @@
                 </div>
             </div>
         </section>
+        <section class="ingredientes">
+            <h1>Ingredientes</h1>
+            <ul class="lista-ingredientes">
+                
+                <li class="ingrediente"><input type="checkbox" class="checkbox" id="ingrediente1"><label for="ingrediente1">2 tazas de harina</label></li>
+                <li class="ingrediente"><input type="checkbox" class="checkbox" id="ingrediente2"><label for="ingrediente2">1/2 taza de azúcar</label></li>
+                <li class="ingrediente"><input type="checkbox" class="checkbox" id="ingrediente3"><label for="ingrediente3">3 huevos</label></li>
+                <li class="ingrediente"><input type="checkbox" class="checkbox" id="ingrediente4"><label for="ingrediente4">1 taza de leche</label></li>
+                <li class="ingrediente"><input type="checkbox" class="checkbox" id="ingrediente5"><label for="ingrediente5">1 cucharadita de sal</label></li>
+                <li class="ingrediente"><input type="checkbox" class="checkbox" id="ingrediente6"><label for="ingrediente6">1/2 taza de mantequilla</label></li>
+            </ul>
+        </section>
+        <section class="pasos">
+            <h1>Pasos</h1>
+            <div class="paso">
+                <div class="paso-imagen">
+                    <img src="../img/pasos/paso1.jpg" alt="Paso 1">
+                </div>
+                <div class="paso-detalles">
+                    <h2 class="paso-titulo">Paso 1: Preparar los ingredientes</h2>
+                    <p class="paso-descripcion">Descripción del primer paso.</p>
+                </div>
+            </div>
+            <div class="paso">
+                <div class="paso-imagen">
+                    <img src="../img/pasos/paso2.jpg" alt="Paso 2">
+                </div>
+                <div class="paso-detalles">
+                    <h2 class="paso-titulo">Paso 2: Mezclar los ingredientes</h2>
+                    <p class="paso-descripcion">Descripción del segundo paso.</p>
+                </div>
+            </div>
+            <div class="paso">
+                <div class="paso-imagen">
+                    <img src="../img/pasos/paso3.jpg" alt="Paso 3">
+                </div>
+                <div class="paso-detalles">
+                    <h2 class="paso-titulo">Paso 3: Hornear la mezcla</h2>
+                    <p class="paso-descripcion">Descripción del tercer paso.</p>
+                </div>
+            </div>
+            <div class="recetas-button-container">
+                <button onclick="location.href='recetas.html'" class="recetas-button">Más Recetas</button>
+            </div>
+        </section>
     </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>Sobre Nosotros</h3>
+                <p>Somos una plataforma dedicada a ayudarte a cocinar con los ingredientes que tienes a mano. Encuentra recetas fáciles y deliciosas basadas en lo que tienes en tu cocina.</p>
+            </div>
+            <div class="footer-newsletter">
+                <h3 class="footer-newsletter-title">Suscríbete a nuestro boletín</h3>
+                <form action="#" method="post">
+                <input type="email" name="email" placeholder="Tu correo electrónico" required class="footer-newsletter-input">
+                <button type="submit" class="footer-newsletter-button">Suscribirse</button>
+                </form>
+            </div>
+            <ul class="footer-links-list">
+                <li class="footer-links-item"><a href="">Política de Privacidad</a></li>
+                <li class="footer-links-item"><a href="">Términos de Servicio</a></li>
+                <li class="footer-links-item"><a href="">Contacto</a></li>
+            </ul>
+            <div class="footer-social">
+                <a href="https://www.facebook.com" target="_blank"><img src="../img/icons/facebook.png" alt="Facebook" class="footer-social-icon"></a>
+                <a href="https://www.twitter.com" target="_blank"><img src="../img/icons/twitter.png" alt="Twitter" class="footer-social-icon"></a>
+                <a href="https://www.instagram.com" target="_blank"><img src="../img/icons/instagram.png" alt="Instagram" class="footer-social-icon"></a>
+            </div>
+        </div>
+        <p class="footer-copyright">&copy; © 2025 CookShelf. Todos los derechos reservados..</p>
+    </footer>
 </body>
 </html>
