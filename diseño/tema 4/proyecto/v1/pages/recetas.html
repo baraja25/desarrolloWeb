@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/recetas.css">
+    <title>Recetas</title>
+</head>
+<body>
+    <header class="navbar">
+        <img src="../img/Logo2NBG.png" alt="Logo pagina" class="navbar-logo">
+        <nav>
+            <ul class="navbar-list">
+                <li class="navbar-item"><a href="index.html">Inicio</a></li>
+                <li class="navbar-item"><a href="">Nosotros</a></li>
+                <li class="navbar-item"><a href="">Recetas</a></li>
+                <li class="navbar-item"><a href="">Receta del dia</a></li>
+                <li class="navbar-item"><a href="">Registrate</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="filters">
+        
+        <select id="difficulty" name="difficulty" class="filter-select">
+            <option value="">Dificultad</option>
+            <option value="easy">Fácil</option>
+            <option value="medium">Media</option>
+            <option value="hard">Difícil</option>
+        </select>
+
+        <select id="category" name="category" class="filter-select">
+            <option value="">Categoria</option>
+            <option value="appetizer">Entrante</option>
+            <option value="main">Principal</option>
+            <option value="dessert">Postre</option>
+        </select>
+
+        <select id="time" name="time" class="filter-select">
+            <option value="">Tiempo</option>
+            <option value="15">Menos de 15 minutos</option>
+            <option value="30">Menos de 30 minutos</option>
+            <option value="60">Menos de 1 hora</option>
+            <option value="more">Más de 1 hora</option>
+        </select>
+
+        <select id="sort" name="sort" class="filter-select">
+            <option value="">Ordenar por</option>
+            <option value="popularity">Popularidad</option>
+            <option value="rating">Calificación</option>
+            <option value="newest">Más reciente</option>
+        </select>
+    
+    </div>
+    <main class="recipe-container">
+        <div class="recetas-grid">
+            <div class="receta-card">
+                <img src="../img/recetas/receta1.jpg" alt="Receta 1" class="receta-img">
+                <h3 class="receta-title">Receta 1</h3>
+                <p class="receta-description">Descripción breve de la receta 1.</p>
+                <a href="" class="receta-button">Ver receta</a>
+            </div>
+            <div class="receta-card">
+                <img src="../img/recetas/receta2.jpg" alt="Receta 2" class="receta-img">
+                <h3 class="receta-title">Receta 2</h3>
+                <p class="receta-description">Descripción breve de la receta 2.</p>
+                <a href="" class="receta-button">Ver receta</a>
+            </div>
+            <div class="receta-card">
+                <img src="../img/recetas/receta3.jpg" alt="Receta 3" class="receta-img">
+                <h3 class="receta-title">Receta 3</h3>
+                <p class="receta-description">Descripción breve de la receta 3.</p>
+                <a href="" class="receta-button">Ver receta</a>
+            </div>
+            <div class="receta-card">
+                <img src="../img/recetas/receta4.jpg" alt="Receta 4" class="receta-img">
+                <h3 class="receta-title">Receta 4</h3>
+                <p class="receta-description">Descripción breve de la receta 4.</p>
+                <a href="" class="receta-button">Ver receta</a>
+            </div>
+            <div class="receta-card">
+                <img src="../img/recetas/receta5.jpg" alt="Receta 5" class="receta-img">
+                <h3 class="receta-title">Receta 5</h3>
+                <p class="receta-description">Descripción breve de la receta 5.</p>
+                <a href="" class="receta-button">Ver receta</a>
+            </div>
+            <div class="receta-card">
+                <img src="../img/recetas/receta6.jpg" alt="Receta 6" class="receta-img">
+                <h3 class="receta-title">Receta 6</h3>
+                <p class="receta-description">Descripción breve de la receta 6.</p>
+                <a href="" class="receta-button">Ver receta</a>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>Sobre Nosotros</h3>
+                <p>Somos una plataforma dedicada a ayudarte a cocinar con los ingredientes que tienes a mano. Encuentra recetas fáciles y deliciosas basadas en lo que tienes en tu cocina.</p>
+            </div>
+            <div class="footer-newsletter">
+                <h3 class="footer-newsletter-title">Suscríbete a nuestro boletín</h3>
+                <form action="#" method="post">
+                <input type="email" name="email" placeholder="Tu correo electrónico" required class="footer-newsletter-input">
+                <button type="submit" class="footer-newsletter-button">Suscribirse</button>
+                </form>
+            </div>
+            <ul class="footer-links-list">
+                <li class="footer-links-item"><a href="">Política de Privacidad</a></li>
+                <li class="footer-links-item"><a href="">Términos de Servicio</a></li>
+                <li class="footer-links-item"><a href="">Contacto</a></li>
+            </ul>
+            <div class="footer-social">
+                <a href="https://www.facebook.com" target="_blank"><img src="../img/icons/facebook.png" alt="Facebook" class="footer-social-icon"></a>
+                <a href="https://www.twitter.com" target="_blank"><img src="../img/icons/twitter.png" alt="Twitter" class="footer-social-icon"></a>
+                <a href="https://www.instagram.com" target="_blank"><img src="../img/icons/instagram.png" alt="Instagram" class="footer-social-icon"></a>
+            </div>
+        </div>
+        <p class="footer-copyright">&copy; © 2025 CookShelf. Todos los derechos reservados..</p>
+    </footer>
+</body>
+</html>
