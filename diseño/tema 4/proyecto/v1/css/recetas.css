@@ -1,5 +1,7 @@
 body {
-    background-color: var(--color-neutral);
+    background: url('../img/BGrecetas.jpg') no-repeat center center fixed;
+    background-size: cover;
+    
 }
 .filters {
   width: 100%;
