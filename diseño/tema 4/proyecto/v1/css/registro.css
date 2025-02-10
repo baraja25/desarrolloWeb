@@ -24,7 +24,8 @@
 
 .main-content {
     width: 100vw;
-    height: 130vh;
+    min-height: 140vh;
+    padding: 5rem;
     background-image: url('../img/BGform.jpg');
     background-size: cover;
     background-position: center;
@@ -35,8 +36,8 @@
 }
 
 .registration-form {
-    height: fit-content;
-    width: 30%;
+    height: 100vh;
+    width: 50%;
     margin: auto;
     background-color: #e0dede91;
     backdrop-filter: blur(2px);
@@ -45,26 +46,27 @@
     padding: 4rem;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
 }
 
 .registration-form h2 {
     font-family: var(--font-titulos);
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 900;
     color: var(--color-texto);
     text-align: center;
 }
 
 .registration-form .form-group {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
     gap: 1rem;
     margin: 1rem 0;
 }
 
 .registration-form .form-group label {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--color-texto);
 }
