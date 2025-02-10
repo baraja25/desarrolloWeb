@@ -47,10 +47,10 @@
 
 .hero {
   width: 100vw;
-  height: 100vh;
+  height: 100vmin;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   gap: 4rem;
   background-attachment: fixed;
