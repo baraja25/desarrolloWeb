@@ -1,5 +1,20 @@
 <?php
+
+function comprobarIntento($username, $password) {
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM usuarios WHERE usuario = ? AND contrasena = ?");
+    if ($stmt === false) {
+        die("Error preparing statement: " . $conn->error);
+    }
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->num_rows > 0;
+}
+
 session_start();
+
+
 
 $servername = "localhost";
 $dbname = "tienda";
@@ -12,39 +27,30 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+
+
+if (isset($_POST['Enviar'])) {
     $username = $_POST['username'];
-    $password = sha1($_POST['password']);
-
-    $sql = "SELECT * FROM usuarios WHERE usuario = ? AND contrasena = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $username, $password);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $_SESSION['username'] = $username;
-        header('Location: menu.php');
-
-    } else {
-        $sql = "SELECT * FROM usuarios WHERE usuario = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $username);
+    $hashedPassword = sha1($_POST['password']);
+    if (comprobarIntento($_POST['username'], $hashedPassword)) {
+        $stmt = $conn->prepare("INSERT INTO login (Usuario, Clave, Hora, Acceso) VALUES (?, ?, ?, ?)");
+        $hora = time();
+        $acceso = 'C';
+        $stmt->bind_param("ssss", $_POST['username'], $hashedPassword, $hora, $acceso);
         $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            echo 'Contraseña incorrecta';
-        } else {
-            echo 'Usuario incorrecto';
-        }
+        $_SESSION['username'] = $_POST['username'];
+        header('Location: menu.php');
+    } else {
+        $stmt = $conn->prepare("INSERT INTO login (Usuario, Clave, Hora, Acceso) VALUES (?, ?, ?, ?)");
+        $hora = time();
+        $acceso = 'D';
+        $stmt->bind_param("ssss", $_POST['username'], $hashedPassword, $hora, $acceso);
+        $stmt->execute();
+        echo 'Usuario o contraseña incorrectos';
     }
-
-    $stmt->close();
 }
-
-$conn->close();
-
 
 ?>
 <!DOCTYPE html>
@@ -65,7 +71,7 @@ $conn->close();
         <label for="password">Contraseña:</label>
         <input type="password" id="password" name="password" required><br><br>
 
-        <input type="submit" value="Iniciar sesión">
+        <input type="submit" value="Iniciar sesión" name="Enviar">
     </form>
 </body>
 
