@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        #libros {
+            margin-top: 20px;
+        }
+        .libro {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Biblioteca</h1>
+    <div id="libros">
+        <h2>Lista de Libros</h2>
+        <ul id="listaLibros"></ul>
+    </div>
+    <div id="acciones">
+        <h2>Acciones</h2>
+        <button onclick="listarLibros()">Listar Libros</button>
+        <button onclick="eliminarLibrosLargos()">Eliminar Libros Largos</button>
+        <button onclick="modificarTituloLibro(1, 'Nuevo Título')">Modificar Título del Libro con ID 1</button>
+        <button onclick="agregarSocios()">Agregar Socios</button>
+        <button onclick="buscarSocioPorNombre('Carlos Gómez')">Buscar Socio por Nombre</button>
+        <button onclick="modificarEdadSocio(2, 35)">Modificar Edad del Socio con ID 2</button>
+        <button onclick="eliminarPrestamosPorSocio(1)">Eliminar Préstamos del Socio con ID 1</button>
+        <button onclick="buscarLibrosPorSocio(1)">Buscar Libros Prestados al Socio con ID 1</button>
+        <button onclick="mostrarEstadisticas()">Mostrar Estadísticas</button>
+        <button onclick="filtrarLibrosPorAutor('Gabriel García Márquez')">Filtrar Libros por Autor</button>
+        <button onclick="crearPrestamo(1, 3)">Crear Préstamo (Socio ID 1 -> Libro ID 3)</button>
+        <button onclick="eliminarLibrosNoPrestados()">Eliminar Libros No Prestados</button>
+    </div>
+    <script src="bibliotecaDB.js"></script>
+</body>
+</html>
