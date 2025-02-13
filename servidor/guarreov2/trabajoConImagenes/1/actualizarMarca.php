@@ -1,10 +1,9 @@
 <?php
-require_once 'db.php';
+require_once 'Database.php';
 
-$db = "concesionario";
-$conexion = new DB($db);
-$conexion->ConsultaDatos("SELECT * FROM marcascoches");
-$marcas = $conexion->getFilas();
+
+$db = new Database();
+$marcas = $db->query("SELECT * FROM marcascoches")->fetchAll();
 $idMarca = $_POST['marca_id']; 
 
 
@@ -39,7 +38,8 @@ if (isset($_POST['submit'])) {
                 $nombreImagenNuevo = uniqid('', true) . "." . $extensionImagen;
                 $rutaImagen = 'coches/' . $nombreImagenNuevo;
                 move_uploaded_file($tempImagen, $rutaImagen);
-                $conexion->ConsultaSimple("UPDATE marcascoches SET Logo = '$nombreImagenNuevo' WHERE Id = $idMarca");
+                $db->query("UPDATE marcascoches SET Logo = ? WHERE Id = ?", [$nombreImagenNuevo, $idMarca]);
+                
                 
             } else {
                 echo "La imagen es muy grande";
