@@ -5,7 +5,7 @@ require_once 'DaoTiendas.php';
 require_once 'DaoFamilias.php';
 require_once 'DaoStocks.php';
 
-$base="tienda";  //Indicamos la bbdd a conectar
+$base="tiendadao";  //Indicamos la bbdd a conectar
 
 $daoTienda= new DaoTiendas($base);
 $daoFamilia= new DaoFamilias($base);
