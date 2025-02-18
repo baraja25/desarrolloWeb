@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 1</title>
+</head>
+<body>
+
+    <like-button></like-button>
+
+
+    <script>
+        class likeButton extends HTMLElement {
+            static get observedAttributes() {
+                return ['color'];
+            }
+
+
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+                this.render();
+                
+                this.color = this.getAttribute('color') || 'blue';
+            }
+
+            render() {
+                this.shadowRoot.innerHTML = /* html */ `
+                    <style>
+                        .like-button {
+                            font-size: 1rem;
+                            padding: 5px 10px;
+                            backgroundcolor: ${this.color};
+                            border: none;
+                            border-radius: 5px;
+                            cursor: pointer;
+                        }
+                        .liked {
+                            color: #1565c0;
+                        }
+                    </style>
+                    <button class="like-button">
+                        <span>👍</span>
+                        <span>0</span>
+                    </button>
+                `;
+            }
+
+            attributeChangedCallback() {
+                this.render();
+            }
+
+        }
+
+
+        customElements.define('like-button', likeButton);
+    </script>
+</body>
+</html>
