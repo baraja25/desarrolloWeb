@@ -47,4 +47,18 @@ class ProductoDao extends Database {
     public function getPreviousProducto($currentIndex) {
         return $this->getProducto($currentIndex - 1);
     }
+
+
+    public function actualizar($producto) {
+        $consulta = "UPDATE producto SET nombre = :nombre, PVP = :PVP, familia = :familia, Foto = :Foto WHERE cod = :cod";
+        $params = [
+            'nombre' => $producto->__get('nombre'),
+            'PVP' => $producto->__get('PVP'),
+            'familia' => $producto->__get('familia'),
+            'Foto' => $producto->__get('Foto'),
+            'cod' => $producto->__get('cod')
+        ];
+        $this->query($consulta, $params);
+    }
+
 }
