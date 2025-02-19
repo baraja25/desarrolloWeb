@@ -11,8 +11,7 @@ $firstIndex = 0;
 $lastIndex = count($productoDao->productos) - 1;
 $previousIndex = max($currentIndex - 1, $firstIndex);
 $nextIndex = min($currentIndex + 1, $lastIndex);
-?>#f96900
-#e06c75
+?>
 
 <!DOCTYPE html>
 <html lang="en">
