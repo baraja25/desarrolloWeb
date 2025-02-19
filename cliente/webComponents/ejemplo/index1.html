@@ -50,7 +50,16 @@
             attributeChangedCallback() {
                 this.render();
             }
+            connectedCallback() {
+                this.button = this.shadowRoot.querySelector('.like-button');
+                this.counter = this.shadowRoot.querySelector('.like-button span:nth-child(2)');
+                this.button.addEventListener('click', () => this.incrementCounter());
+            }
 
+            incrementCounter() {
+                let count = parseInt(this.counter.textContent);
+                this.counter.textContent = count + 1;
+            }
         }
 
 
