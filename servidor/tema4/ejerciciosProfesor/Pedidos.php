@@ -8,7 +8,7 @@ require_once 'DaoPedidos.php';
 require_once 'DaoDetPedidos.php';
 
 
-$base="tiendadao";
+$base="tienda"; //Nombre de la base de datos
 
 $cli="";
 
