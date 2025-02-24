@@ -271,20 +271,7 @@ $db->ConsultaDatos($consulta,$param);
         echo "<input type='submit' name='Insertar' value='Insertar'>";
         echo "<input type='submit' name='Buscar' value='Buscar'>";
         
-        echo "Num Reg<select name='NumReg' onChange='document.f1.submit();'>";
-        echo         "<option value=''></option>";             
         
-        for($i=1;$i<=10;$i++)
-        {
-           echo "<option value='$i' ";
- 
-           if ($i==$Numreg) 
-           {
-             echo " selected ";  
-           }
-           echo " >$i</option>"; 
-        }
-        echo "</select>";
         
         echo "<table border='2'>";
         echo "<thead>";
