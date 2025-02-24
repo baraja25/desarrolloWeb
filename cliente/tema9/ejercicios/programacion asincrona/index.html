@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Promesas</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 30px; }
+        button { margin: 10px; padding: 10px; cursor: pointer; }
+        pre { text-align: left; background: #f4f4f4; padding: 15px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <h1>Ejercicio con Promesas</h1>
+
+    <button onclick="fetchAll()">Promise.all()</button>
+    <button onclick="fetchAllSettled()">Promise.allSettled()</button>
+    <button onclick="fetchRace()">Promise.race()</button>
+    <button onclick="fetchAny()">Promise.any()</button>
+
+    <h2>Resultados:</h2>
+    <pre id="output"></pre>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
