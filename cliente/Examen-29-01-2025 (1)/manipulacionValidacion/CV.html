@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .cv-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .header h1 {
+            margin: 10px 0 5px;
+        }
+
+        .header p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            border-bottom: 2px solid #007BFF;
+            display: inline-block;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            color: #007BFF;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        .skills span {
+            display: inline-block;
+            background: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin: 5px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .contact-info div {
+            margin: 10px 0;
+        }
+
+        .highlighted-skill {
+            background: #e9eaec;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <div class="header">
+            <img src="homer_simpson_by_graysonwillis_d5mrjik-414w-2x.jpg" alt="Foto de perfil">
+            <h1>Homer Simpson</h1>
+            <p>Desarrollador Web | Diseñador UX/UI</p>
+            <p>Ciudad, País</p>
+        </div>
+
+        <section class="contact">
+            <h2>Información de Contacto</h2>
+            <div class="contact-info">
+                <div><strong>Teléfono:</strong> +34 123 456 789</div>
+                <div><strong>Email:</strong> nombre.apellido@email.com</div>
+                <div><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/nombre-apellido" target="_blank">linkedin.com/in/nombre-apellido</a></div>
+                <div><strong>GitHub:</strong> <a href="https://github.com/username" target="_blank">github.com/username</a></div>
+            </div>
+        </section>
+
+        <section class="experience">
+            <h2>Experiencia Laboral</h2>
+            <ul>
+                <li>
+                    <strong>Desarrollador Web</strong> - Empresa XYZ (2020 - Presente)
+                    <p>Desarrollo de aplicaciones web responsivas utilizando tecnologías modernas como HTML, CSS, JavaScript y frameworks.</p>
+                </li>
+                <li>
+                    <strong>Diseñador UX/UI</strong> - Empresa ABC (2018 - 2020)
+                    <p>Diseño de interfaces de usuario intuitivas y experiencia de usuario optimizada para aplicaciones móviles y web.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="education">
+            <h2>Educación</h2>
+            <ul>
+                <li>
+                    <strong>Grado en Ingeniería Informática</strong> - Universidad Ejemplo (2014 - 2018)
+                </li>
+                <li>
+                    <strong>Certificación en Desarrollo Web</strong> - Academia Online (2019)
+                </li>
+            </ul>
+        </section>
+
+        <section class="skills">
+            <h2>Habilidades</h2>
+            <div>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>React</span>
+                <span>Node.js</span>
+                <span>Photoshop</span>
+                <span>Figma</span>
+            </div>
+        </section>
+    </div>
+    <script src="manejoDom.js"></script>
+</body>
+</html>
