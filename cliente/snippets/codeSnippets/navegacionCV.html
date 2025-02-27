@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .cv-section { display: none; }
+    .cv-section.active { display: block; }
+    .tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+    .tab { padding: 10px 15px; cursor: pointer; border: 1px solid #ccc; }
+    .tab.active { background-color: #007BFF; color: white; }
+  </style>
+</head>
+<body>
+  <div class="cv-container">
+    <div class="tabs" id="cvTabs">
+      <div class="tab active" data-section="profile">Perfil</div>
+      <div class="tab" data-section="experience">Experiencia</div>
+      <div class="tab" data-section="education">Educación</div>
+      <div class="tab" data-section="skills">Habilidades</div>
+    </div>
+    
+    <div class="cv-sections">
+      <div id="profile" class="cv-section active">
+        <!-- Contenido del perfil -->
+      </div>
+      <div id="experience" class="cv-section">
+        <!-- Contenido de experiencia -->
+      </div>
+      <div id="education" class="cv-section">
+        <!-- Contenido de educación -->
+      </div>
+      <div id="skills" class="cv-section">
+        <!-- Contenido de habilidades -->
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Implementar navegación por pestañas
+      DOMUtils.delegate('#cvTabs', 'click', '.tab', function(e) {
+        // Desactivar todas las pestañas y secciones
+        DOMUtils.selectAll('.tab').forEach(tab => DOMUtils.removeClass(tab, 'active'));
+        DOMUtils.selectAll('.cv-section').forEach(section => DOMUtils.removeClass(section, 'active'));
+        
+        // Activar la pestaña clicada y su sección correspondiente
+        const section = this.getAttribute('data-section');
+        DOMUtils.addClass(this, 'active');
+        DOMUtils.addClass(`#${section}`, 'active');
+      });
+      
+      // Ejemplo: Mejorar la interacción de las habilidades
+      DOMUtils.selectAll('.skills span').forEach(skill => {
+        DOMUtils.on(skill, 'mouseenter', function() {
+          DOMUtils.animate(this, {
+            transform: 'scale(1.1)',
+            boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
+          }, 200);
+        });
+        
+        DOMUtils.on(skill, 'mouseleave', function() {
+          DOMUtils.animate(this, {
+            transform: 'scale(1)',
+            boxShadow: '0 0 0 rgba(0,0,0,0)'
+          }, 200);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
