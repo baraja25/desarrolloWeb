@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="DOM.js"></script>
+    <title>Inscripción Academia Vengadores</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+      }
+      .container {
+        width: 50%;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      img {
+        width: 100px;
+        margin-bottom: 20px;
+      }
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        background-color: #ff0000;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #cc0000;
+      }
+    .error { color: red; }
+    .success { border-color: green; }
+    input.error { border-color: red; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/0/07/Avengers_Logo.svg"
+        alt="Logo Vengadores"
+      />
+      <h2>Formulario de Inscripción - Academia Vengadores</h2>
+      <form action="#" method="post" id="contactForm">
+        <div>
+          <label for="name">Nombre:</label>
+          <input type="text" id="name" required minlength="3" />
+          <span id="error-name" class="error"></span>
+        </div>
+
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" required />
+          <span id="error-email" class="error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="tel">Teléfono:</label>
+          <input type="tel" id="tel" name="phone" pattern="\d{10}" required />
+          <span class="error" id="error-tel"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="number">Edad:</label>
+          <input
+            type="number"
+            id="number"
+            name="age"
+            min="18"
+            max="100"
+            required
+          />
+          <span class="error" id="error-number"></span>
+        </div>
+
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero" required>
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+          <option value="otro">Otro</option>
+        </select>
+        <span class="error" id="error-gender"></span>
+
+        <label>Habilidades:</label>
+        <div>
+          <input
+            type="checkbox"
+            id="fuerza"
+            name="habilidades"
+            value="fuerza"
+          />
+          <label for="fuerza">Fuerza Sobrehumana</label>
+          <input type="checkbox" id="vuelo" name="habilidades" value="vuelo" />
+          <label for="vuelo">Vuelo</label>
+          <input
+            type="checkbox"
+            id="velocidad"
+            name="habilidades"
+            value="velocidad"
+          />
+          <label for="velocidad">Velocidad</label>
+          <input
+            type="checkbox"
+            id="invisibilidad"
+            name="habilidades"
+            value="invisibilidad"
+          />
+          <label for="invisibilidad">Invisibilidad</label>
+          <input
+            type="checkbox"
+            id="telepatia"
+            name="habilidades"
+            value="telepatia"
+          />
+          <label for="telepatia">Telepatía</label>
+          <span class="error" id="error-checkbox"></span>
+        </div>
+
+        <div>
+          <label for="motivacion">¿Por qué quieres unirte?</label>
+          <textarea
+            id="motivacion"
+            name="motivacion"
+            rows="4"
+            maxlength="200"
+          ></textarea>
+          <span id="error-message" class="error"></span>
+          <span id="chars-left"></span>
+        </div>
+
+        <div>
+          <label for="terminos">
+            <input type="checkbox" id="terminos" name="terminos" required />
+            Acepto los términos y condiciones
+          </label>
+        </div>
+        <button type="submit">Enviar Solicitud</button>
+        <button id="restablecer">Restablecer</button>
+      </form>
+    </div>
+    <script src="formValidation.js">
+    </script>
+  </body>
+</html>

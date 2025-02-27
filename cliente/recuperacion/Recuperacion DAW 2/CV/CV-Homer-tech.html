@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="DOM.js"></script>
+    <title>CV de Homer Simpson</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #ffcc00;
+        text-align: center;
+        padding: 20px;
+      }
+      .cv-container {
+        background: white;
+        padding: 20px;
+        max-width: 700px;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      }
+      img {
+        width: 180px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        border: 5px solid #ff6600;
+      }
+      h1 {
+        color: #ff6600;
+      }
+      h2 {
+        color: #333;
+        border-bottom: 2px solid #ff6600;
+        display: inline-block;
+        padding-bottom: 5px;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        background: #ffdd99;
+        margin: 5px 0;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cv-container">
+      <img src="Homer_Simpson_2006.png" alt="Homer Simpson" />
+      <h1>Homer J. Simpson</h1>
+      <p><strong>Ocupación:</strong> Técnico en Seguridad Nuclear</p>
+      <p><strong>Email:</strong> homersimpson@springfield.com</p>
+
+      <h2 class="habilidades">Habilidades Tecnológicas</h2>
+      <ul>
+        <li class="lista-item">
+          Manejo avanzado de consolas de seguridad nuclear
+        </li>
+        <li class="lista-item">
+          Experiencia en reinicio de sistemas tras fallos
+        </li>
+        <li class="lista-item">
+          Uso experto de software de donas en la planta
+        </li>
+        <li class="lista-item">
+          Desarrollo de sistemas de ahorro de energía (dormirse en el trabajo)
+        </li>
+        <li class="lista-item">Programación en COBOL (accidentalmente)</li>
+      </ul>
+
+      <h2 class="tituloEstudio">Estudios</h2>
+      <ul class="estudios">
+        <li>Escuela Primaria de Springfield</li>
+        <li>Instituto Secundario de Springfield (sin graduarse)</li>
+      </ul>
+      <div class="formacion">
+        <h2>Cursos de Formación</h2>
+        <ul>
+          <li>Curso de Seguridad Nuclear - Planta Nuclear de Springfield</li>
+          <li>Taller de Motivación Personal - Kent Brockman</li>
+          <li>Diplomado en Manejo de Donas - Lard Lad Donuts</li>
+        </ul>
+      </div>
+
+      <h2>Experiencia Laboral</h2>
+      <ul>
+        <li>
+          Técnico en Seguridad Nuclear - Planta de Springfield (Desde 1989)
+        </li>
+        <li>Probador de Comida - Krusty Burger</li>
+        <li>Gerente de Bola en Bolera de Barney</li>
+        <li>Trabajador de la Cerveza Duff</li>
+      </ul>
+    </div>
+    <script src="manejoDom.js"></script>
+  </body>
+</html>
