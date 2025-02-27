@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Secundaria</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #historial { background-color: #f0f0f0; padding: 10px; border: 1px solid #ccc; height: 200px; overflow-y: scroll; }
+    </style>
+</head>
+<body>
+    <h1>Ventana Secundaria - Chat</h1>
+    <div id="historial">Historial:</div>
+    <input type="text" id="mensaje" placeholder="Escribe tu mensaje" />
+    <button id="enviarMensaje">Enviar</button>
+
+    <script>
+        document.getElementById('enviarMensaje').addEventListener('click', function() {
+            const mensaje = document.getElementById('mensaje').value;
+            window.opener.postMessage(mensaje, '*');
+            addMessageToHistorial(`Tú: ${mensaje}`);
+            document.getElementById('mensaje').value = '';
+        });
+
+        window.addEventListener('message', function(event) {
+            addMessageToHistorial(`Principal: ${event.data}`);
+        });
+
+        function addMessageToHistorial(message) {
+            const historial = document.getElementById('historial');
+            historial.innerHTML += `<p>${message}</p>`;
+            historial.scrollTop = historial.scrollHeight;
+        }
+    </script>
+</body>
+</html>

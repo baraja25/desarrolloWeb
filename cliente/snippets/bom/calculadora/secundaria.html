@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Secundaria</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Calculadora Secundaria</h1>
+    <p>Esperando operación...</p>
+
+    <script>
+        window.addEventListener('message', function(event) {
+            const operacion = event.data;
+            let resultado;
+            try {
+                resultado = eval(operacion);
+            } catch (e) {
+                resultado = 'Error en la operación';
+            }
+            event.source.postMessage(resultado, event.origin);
+        });
+    </script>
+</body>
+</html>

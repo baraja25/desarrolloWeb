@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Principal</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Calculadora Principal</h1>
+    <label for="operacion">Ingresa una operación matemática (ej: 2+3):</label>
+    <input type="text" id="operacion" />
+    <button id="calcular">Calcular</button>
+    <p id="resultado">Resultado: </p>
+
+    <script>
+        let secondaryWindow;
+
+        document.getElementById('calcular').addEventListener('click', function() {
+            const operacion = document.getElementById('operacion').value;
+            if (!secondaryWindow || secondaryWindow.closed) {
+                secondaryWindow = window.open('secundaria.html', 'CalculadoraSecundaria', 'width=400,height=400');
+            }
+            secondaryWindow.postMessage(operacion, '*');
+        });
+
+        window.addEventListener('message', function(event) {
+            document.getElementById('resultado').textContent = `Resultado: ${event.data}`;
+        });
+    </script>
+</body>
+</html>

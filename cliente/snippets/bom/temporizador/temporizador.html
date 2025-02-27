@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizador Interactivo</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        button { margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Temporizador Interactivo</h1>
+    <p id="tiempo">Tiempo: 0 segundos</p>
+    <button id="iniciar">Iniciar</button>
+    <button id="detener">Detener</button>
+    <button id="reiniciar">Reiniciar</button>
+
+    <script>
+        let tiempo = 0;
+        let interval;
+
+        document.getElementById('iniciar').addEventListener('click', function() {
+            if (!interval) {
+                interval = setInterval(function() {
+                    tiempo++;
+                    document.getElementById('tiempo').textContent = `Tiempo: ${tiempo} segundos`;
+                }, 1000);
+            }
+        });
+
+        document.getElementById('detener').addEventListener('click', function() {
+            clearInterval(interval);
+            interval = null;
+        });
+
+        document.getElementById('reiniciar').addEventListener('click', function() {
+            clearInterval(interval);
+            interval = null;
+            tiempo = 0;
+            document.getElementById('tiempo').textContent = `Tiempo: ${tiempo} segundos`;
+        });
+    </script>
+</body>
+</html>

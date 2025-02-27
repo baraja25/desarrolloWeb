@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información del Navegador</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .info-panel { background-color: #f0f0f0; padding: 10px; border: 1px solid #ccc; }
+        button { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Información del Navegador</h1>
+    <div class="info-panel">
+        <p id="screenResolution">Resolución de pantalla: </p>
+        <p id="windowSize">Tamaño de la ventana: </p>
+        <p id="currentURL">URL actual: </p>
+        <p id="userAgent">Información del navegador: </p>
+        <p id="historyLength">Número de páginas en el historial: </p>
+    </div>
+    <button id="reloadPage">Recargar Página</button>
+
+    <script>
+        function updateInfo() {
+            document.getElementById('screenResolution').textContent = `Resolución de pantalla: ${window.screen.width} x ${window.screen.height}`;
+            document.getElementById('windowSize').textContent = `Tamaño de la ventana: ${window.innerWidth} x ${window.innerHeight}`;
+            document.getElementById('currentURL').textContent = `URL actual: ${window.location.href}`;
+            document.getElementById('userAgent').textContent = `Información del navegador: ${window.navigator.userAgent}`;
+            document.getElementById('historyLength').textContent = `Número de páginas en el historial: ${window.history.length}`;
+        }
+
+        window.addEventListener('resize', updateInfo);
+        document.getElementById('reloadPage').addEventListener('click', function() {
+            window.location.reload();
+        });
+
+        updateInfo();
+    </script>
+</body>
+</html>
