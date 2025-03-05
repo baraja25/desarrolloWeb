@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventana Secundaria</title>
+</head>
+<body>
+    <h1>Ventana Secundaria</h1>
+    
+    <h3>Mensajes de la Principal:</h3>
+    <div id="mensajesRecibidos" style="border: 1px solid black; padding: 10px; min-height: 50px;">
+        Ningún mensaje recibido.
+    </div>
+    
+    <input type="text" id="mensajeSecundaria" placeholder="Escribe un mensaje">
+    <button onclick="enviarMensaje()" id="enviar">Enviar a Principal</button>
+
+    <h3>Cambiar color de la Ventana Principal:</h3>
+    <button onclick="cambiarColor('red')">Rojo</button>
+    <button onclick="cambiarColor('blue')">Azul</button>
+    <button onclick="cambiarColor('green')">Verde</button>
+    <button onclick="cambiarColor('yellow')">Amarillo</button>
+
+    <script>
+        //cambia el fondo de la pagina
+        function cambiarColor(color) {
+            const cuerpo = document.querySelector('body');
+            cuerpo.style.backgroundColor = color;
+        }
+        //envia mensaje al chat principal
+        function enviarMensaje() {
+            document.getElementById('enviar').addEventListener('click', function() {
+            const mensaje = document.getElementById('mensajeSecundaria').value;
+            window.opener.postMessage(mensaje, '*');
+            addMessageToHistorial(`Tú: ${mensaje}`);
+            document.getElementById('mensaje').value = '';
+        });
+
+        window.addEventListener('message', function(event) {
+            addMessageToHistorial(`Principal: ${event.data}`);
+        });
+
+        function addMessageToHistorial(message) {
+            const historial = document.getElementById('mensajesRecibidos');
+            historial.innerHTML += `<p>${message}</p>`;
+            historial.scrollTop = historial.scrollHeight;
+        }
+        }
+    </script>
+</body>
+</html>

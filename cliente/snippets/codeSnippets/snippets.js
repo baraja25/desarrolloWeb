@@ -92,3 +92,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     showRemainingCharacters(document.getElementById("comments"),200);
 });
+
+
+//fol
+//ventanilla de unica empreserial de la camara de comercio e industriu de ciudad real
