@@ -50,6 +50,17 @@ function Bloqueado($usu) {
     return $bloqueado;
 }
 
+function PukBloqueado($usu) {
+    global $db;
+    $consulta = "SELECT COUNT(*) AS intentos FROM login WHERE Usuario = :usuario AND Tipo = 'PUK' AND Acceso = 'D'";
+    $param = array(":usuario" => $usu);
+    
+    $statement = $db->query($consulta, $param);
+    $fila = $statement->fetch();
+    
+    return ($fila['intentos'] >= 3);
+}
+
 function IntentoLogin($usu, $cla) {
     global $db;
     $consulta = "SELECT COUNT(*) AS cuenta FROM usuarios WHERE usuario = :usuario AND ClavePin = :contrasena";
@@ -85,8 +96,18 @@ function InsertarLogin($usu, $cla, $tipo, $acceso) {
 
 if (isset($_POST['Enviar'])) {
     $usu = $_POST['Usuario'];
-    $cla = sha1($_POST['Clave']); // Cogemos la clave pero aplicándole el cifrado correspondiente
+    $clave = $_POST['Clave'];
     
+    // Validar longitud del PIN/PUK
+    if ($bloqueado == -1 && strlen($clave) != 4) {
+        echo "<b>La clave PIN debe tener 4 dígitos</b>";
+        exit;
+    } elseif ($bloqueado != -1 && strlen($clave) != 6) {
+        echo "<b>La clave PUK debe tener 6 dígitos</b>";
+        exit;
+    }
+    
+    $cla = sha1($clave);
     $bloqueado = Bloqueado($usu); // Comprobamos si está bloqueado
     
     if ($bloqueado == -1) { // Si no está bloqueado le dejamos hacer un intento de login
