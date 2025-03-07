@@ -183,3 +183,45 @@ if (isset($_POST['Enviar'])) {
         echo "<b>El usuario $usu está bloqueado hasta las $hora del día $dia</b>";
     }
 }
+
+/**
+ * Verifica si el usuario está autenticado
+ * @return bool True si está autenticado, False si no
+ */
+function isAuthenticated() {
+    return isset($_SESSION['Usuario']);
+}
+
+/**
+ * Redirige a la página de login si el usuario no está autenticado
+ */
+function requireAuthentication() {
+    if (!isAuthenticated()) {
+        header("Location: login1.php");
+        exit(); // Importante para detener la ejecución después de redireccionar
+    }
+}
+
+/**
+ * Cierra la sesión actual del usuario
+ */
+function logout() {
+    // Eliminar todas las variables de sesión
+    $_SESSION = array();
+    
+    // Eliminar la cookie de sesión si existe
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(session_name(), '', time() - 42000,
+            $params["path"], $params["domain"],
+            $params["secure"], $params["httponly"]
+        );
+    }
+    
+    // Destruir la sesión
+    session_destroy();
+    
+    // Redirigir al login
+    header("Location: login1.php");
+    exit();
+}
