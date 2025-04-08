@@ -74,6 +74,11 @@ function diasMes($mes, $year)
                     $mes = $_POST['mes'];
                     $year = $_POST['year'];
 
+                    if ($mes < 1 || $mes > 12) {
+                        echo "El mes debe estar entre 1 y 12.";
+                        exit;
+                    }
+                    
                     $dias = diasMes($mes, $year);
                     $inicio = mktime(0, 0, 0, $mes, 1, $year);
                     $campos = getdate($inicio);
