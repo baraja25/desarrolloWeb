@@ -31,6 +31,32 @@ class CochesDao extends Database
         }
     }
 
+    public function actualizarCoche($matricula, $nombre, $marca, $modelo, $precio, $anio, $foto)
+    {   
+        if ($foto) {
+            $this->query("UPDATE coche SET marca = ?, modelo = ?, precio = ?, anio = ?, nombre = ?, foto = ? WHERE matricula = ?", [$marca, $modelo, $precio, $anio, $nombre, $foto, $matricula]);
+        } else {
+            $this->query("UPDATE coche SET marca = ?, modelo = ?, precio = ?, anio = ?, nombre = ? WHERE matricula = ?", [$marca, $modelo, $precio, $anio, $nombre, $matricula]);
+        }
+
+        
+    }
+
+    public function seleccionarCoche($matricula)
+    {
+        $consulta = "SELECT * FROM coche WHERE matricula = ?";
+        $coche = $this->query($consulta, [$matricula])->fetch(PDO::FETCH_ASSOC);
+        return $coche;
+    }
+
+
+    public function seleccionarCocheId($id)
+    {
+        $consulta = "SELECT * FROM coche WHERE id = ?";
+        $coche = $this->query($consulta, [$id])->fetch(PDO::FETCH_ASSOC);
+        return $coche;
+    }
+    
     public function primerCoche()
     {
         return $consulta = $this->query("SELECT id FROM coche LIMIT 1", [])->fetchColumn();
