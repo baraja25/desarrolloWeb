@@ -51,30 +51,43 @@ class CochesDao extends Database
         return null; // Si no se encuentra el coche, devolvemos null
     }
 
-    public function first() {
+    public function first()
+    {
         $consulta = "SELECT * FROM coche LIMIT 1";
         return $this->query($consulta, [])->fetchColumn();
-        
     }
 
-    public function last() {
+    public function last()
+    {
         $consulta = "SELECT * FROM coche ORDER BY id DESC LIMIT 1";
         return $this->query($consulta, [])->fetchColumn();
-        
     }
 
-    public function next($id) {
+    public function next($id)
+    {
         $consulta = "SELECT * FROM coche WHERE id > :id ORDER BY id ASC LIMIT 1";
         return $this->query($consulta, [":id" => $id])->fetchColumn();
-        
     }
 
-    public function previous($id) {
+    public function previous($id)
+    {
         $consulta = "SELECT * FROM coche WHERE id < :id ORDER BY id DESC LIMIT 1";
         return $this->query($consulta, [":id" => $id])->fetchColumn();
-        
     }
 
+    public function actualizarCoche($id, $nombre, $marca, $modelo, $precio, $anio, $matricula, $foto)
+    {
 
-    
+        if ($foto) {
+            $foto = base64_decode($foto);
+        } else {
+            // Si no se proporciona una nueva foto, se puede mantener la foto actual
+            $cocheActual = $this->buscarPorId($id);
+            if ($cocheActual) {
+                $foto = base64_decode($cocheActual->__get('foto'));
+            }
+        }
+        $consulta = "UPDATE coche SET nombre = ?, marca = ?, modelo = ?, precio = ?, anio = ?, matricula = ?, foto = ? WHERE id = ?";
+        $this->query($consulta, [$nombre, $marca, $modelo, $precio, $anio, $matricula, $foto, $id]);
+    }
 }
