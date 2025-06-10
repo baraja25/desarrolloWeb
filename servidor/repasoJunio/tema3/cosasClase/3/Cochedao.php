@@ -68,5 +68,10 @@ class CocheDao extends Database
         $this->query($query, $params);
     }
 
-   
+     public function buscarCoche($matricula)
+    {
+        $query = "SELECT * FROM coche WHERE matricula = :matricula";
+        $params = [':matricula' => $matricula];
+        return $this->query($query, $params)->fetch();
+    }
 }

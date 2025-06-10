@@ -14,6 +14,7 @@ if (isset($_POST['guardar'])) {
 
     // Insert data into coches table
     $db->query('INSERT INTO coches (marca, modelo, precio, matricula, fechaMatri) VALUES (?, ?, ?, ?, ?)', [$marca, $modelo, $precio, $matricula, $fechaMatricula]);
+    
     $cocheId = $db->query('SELECT LAST_INSERT_ID()')->fetchColumn();
 
     // Insert data into fotoscoche table
